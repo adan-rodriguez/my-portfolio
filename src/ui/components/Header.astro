@@ -1,0 +1,228 @@
+---
+import "@fontsource/lobster";
+import HamburgerIcon from "../icons/HamburgerIcon.astro";
+import CloseIcon from "../icons/CloseIcon.astro";
+import Sun from "../icons/Sun.astro";
+import Moon from "../icons/Moon.astro";
+
+const LINKS = [
+  { label: "Proyectos", href: "projects" },
+  { label: "Contáctame", href: "contact-me" },
+];
+---
+
+<header>
+  <div>
+    <!-- <p translate="no" class="logo">&lt; Adan Rodriguez / &gt;</p> -->
+    <h1 translate="no" class="logo">
+      <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
+        aria-hidden="true">/ &gt;</span
+      ><span class="block text-xs absolute right-0 top-8"
+        >Portafolio profesional</span
+      >
+    </h1>
+    <div class="flex items-center gap-x-3">
+      <div class="menu">
+        <button class="close-button" aria-label="Cerrar menú">
+          <CloseIcon />
+        </button>
+        <nav>
+          <ul>
+            {
+              LINKS.map(({ href, label }) => (
+                <li>
+                  <a class="nav-link" href={`#${href}`}>
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+      <button aria-label="Cambiar tema" class="theme">
+        <Sun />
+        <Moon />
+      </button>
+      <button class="open-button" aria-label="Abrir menú">
+        <HamburgerIcon />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: var(--bg-color);
+  }
+
+  header > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 58rem;
+    padding: 10px 1rem;
+    margin: 0 auto;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 30px;
+    padding: 2.5rem 0;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+    overflow-y: auto;
+    scrollbar-color: var(--color-secondary), var(--bg-color);
+    scrollbar-width: thin;
+    background-color: var(--bg-color);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    cursor: default;
+    font-family: "Lobster", cursive;
+    user-select: none;
+    position: relative;
+    top: -5px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .open-button,
+  .close-button {
+    display: flex;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+
+  .nav-link::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: var(--text-color-primary);
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .nav-link:hover::after {
+    transform: scale(1);
+  }
+
+  @media (width >= 768px) {
+    .open-button,
+    .close-button {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 20px;
+      position: static;
+      width: auto;
+      background-image: none;
+      padding: 0;
+      overflow-y: visible;
+    }
+
+    ul {
+      flex-direction: row;
+      row-gap: 0;
+      column-gap: 20px;
+    }
+  }
+
+  .theme {
+    transition: scale 0.3s;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+</style>
+
+<script>
+  const $openButton = document.querySelector(".open-button") as HTMLElement;
+  const $closeButton = document.querySelector(".close-button") as HTMLElement;
+  const $navLinks = document.querySelectorAll(
+    ".nav-link"
+  ) as unknown as HTMLCollectionOf<HTMLElement>;
+  const $menu = document.querySelector(".menu") as HTMLElement;
+
+  const showMenu = () => {
+    $menu.style.display = "flex";
+  };
+
+  const hideMenu = () => {
+    $menu.style.display = "";
+  };
+
+  const hideScrollBar = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  const showScrollBar = () => {
+    document.body.style.overflow = "";
+  };
+
+  $openButton.addEventListener("click", () => {
+    showMenu();
+    hideScrollBar();
+  });
+
+  $closeButton.addEventListener("click", () => {
+    hideMenu();
+    showScrollBar();
+  });
+
+  for (const $navLink of $navLinks) {
+    $navLink.addEventListener("click", () => {
+      hideMenu();
+      showScrollBar();
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    if (
+      document.documentElement.clientWidth >= 768 &&
+      $menu.style.display === "flex"
+    ) {
+      showScrollBar();
+    }
+
+    if (
+      document.documentElement.clientWidth <= 768 &&
+      $menu.style.display === "flex"
+    ) {
+      hideScrollBar();
+    }
+  });
+</script>

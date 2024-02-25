@@ -1,0 +1,291 @@
+---
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import LinkedinIcon from "../icons/LinkedinIcon.astro";
+---
+
+<section>
+  <div class="intro">
+    <div class="data">
+      <h1 class="name">
+        Hola <span class="hand" aria-hidden="true">👋🏻</span>. Soy Adán Rodríguez
+      </h1>
+      <h2 class="label">Desarrollador Web</h2>
+      <div class="about-me">
+        <p>
+          Me llamo Adán Rodríguez, soy de Argentina <img
+            src="images/bandera-argentina.webp"
+            alt="Bandera de Argentina"
+            width="16px"
+            height="16px"
+            aria-hidden="true"
+            class="argentina-flag"
+          /> y tengo 27 años.
+        </p>
+        <p>
+          Me especializo en <span>React</span> y <span>Next.js</span>.
+        </p>
+        <p>
+          Mi mejor producto es el portal de noticias <span>"El Villanense"</span
+          > el cual ya cuenta con un grupo de trabajo y llegada un público local.
+        </p>
+        <p>
+          Soy estudiante de una <span>Tecnicatura en Desarrollo Web</span> en la
+          Universidad Nacional de Entre Ríos, Argentina.
+        </p>
+      </div>
+      <div aria-hidden="true" class="skills">
+        <img src="images/html.svg" alt="Logo de HTML" class="skill" />
+        <img src="images/css.svg" alt="Logo de CSS" class="skill" />
+        <img
+          src="images/javascript.svg"
+          alt="Logo de Javascript"
+          class="skill"
+        />
+        <img src="images/react.svg" alt="Logo de React" class="skill" />
+        <img
+          src="images/nextjs.svg"
+          alt="Logo de Next.js"
+          class="skill skill--nextjs"
+        />
+      </div>
+      <div class="social">
+        <a
+          href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
+          title="Visita mi LinkedIn"
+          target="_blank"
+          rel="noopener"
+        >
+          <LinkedinIcon />
+        </a>
+        <a
+          href="https://github.com/adan-rodriguez"
+          title="Visita mi GitHub"
+          target="_blank"
+          rel="noopener"
+        >
+          <GitHubIcon />
+        </a>
+      </div>
+      <a
+        class="cv"
+        download="Currículum Vitae - Adán Rodríguez"
+        href="docs/curriculum-vitae-adan-rodriguez.pdf">Descargar CV</a
+      >
+    </div>
+    <img
+      class="me-img"
+      src="images/adan-rodriguez.webp"
+      alt="Foto de Adán Rodríguez"
+    />
+  </div>
+</section>
+
+<style>
+  section {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(images/una-taza-de-javascript.webp);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    min-height: calc(100dvh - 56px);
+    display: flex;
+    align-items: center;
+  }
+
+  .intro {
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .label {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--text-color-primary)
+    );
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .about-me {
+    font-size: 0.875rem;
+    color: var(--text-color-secondary);
+    max-width: 50ch;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .about-me span {
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .argentina-flag {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .skills {
+    background-image: linear-gradient(var(--color-secondary), black);
+    border-radius: 1rem;
+    padding: 10px;
+  }
+
+  .skill {
+    height: 2rem;
+    animation: skill 1.5s linear infinite;
+    margin-left: 0.5rem;
+    display: inline-block;
+  }
+
+  @keyframes skill {
+    0% {
+      transform: translateX(0px);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(0px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  .skill--nextjs {
+    margin-left: 0.25rem;
+  }
+
+  .social {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .social a {
+    display: flex;
+  }
+
+  .cv {
+    background-image: linear-gradient(var(--color-primary), black);
+    padding: 0.5rem 3rem;
+    border-radius: 1rem;
+    transition: all 0.3s;
+    color: rgb(248 250 252);
+  }
+
+  .cv:hover {
+    scale: 1.025;
+    filter: contrast(1.1);
+  }
+
+  .me-img {
+    width: 300px;
+    border-radius: 100%;
+    background-image: radial-gradient(black 40%, var(--color-primary));
+  }
+
+  .me-img {
+    animation: me-img 4s linear infinite;
+  }
+
+  @keyframes me-img {
+    0% {
+      transform: translateX(-10px) translateY(0px);
+    }
+    25% {
+      transform: translateX(0px) translateY(10px);
+    }
+    50% {
+      transform: translateX(10px) translateY(0px);
+    }
+    75% {
+      transform: translateX(0px) translateY(-10px);
+    }
+    100% {
+      transform: translateX(-10px) translateY(0px);
+    }
+  }
+
+  @media (width >= 768px) {
+    @keyframes animation-mi-imagen {
+      0% {
+        transform: translateX(-20px) translateY(0px);
+      }
+      25% {
+        transform: translateX(-10px) translateY(10px);
+      }
+      50% {
+        transform: translateX(0px) translateY(0px);
+      }
+      75% {
+        transform: translateX(-10px) translateY(-10px);
+      }
+      100% {
+        transform: translateX(-20px) translateY(0px);
+      }
+    }
+  }
+
+  @media (width >= 768px) {
+    .intro {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .data {
+      align-items: flex-start;
+    }
+
+    .label {
+      text-align: start;
+    }
+
+    .about-me {
+      text-align: start;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    section {
+      background-attachment: scroll;
+    }
+
+    .skill {
+      animation: none;
+    }
+
+    .me-img {
+      animation: none;
+    }
+  }
+</style>

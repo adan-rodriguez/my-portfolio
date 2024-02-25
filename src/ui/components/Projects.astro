@@ -1,0 +1,260 @@
+---
+import ImportantProject from "./ImportantProject.astro";
+import MinorProject from "./MinorProject.astro";
+
+const TECHNOLOGIES = {
+  NEXTJS: {
+    name: "Next.js",
+    image: "images/nextjs.svg",
+    color: { bg: "rgb(0 0 0 / 50%)", text: "rgb(248 250 252)" },
+  },
+  FIREBASE: {
+    name: "Firebase",
+    image: "images/firebase.svg",
+    color: { bg: "rgb(165 39 20 / 50%)", text: "rgb(248 250 252)" },
+  },
+  CLOUDINARY: {
+    name: "Cloudinary",
+    image: "images/cloudinary.svg",
+    color: { bg: "rgb(52 72 197 / 20%)", text: "rgb(248 250 252)" },
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    image: "images/tailwind.svg",
+    color: { bg: "rgb(56 189 248 / 30%)", text: "rgb(248 250 252)" },
+  },
+  REDUX_TOOLKIT: {
+    name: "Redux Toolkit",
+    image: "images/redux.svg",
+    color: { bg: "rgb(118 74 188 / 20%)", text: "rgb(248 250 252)" },
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    image: "images/bootstrap.svg",
+    color: { bg: "rgb(102 16 242 / 25%)", text: "rgb(248 250 252)" },
+  },
+  HTML: {
+    name: "HTML",
+    image: "images/html.svg",
+    color: { bg: "rgb(227 79 38 / 30%)", text: "rgb(248 250 252)" },
+  },
+  CSS: {
+    name: "CSS",
+    image: "images/css.svg",
+    color: { bg: "rgb(12 115 184 / 40%)", text: "rgb(248 250 252)" },
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    image: "images/javascript.svg",
+    color: { bg: "rgb(247 223 30 / 30%)", text: "rgb(248 250 252)" },
+  },
+  REACT: {
+    name: "React",
+    image: "images/react.svg",
+    color: { bg: "rgb(97 218 251 / 30%)", text: "rgb(248 250 252)" },
+  },
+};
+
+const importantProjects = [
+  {
+    name: "El Villanense - Portal de Noticias",
+    description:
+      "Mi proyecto principal. Tiene llegada a un público local. Next.js con app directory. Firebase para BBDD y autenticación. Cloudinary para almacenar y consumir las imágenes. SEO implementado.",
+    image: "images/el-villanense.webp",
+    technologies: [
+      TECHNOLOGIES.NEXTJS,
+      TECHNOLOGIES.FIREBASE,
+      TECHNOLOGIES.CLOUDINARY,
+      TECHNOLOGIES.REACT,
+      TECHNOLOGIES.HTML,
+      TECHNOLOGIES.CSS,
+      TECHNOLOGIES.JAVASCRIPT,
+    ],
+    link: "https://www.elvillanense.com.ar",
+    github: null,
+  },
+];
+
+const minorProjects = [
+  {
+    name: "The Movie Database",
+    description:
+      "Información de películas, programas de tv, actores y actrices. Consume la API de The Movie Database. Tiene la funcionalidad de guardar en favoritos.",
+    image: "images/tmdb.webp",
+    technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.TAILWIND],
+    link: "https://tmdb-adan-rodriguez.vercel.app",
+    github: "https://github.com/adan-rodriguez/tmdb",
+  },
+  {
+    name: "Hacker News",
+    description:
+      "Obtiene noticias usando SWR y la API de Hacker News. Implementa infinite scroll utilizando la API Intersection Observer. Muestra un placeholder para noticias y comentarios mientras cargan.",
+    image: "images/hacker-news.webp",
+    technologies: [
+      TECHNOLOGIES.REACT,
+      TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.JAVASCRIPT,
+    ],
+    link: "https://hacker-news-prueba-tecnica.onrender.com",
+    github: "https://github.com/adan-rodriguez/hacker-news-prueba-tecnica",
+  },
+  {
+    name: "Library App",
+    description: "Gestión de libros. CRUD App.",
+    image: "images/library-app.webp",
+    technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.REDUX_TOOLKIT],
+    link: "https://library-app-adan-rodriguez.vercel.app",
+    github: "https://github.com/adan-rodriguez/library-app",
+  },
+  {
+    name: "Buscador de películas",
+    description:
+      "Un simple buscador de películas. Consume la API de The Open Movie Database. Detalle interesante el 'debouncing' al tipear en el buscador.",
+    image: "images/buscador-peliculas.webp",
+    technologies: [TECHNOLOGIES.REACT],
+    link: "https://buscador-peliculas-adan-rodriguez.vercel.app",
+    github: "https://github.com/adan-rodriguez/react-buscador-peliculas",
+  },
+  {
+    name: "Shopping cart",
+    description:
+      "Practicando mis habilidades con un simple carrito de compras.",
+    image: "images/shopping-cart.webp",
+    technologies: [TECHNOLOGIES.REACT],
+    link: "https://shopping-cart-adan-rodriguez.vercel.app",
+    github: "https://github.com/adan-rodriguez/react-shopping-cart",
+  },
+  {
+    name: "My projects - Expanding cards",
+    description:
+      "Muestro todos mis proyectos con cards que presentan algunos efectos y animaciones.",
+    image: "images/my-projects-expanding-cards.webp",
+    technologies: [
+      TECHNOLOGIES.HTML,
+      TECHNOLOGIES.CSS,
+      TECHNOLOGIES.JAVASCRIPT,
+    ],
+    link: "https://my-projects-expansive-contractive-cards.vercel.app",
+    github:
+      "https://github.com/adan-rodriguez/my-projects-expansive-contractive-cards",
+  },
+  {
+    name: "Checkpoint #2 - React Skill Factory by Avalith.",
+    description:
+      "Proyecto de un Bootcamp de React donde se trabajó asincronismo, consumo de APIs y manejo de formularios.",
+    image: "images/checkpoint2-react-skillfactory-by-avalith.webp",
+    technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.JAVASCRIPT],
+    link: "https://checkpoint2-react-skillfactory-by-avalith.vercel.app",
+    github:
+      "https://github.com/adan-rodriguez/checkpoint2-react-skillfactory-by-avalith",
+  },
+  {
+    name: "Codo a Codo 4.0 - Bootstrap",
+    description:
+      "Página simple que tiene como detalle más importante que está hecha con Bootstrap.",
+    image: "images/codoacodo-bootstrap.webp",
+    technologies: [TECHNOLOGIES.BOOTSTRAP],
+    link: "https://codoacodo-bootstrap.adan-rodriguez.repl.co",
+    github: "https://github.com/adan-rodriguez/bootstrap-codoacodo4.0",
+  },
+  {
+    name: "Comuna de Villa Ana",
+    description:
+      "Boceto de sitio web que realicé para mostrar a la comuna del lugar dónde vivo.",
+    image: "images/comuna-villaana.webp",
+    technologies: [TECHNOLOGIES.HTML, TECHNOLOGIES.CSS],
+    link: "http://comunavillaana.000webhostapp.com",
+    github: "https://github.com/adan-rodriguez/pagina-comuna-villaana",
+  },
+  {
+    name: "Copia Globant Homepage",
+    description: "Practicando con una copia de la página principal de Globant.",
+    image: "images/globant.webp",
+    technologies: [TECHNOLOGIES.HTML, TECHNOLOGIES.CSS],
+    link: "https://practice-globant-homepage.adan-rodriguez.repl.co",
+    github: "https://github.com/adan-rodriguez/practice-globant-homepage",
+  },
+];
+---
+
+<section id="projects">
+  <section class="important_projects_container">
+    <h2>Proyecto destacado</h2>
+    <ul class="important_projects">
+      {
+        importantProjects.map(
+          ({ name, description, image, technologies, link, github }) => (
+            <ImportantProject
+              name={name}
+              description={description}
+              image={image}
+              technologies={technologies}
+              link={link}
+              github={github}
+            />
+          )
+        )
+      }
+    </ul>
+  </section>
+
+  <section class="minor_projects_container">
+    <h2>Otros proyectos</h2>
+    <ul class="minor_projects">
+      {
+        minorProjects.map(
+          ({ name, description, image, technologies, link, github }) => (
+            <MinorProject
+              name={name}
+              description={description}
+              image={image}
+              technologies={technologies}
+              link={link}
+              github={github}
+            />
+          )
+        )
+      }
+    </ul>
+  </section>
+</section>
+
+<style>
+  .important_projects_container,
+  .minor_projects_container {
+    padding: 4rem 0;
+  }
+
+  h2 {
+    width: max-content;
+    font-weight: 900;
+    font-size: 2rem;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--text-color-primary)
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 2rem;
+  }
+
+  .important_projects {
+    display: flex;
+    row-gap: 2rem;
+  }
+
+  .minor_projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2rem;
+    row-gap: 2rem;
+
+    &:has(.minor_project:hover) {
+      & .minor_project:not(:hover) {
+        filter: brightness(0.45);
+      }
+    }
+  }
+</style>

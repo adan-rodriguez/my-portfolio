@@ -1,0 +1,450 @@
+---
+import Badge from "./Badge.astro";
+
+const { name, image, description, technologies, link, github } = Astro.props;
+---
+
+<li>
+  <article class="minor_project">
+    <img
+      class="minor_project__image"
+      src={image}
+      alt={`Portada de ${name}`}
+      loading="lazy"
+    />
+    <div class="minor_project_info">
+      <h3 class="minor_project__name" title={name}>{name}</h3>
+      <button class="minor_project__showmore"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path><path
+            d="M12 18c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+          ></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg
+        > Saber más</button
+      >
+      <dialog>
+        <article class="modal_minor_project">
+          <img
+            class="modal_minor_project__image"
+            src={image}
+            alt={`Portada de ${name}`}
+            loading="lazy"
+          />
+          <div class="modal_minor_project_info">
+            <h3 class="modal_minor_project__name" title={name}>{name}</h3>
+            <ul
+              class="modal_minor_project_badges"
+              aria-label="Tecnologías utilizadas en el proyecto"
+            >
+              {
+                technologies.map(({ name, image, color }) => (
+                  <Badge name={name} image={image} color={color} />
+                ))
+              }
+            </ul>
+            <p class="modal_minor_project__description">
+              {description}
+            </p>
+
+            <div class="modal_minor_project_buttons">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="modal_minor_project__button"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  ></path><path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  ></path></svg
+                > Site</a
+              >
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="modal_minor_project__button"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"
+                  ></path><path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+                  ></path></svg
+                > Code</a
+              >
+            </div>
+          </div>
+        </article>
+      </dialog>
+      <ul
+        class="minor_project_badges"
+        aria-label="Tecnologías utilizadas en el proyecto"
+      >
+        {
+          technologies.map(({ name, image, color }) => (
+            <Badge name={name} image={image} color={color} />
+          ))
+        }
+      </ul>
+      <p class="minor_project__description">
+        {description}
+      </p>
+
+      <div class="minor_project_buttons">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="minor_project__button"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+            ></path><path
+              d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+            ></path></svg
+          > Site</a
+        >
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="minor_project__button"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+            ></path></svg
+          > Code</a
+        >
+      </div>
+    </div>
+  </article>
+</li>
+
+<script>
+  const list = document.querySelectorAll(".minor_project__showmore");
+  const mq = window.matchMedia("(width >= 576px)");
+
+  list.forEach((showModal) => {
+    const modal = showModal.nextElementSibling as HTMLDialogElement;
+
+    function closeModal(e) {
+      console.log(e.matches);
+      e.matches && modal.close();
+    }
+
+    showModal.addEventListener("click", () => {
+      modal.showModal();
+      mq.addEventListener("change", closeModal);
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+
+    modal.addEventListener("close", () => {
+      mq.removeEventListener("change", closeModal);
+    });
+  });
+</script>
+
+<style>
+  li {
+    width: 100%;
+  }
+
+  .minor_project {
+    border: 1px solid var(--color-secondary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: var(--text-color-secondary);
+      transform: translateY(-0.125rem);
+    }
+  }
+
+  .minor_project__image {
+    width: 30%;
+    object-fit: cover;
+    object-position: top;
+    aspect-ratio: 1/1;
+  }
+
+  .minor_project_info {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.75rem;
+    background-image: linear-gradient(to top, black, var(--color-secondary));
+    width: 70%;
+    flex-grow: 1;
+    overflow: clip;
+    overflow-clip-margin: padding-box;
+  }
+
+  .minor_project__name {
+    max-width: 100%;
+    text-wrap: balance;
+    font-weight: 700;
+    color: rgb(248 250 252);
+  }
+
+  .minor_project__showmore {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    margin-top: auto;
+    padding: 0.25rem 1.25rem;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    background-color: rgb(55 65 81);
+    color: rgb(248 250 252);
+    transition:
+      background-color 0.3s,
+      scale 0.3s,
+      translate 0s;
+    font-size: 0.75rem;
+
+    &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .minor_project_badges {
+    display: none;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .minor_project__description {
+    display: none;
+    font-size: 0.75rem;
+    color: rgb(203 213 225);
+  }
+
+  .minor_project_buttons {
+    display: none;
+    align-items: center;
+    column-gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .minor_project__button {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    padding: 0.25rem 1.25rem;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    background-color: rgb(55 65 81);
+    color: rgb(248 250 252);
+    transition:
+      background-color 0.3s,
+      scale 0.3s,
+      translate 0s;
+    font-size: 0.75rem;
+
+    &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
+    }
+
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (width >= 576px) {
+    li {
+      width: 16rem;
+      display: flex;
+    }
+
+    .minor_project {
+      flex-direction: column;
+    }
+
+    .minor_project__image {
+      width: 100%;
+      aspect-ratio: 3/2;
+    }
+
+    .minor_project_info {
+      width: auto;
+    }
+
+    .minor_project_badges {
+      display: flex;
+    }
+
+    .minor_project__showmore {
+      display: none;
+    }
+
+    .minor_project__description {
+      display: block;
+    }
+
+    .minor_project_buttons {
+      display: flex;
+    }
+  }
+
+  /* --------------------------------- */
+
+  dialog {
+    border-radius: 0.5rem;
+    max-width: calc(100% - 2rem);
+    background-color: var(--color-secondary);
+  }
+
+  dialog::backdrop {
+    backdrop-filter: blur(50px);
+  }
+
+  .modal_minor_project {
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-secondary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal_minor_project__image {
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+
+  .modal_minor_project_info {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.75rem;
+    background-image: linear-gradient(to top, black, var(--color-secondary));
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .modal_minor_project__name {
+    max-width: 100%;
+    text-wrap: balance;
+    font-weight: 700;
+    color: rgb(248 250 252);
+  }
+
+  .modal_minor_project_badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .modal_minor_project__description {
+    font-size: 0.75rem;
+    color: rgb(203 213 225);
+  }
+
+  .modal_minor_project_buttons {
+    display: flex;
+    align-items: center;
+    column-gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .modal_minor_project__button {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    padding: 0.25rem 1.25rem;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    background-color: rgb(55 65 81);
+    color: rgb(248 250 252);
+    transition:
+      background-color 0.3s,
+      scale 0.3s,
+      translate 0s;
+    font-size: 0.75rem;
+
+    &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
+    }
+
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>

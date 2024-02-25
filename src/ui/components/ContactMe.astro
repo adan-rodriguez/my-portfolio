@@ -1,0 +1,146 @@
+<section id="contact-me">
+  <div>
+    <h2>Contáctame</h2>
+    <form
+      action=`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_API}`
+      method="post"
+    >
+      <label
+        >Nombre completo<abbr title="Campo obligatorio">*</abbr>
+        <input type="text" name="name" required />
+      </label>
+      <label
+        >Correo electrónico<abbr title="Campo obligatorio">*</abbr>
+        <input type="email" name="email" required />
+      </label>
+      <label
+        >Mensaje<abbr title="Campo obligatorio">*</abbr>
+        <textarea name="message" id="message" required></textarea>
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<!-- <script>
+  const $form = document.querySelector("form");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    fetch(`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_API}`, {
+      method: "POST",
+      body: data,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Gracias por tu mensaje!");
+          $form?.reset();
+        } else {
+          response.json().then((data) => {
+            if (Object.hasOwn(data, "errors")) {
+              console.log(data.errors.map((error) => error.message).join(", "));
+            } else {
+              console.log("Oops! There was a problem submitting your form");
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("Oops! There was a problem submitting your form");
+      });
+  }
+
+  $form?.addEventListener("submit", handleSubmit);
+</script> -->
+
+<style>
+  section {
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
+  h2 {
+    width: max-content;
+    font-weight: 900;
+    font-size: 2rem;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--text-color-primary)
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 3rem 1rem;
+    border-radius: 0.25rem;
+    background-image: linear-gradient(
+      to bottom right,
+      black,
+      var(--color-secondary),
+      black
+    );
+  }
+
+  label {
+    color: rgb(248 250 252);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 0.25rem;
+    color: rgb(2 6 23);
+    background-color: rgb(248 250 252);
+  }
+
+  textarea {
+    resize: none;
+    min-height: 150px;
+  }
+
+  abbr[title] {
+    text-decoration: none;
+    color: red;
+  }
+
+  button {
+    align-self: center;
+    padding: 0.5rem 3rem;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    background-color: rgb(55 65 81);
+    color: rgb(248 250 252);
+    transition:
+      background-color 0.3s,
+      scale 0.3s,
+      translate 0s;
+
+    &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    section {
+      background-attachment: scroll;
+    }
+  }
+</style>
