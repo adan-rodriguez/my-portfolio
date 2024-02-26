@@ -8,7 +8,7 @@ const { name, description, image, technologies, link, github } = Astro.props;
   <article class="card">
     <span
       aria-hidden="true"
-      class="border-effect hidden absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)] -z-10"
+      class="border-effect hidden absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0369a1_0%,#000000_50%,#0369a1_100%)] -z-10"
     ></span>
     <div class="card__image_container">
       <img
@@ -55,7 +55,7 @@ const { name, description, image, technologies, link, github } = Astro.props;
             ></path><path
               d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
             ></path></svg
-          > Site</a
+          > Deploy</a
         >
         {
           github && (
@@ -81,7 +81,7 @@ const { name, description, image, technologies, link, github } = Astro.props;
                   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
                 </>
               </svg>{" "}
-              Code
+              Código
             </a>
           )
         }
@@ -125,7 +125,7 @@ const { name, description, image, technologies, link, github } = Astro.props;
   }
 
   .card:hover {
-    overflow-clip-margin: 2px;
+    overflow-clip-margin: 3px;
 
     & .border-effect {
       display: block;
