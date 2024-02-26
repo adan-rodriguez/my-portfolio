@@ -24,6 +24,13 @@ import Header from "../ui/components/Header.astro";
     </script>
   </head>
   <body>
+    <Header />
+    <main>
+      <Intro />
+      <Projects />
+      <ContactMe />
+    </main>
+    <Footer />
     <div
       aria-hidden="true"
       class="bg-dark fixed top-0 h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] -z-50"
@@ -34,13 +41,6 @@ import Header from "../ui/components/Header.astro";
       class="bg-light fixed top-0 z-[-50] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header />
-    <main>
-      <Intro />
-      <Projects />
-      <ContactMe />
-      <Footer />
-    </main>
   </body>
 </html>
 
@@ -67,46 +67,6 @@ import Header from "../ui/components/Header.astro";
     localStorage.setItem("theme", theme);
   });
 </script>
-
-<!-- <script>
-  const sliderContainers = document.querySelectorAll(
-    ".minor_project_info"
-  ) as NodeListOf<HTMLElement>;
-
-  sliderContainers.forEach((sliderContainer) => {
-    const slider = sliderContainer.querySelector(
-      ".minor_project_badges"
-    ) as HTMLElement;
-
-    const sliderWidth = slider.scrollWidth;
-    const sliderInnerHTML = slider.innerHTML;
-    const sliderInnerHTMLX2 = slider.innerHTML + slider.innerHTML;
-
-    function moveSlideToLeft() {
-      if (sliderWidth > sliderContainer.clientWidth) {
-        slider.innerHTML = sliderInnerHTMLX2;
-        const currentPosition =
-          parseInt(
-            slider.style.transform.replace("translateX(", "").replace("px)", "")
-          ) || 0;
-        const newPosition = currentPosition - 1;
-        slider.style.transform = `translateX(${newPosition}px)`;
-
-        if (Math.abs(newPosition) >= sliderWidth) {
-          slider.style.transform = "translateX(0)";
-        }
-
-        requestAnimationFrame(moveSlideToLeft);
-      } else {
-        slider.innerHTML = sliderInnerHTML;
-        slider.style.transform = "translateX(0)";
-        requestAnimationFrame(moveSlideToLeft);
-      }
-    }
-
-    moveSlideToLeft();
-  });
-</script> -->
 
 <style is:global>
   p {
