@@ -64,7 +64,7 @@
   }
 
   h2 {
-    width: max-content;
+    width: fit-content;
     font-weight: 900;
     font-size: 2rem;
     background-image: linear-gradient(
@@ -100,10 +100,14 @@
   textarea {
     width: 100%;
     padding: 0.5rem 0.5rem;
-    border: 1px solid var(--color-secondary);
+    border: 2px solid var(--color-secondary);
     border-radius: 0.25rem;
     color: rgb(2 6 23);
     background-color: rgb(248 250 252);
+
+    &:focus {
+      border-color: var(--color-primary);
+    }
   }
 
   textarea {
@@ -129,6 +133,11 @@
       translate 0s;
 
     &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:focus {
       background-color: var(--color-primary);
       scale: 1.05;
     }

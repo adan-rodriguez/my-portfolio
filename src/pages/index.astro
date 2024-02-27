@@ -47,7 +47,7 @@ import Header from "../ui/components/Header.astro";
 <script>
   const $root = document.documentElement;
   const $swictherTheme = document.querySelector(
-    "button.theme"
+    ".theme-btn"
   ) as HTMLInputElement;
 
   function toggleTheme() {
@@ -139,7 +139,6 @@ import Header from "../ui/components/Header.astro";
   textarea {
     &:focus {
       outline: none;
-      border-color: cornflowerblue;
     }
   }
 

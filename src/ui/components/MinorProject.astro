@@ -187,9 +187,10 @@ const { name, image, description, technologies, link, github } = Astro.props;
     });
 
     $modal.addEventListener("click", (e) => {
+      const $clickElement = e.target as HTMLElement;
       if (
-        e.target === $modal ||
-        (e.target as HTMLElement).closest(".close-modal")
+        $clickElement.closest(".close-modal") ||
+        $clickElement.matches("dialog")
       ) {
         $modal.close();
       }
@@ -214,6 +215,11 @@ const { name, image, description, technologies, link, github } = Astro.props;
     transition: all 0.3s;
 
     &:hover {
+      border-color: var(--text-color-secondary);
+      transform: translateY(-0.125rem);
+    }
+
+    &:focus-within {
       border-color: var(--text-color-secondary);
       transform: translateY(-0.125rem);
     }
@@ -312,6 +318,11 @@ const { name, image, description, technologies, link, github } = Astro.props;
     font-size: 0.75rem;
 
     &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:focus {
       background-color: var(--color-primary);
       scale: 1.05;
     }

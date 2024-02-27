@@ -14,14 +14,14 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
       <h2 class="label">Desarrollador Web</h2>
       <div class="about-me">
         <p>
-          Me llamo Adán Rodríguez, soy de Argentina <img
+          Me llamo Adán Rodríguez, soy de Argentina
+          <img
             src="images/bandera-argentina.webp"
             alt="Bandera de Argentina"
-            width="16px"
-            height="16px"
             aria-hidden="true"
             class="argentina-flag"
-          /> y tengo 27 años.
+          />
+          y tengo 27 años.
         </p>
         <p>
           Me especializo en <span>React</span> y <span>Next.js</span>.
@@ -154,7 +154,8 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
 
   .argentina-flag {
     display: inline-block;
-    vertical-align: middle;
+    width: 16px;
+    aspect-ratio: 1/1;
   }
 
   /* .skills {
@@ -214,6 +215,10 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
         scale: 1.05;
       }
 
+      &:focus {
+        scale: 1.05;
+      }
+
       &:active {
         translate: 0 0.125rem;
       }
@@ -222,6 +227,7 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
 
   .me-img {
     width: 300px;
+    aspect-ratio: 433/501;
     border-radius: 100%;
     background-image: radial-gradient(black 40%, var(--color-primary));
   }
