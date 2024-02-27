@@ -6,36 +6,35 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
 ---
 
 <section>
-  <div class="intro">
-    <div class="data">
-      <h1 class="name">
-        Hola <span class="hand" aria-hidden="true">👋🏻</span>. Soy Adán Rodríguez
-      </h1>
-      <h2 class="label">Desarrollador Web</h2>
-      <div class="about-me">
-        <p>
-          Me llamo Adán Rodríguez, soy de Argentina
-          <img
-            src="images/bandera-argentina.webp"
-            alt="Bandera de Argentina"
-            aria-hidden="true"
-            class="argentina-flag"
-          />
-          y tengo 27 años.
-        </p>
-        <p>
-          Me especializo en <span>React</span> y <span>Next.js</span>.
-        </p>
-        <p>
-          Mi mejor producto es el portal de noticias <span>"El Villanense"</span
-          > el cual ya cuenta con un grupo de trabajo y llegada un público local.
-        </p>
-        <p>
-          Soy estudiante de una <span>Tecnicatura en Desarrollo Web</span> en la
-          Universidad Nacional de Entre Ríos, Argentina.
-        </p>
-      </div>
-      <!-- <div aria-hidden="true" class="skills">
+  <div class="data">
+    <h1 class="name">
+      Hola <span class="hand" aria-hidden="true">👋🏻</span>. Soy Adán Rodríguez
+    </h1>
+    <h2 class="label">Desarrollador Web</h2>
+    <div class="about-me">
+      <p>
+        Me llamo Adán Rodríguez, soy de Argentina
+        <img
+          src="images/bandera-argentina.webp"
+          alt="Bandera de Argentina"
+          aria-hidden="true"
+          class="argentina-flag"
+        />
+        y tengo 27 años.
+      </p>
+      <p>
+        Me especializo en <span>React</span> y <span>Next.js</span>.
+      </p>
+      <p>
+        Mi mejor producto es el portal de noticias <span>"El Villanense"</span> el
+        cual ya cuenta con un grupo de trabajo y llegada un público local.
+      </p>
+      <p>
+        Soy estudiante de una <span>Tecnicatura en Desarrollo Web</span> en la Universidad
+        Nacional de Entre Ríos, Argentina.
+      </p>
+    </div>
+    <!-- <div aria-hidden="true" class="skills">
         <img src="images/html.svg" alt="Logo de HTML" class="skill" />
         <img src="images/css.svg" alt="Logo de CSS" class="skill" />
         <img
@@ -50,57 +49,50 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
           class="skill skill--nextjs"
         />
       </div> -->
-      <ul>
-        <li>
-          <a
-            href="mailto:adan.rodriguez.fusta@gmail.com"
-            title="Envíame un correo"
-            rel="noopener"><EmailIcon /> adan.rodriguez.fusta@gmail.com</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
-            title="Visita mi LinkedIn"
-            target="_blank"
-            rel="noopener"><LinkedinIcon /> LinkedIn</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://github.com/adan-rodriguez"
-            title="Visita mi GitHub"
-            target="_blank"
-            rel="noopener"><GitHubIcon /> GitHub</a
-          >
-        </li>
-        <li>
-          <a
-            download="Currículum Vitae - Adán Rodríguez"
-            href="docs/curriculum-vitae-adan-rodriguez.pdf"
-            title="Descargar currículum"><DownloadIcon /> Currículum</a
-          >
-        </li>
-      </ul>
-    </div>
-    <img
-      class="me-img"
-      src="images/adan-rodriguez.webp"
-      alt="Foto de Adán Rodríguez"
-    />
+    <ul>
+      <li>
+        <a
+          href="mailto:adan.rodriguez.fusta@gmail.com"
+          title="Envíame un correo"
+          rel="noopener"><EmailIcon /> adan.rodriguez.fusta@gmail.com</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
+          title="Visita mi LinkedIn"
+          target="_blank"
+          rel="noopener"><LinkedinIcon /> LinkedIn</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/adan-rodriguez"
+          title="Visita mi GitHub"
+          target="_blank"
+          rel="noopener"><GitHubIcon /> GitHub</a
+        >
+      </li>
+      <li>
+        <a
+          download="Currículum Vitae - Adán Rodríguez"
+          href="docs/curriculum-vitae-adan-rodriguez.pdf"
+          title="Descargar currículum"><DownloadIcon /> Currículum</a
+        >
+      </li>
+    </ul>
   </div>
+  <img
+    class="me-img"
+    src="images/adan-rodriguez.webp"
+    alt="Foto de Adán Rodríguez"
+  />
 </section>
 
 <style>
   section {
-    min-height: calc(100dvh - 56px);
-    display: flex;
-    align-items: center;
-  }
-
-  .intro {
     width: 100%;
-    padding: 2rem 0;
+    padding-block: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -275,7 +267,7 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
   }
 
   @media (width >= 768px) {
-    .intro {
+    section {
       flex-direction: row;
       justify-content: space-between;
     }
@@ -298,10 +290,6 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
   }
 
   @media (prefers-reduced-motion) {
-    section {
-      background-attachment: scroll;
-    }
-
     .skill {
       animation: none;
     }

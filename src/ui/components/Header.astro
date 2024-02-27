@@ -21,6 +21,10 @@ const LINKS = [
       >
     </h1>
     <div class="flex items-center gap-x-3">
+      <button aria-label="Cambiar tema" class="theme-btn">
+        <Sun />
+        <Moon />
+      </button>
       <button class="flex open-btn" aria-label="Abrir menú">
         <HamburgerIcon />
       </button>
@@ -40,10 +44,6 @@ const LINKS = [
           }
         </ul>
       </nav>
-      <button aria-label="Cambiar tema" class="theme-btn">
-        <Sun />
-        <Moon />
-      </button>
     </div>
   </div>
 </header>
@@ -77,6 +77,16 @@ const LINKS = [
       }
 
       .open-btn {
+        transition: scale 0.3s;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        &:focus-visible {
+          scale: 1.1;
+        }
+
         @media (width >= 768px) {
           display: none;
         }
@@ -85,6 +95,15 @@ const LINKS = [
       .close-btn {
         position: relative;
         z-index: 100;
+        transition: scale 0.3s;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        &:focus-visible {
+          scale: 1.1;
+        }
 
         @media (width >= 768px) {
           display: none;
@@ -146,7 +165,6 @@ const LINKS = [
       }
 
       .theme-btn {
-        order: -1;
         transition: scale 0.3s;
 
         &:hover {
@@ -155,10 +173,6 @@ const LINKS = [
 
         &:focus-visible {
           scale: 1.1;
-        }
-
-        @media (width >= 768px) {
-          order: 1;
         }
       }
     }

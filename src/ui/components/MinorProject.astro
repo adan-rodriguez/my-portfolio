@@ -100,7 +100,7 @@ const { name, image, description, technologies, link, github } = Astro.props;
                   ></path></svg
                 > Código</a
               >
-              <button class="close-modal">
+              <button class="close-modal-btn">
                 <ArrowBackIcon /> Volver
               </button>
             </div>
@@ -189,7 +189,7 @@ const { name, image, description, technologies, link, github } = Astro.props;
     $modal.addEventListener("click", (e) => {
       const $clickElement = e.target as HTMLElement;
       if (
-        $clickElement.closest(".close-modal") ||
+        $clickElement.closest(".close-modal-btn") ||
         $clickElement.matches("dialog")
       ) {
         $modal.close();
@@ -440,7 +440,42 @@ const { name, image, description, technologies, link, github } = Astro.props;
     column-gap: 0.75rem;
     margin-top: auto;
 
-    & .close-modal {
+    > a {
+      display: flex;
+      align-items: center;
+      column-gap: 0.25rem;
+      padding: 0.25rem 1.25rem;
+      border: 1px solid rgb(203 213 225);
+      border-radius: 0.25rem;
+      background-color: rgb(55 65 81);
+      color: rgb(248 250 252);
+      transition:
+        background-color 0.3s,
+        scale 0.3s,
+        translate 0s;
+      font-size: 0.75rem;
+
+      &:hover {
+        background-color: var(--color-primary);
+        scale: 1.05;
+      }
+
+      &:focus-visible {
+        background-color: var(--color-primary);
+        scale: 1.05;
+      }
+
+      &:active {
+        translate: 0 0.125rem;
+      }
+
+      & svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    & .close-modal-btn {
       display: flex;
       align-items: center;
       margin-left: auto;
@@ -461,6 +496,11 @@ const { name, image, description, technologies, link, github } = Astro.props;
         scale: 1.05;
       }
 
+      &:focus-visible {
+        background-color: var(--color-primary);
+        scale: 1.05;
+      }
+
       &:active {
         translate: 0 0.125rem;
       }
@@ -469,36 +509,6 @@ const { name, image, description, technologies, link, github } = Astro.props;
         width: 16px;
         height: 16px;
       }
-    }
-  }
-
-  .modal_minor_project__button {
-    display: flex;
-    align-items: center;
-    column-gap: 0.25rem;
-    padding: 0.25rem 1.25rem;
-    border: 1px solid rgb(203 213 225);
-    border-radius: 0.25rem;
-    background-color: rgb(55 65 81);
-    color: rgb(248 250 252);
-    transition:
-      background-color 0.3s,
-      scale 0.3s,
-      translate 0s;
-    font-size: 0.75rem;
-
-    &:hover {
-      background-color: var(--color-primary);
-      scale: 1.05;
-    }
-
-    &:active {
-      translate: 0 0.125rem;
-    }
-
-    & svg {
-      width: 16px;
-      height: 16px;
     }
   }
 </style>

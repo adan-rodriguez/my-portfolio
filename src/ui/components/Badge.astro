@@ -2,13 +2,13 @@
 const { name, image, color } = Astro.props;
 ---
 
-<li class="badge" style={`background-color: ${color.bg}; color: ${color.text}`}>
+<li style={`background-color: ${color.bg}; color: ${color.text}`}>
   <img src={image} alt={`Logo de ${name}`} aria-hidden="true" />
   {name}
 </li>
 
 <style>
-  .badge {
+  li {
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     display: flex;
@@ -16,10 +16,11 @@ const { name, image, color } = Astro.props;
     align-items: center;
     text-wrap: nowrap;
     font-size: 0.75rem;
+    
+    img {
+      width: 16px;
+      aspect-ratio: 1/1;
+    }
   }
 
-  img {
-    width: 16px;
-    aspect-ratio: 1/1;
-  }
 </style>
