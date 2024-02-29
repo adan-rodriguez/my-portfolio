@@ -273,6 +273,11 @@ const { name, image, description, technologies, link, github } = Astro.props;
       scale: 1.05;
     }
 
+    &:focus-visible {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
     &:active {
       translate: 0 0.125rem;
     }

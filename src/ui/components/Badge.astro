@@ -3,7 +3,7 @@ const { name, image, color } = Astro.props;
 ---
 
 <li style={`background-color: ${color.bg}; color: ${color.text}`}>
-  <img src={image} alt={`Logo de ${name}`} aria-hidden="true" />
+  <img src={image} alt={`Logo de ${name}`} aria-hidden="true" loading="lazy" />
   {name}
 </li>
 
@@ -16,11 +16,10 @@ const { name, image, color } = Astro.props;
     align-items: center;
     text-wrap: nowrap;
     font-size: 0.75rem;
-    
+
     img {
       width: 16px;
       aspect-ratio: 1/1;
     }
   }
-
 </style>
