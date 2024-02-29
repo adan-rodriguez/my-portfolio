@@ -11,12 +11,7 @@ const { name, description, image, technologies, link, github } = Astro.props;
       class="border-effect hidden absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0369a1_0%,#000000_50%,#0369a1_100%)] -z-10"
     ></span>
     <div class="card__image_container">
-      <img
-        class="card__image"
-        src={image}
-        alt={`Portada de ${name}`}
-        loading="lazy"
-      />
+      <img class="card__image" src={image} alt={`Portada de ${name}`} />
     </div>
     <div class="card__info">
       <div class="card__info_header">
