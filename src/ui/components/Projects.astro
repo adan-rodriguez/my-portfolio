@@ -5,52 +5,52 @@ import MinorProject from "./MinorProject.astro";
 const TECHNOLOGIES = {
   NEXTJS: {
     name: "Next.js",
-    image: "images/nextjs.svg",
+    image: "/images/nextjs.svg",
     color: { bg: "rgb(0 0 0 / 50%)", text: "rgb(248 250 252)" },
   },
   FIREBASE: {
     name: "Firebase",
-    image: "images/firebase.svg",
+    image: "/images/firebase.svg",
     color: { bg: "rgb(165 39 20 / 50%)", text: "rgb(248 250 252)" },
   },
   CLOUDINARY: {
     name: "Cloudinary",
-    image: "images/cloudinary.svg",
+    image: "/images/cloudinary.svg",
     color: { bg: "rgb(52 72 197 / 20%)", text: "rgb(248 250 252)" },
   },
   TAILWIND: {
     name: "Tailwind CSS",
-    image: "images/tailwind.svg",
+    image: "/images/tailwind.svg",
     color: { bg: "rgb(56 189 248 / 30%)", text: "rgb(248 250 252)" },
   },
   REDUX_TOOLKIT: {
     name: "Redux Toolkit",
-    image: "images/redux.svg",
+    image: "/images/redux.svg",
     color: { bg: "rgb(118 74 188 / 20%)", text: "rgb(248 250 252)" },
   },
   BOOTSTRAP: {
     name: "Bootstrap",
-    image: "images/bootstrap.svg",
+    image: "/images/bootstrap.svg",
     color: { bg: "rgb(102 16 242 / 25%)", text: "rgb(248 250 252)" },
   },
   HTML: {
     name: "HTML",
-    image: "images/html.svg",
+    image: "/images/html.svg",
     color: { bg: "rgb(227 79 38 / 30%)", text: "rgb(248 250 252)" },
   },
   CSS: {
     name: "CSS",
-    image: "images/css.svg",
+    image: "/images/css.svg",
     color: { bg: "rgb(12 115 184 / 40%)", text: "rgb(248 250 252)" },
   },
   JAVASCRIPT: {
     name: "Javascript",
-    image: "images/javascript.svg",
+    image: "/images/javascript.svg",
     color: { bg: "rgb(247 223 30 / 30%)", text: "rgb(248 250 252)" },
   },
   REACT: {
     name: "React",
-    image: "images/react.svg",
+    image: "/images/react.svg",
     color: { bg: "rgb(97 218 251 / 30%)", text: "rgb(248 250 252)" },
   },
 };
@@ -60,7 +60,8 @@ const importantProjects = [
     name: "El Villanense - Portal de Noticias",
     description:
       "Mi proyecto principal. Tiene llegada a un público local. Next.js con app directory. Firebase para BBDD y autenticación. Cloudinary para almacenar y consumir las imágenes. SEO implementado.",
-    image: "images/el-villanense.avif",
+    image: "/images/el-villanense.avif",
+    favicon: "/images/favicons/el-villanense.png",
     technologies: [
       TECHNOLOGIES.NEXTJS,
       TECHNOLOGIES.FIREBASE,
@@ -80,7 +81,8 @@ const minorProjects = [
     name: "The Movie Database",
     description:
       "Información de películas, programas de tv, actores y actrices. Consume la API de The Movie Database. Tiene la funcionalidad de guardar en favoritos.",
-    image: "images/tmdb.avif",
+    image: "/images/tmdb.avif",
+    favicon: "/images/favicons/tmdb.png",
     technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.TAILWIND],
     link: "https://tmdb-adan-rodriguez.vercel.app",
     github: "https://github.com/adan-rodriguez/tmdb",
@@ -89,7 +91,8 @@ const minorProjects = [
     name: "Hacker News",
     description:
       "Obtiene noticias usando SWR y la API de Hacker News. Implementa infinite scroll utilizando la API Intersection Observer. Muestra un placeholder para noticias y comentarios mientras cargan.",
-    image: "images/hacker-news.webp",
+    image: "/images/hacker-news.webp",
+    favicon: "/images/favicons/hacker-news.gif",
     technologies: [
       TECHNOLOGIES.REACT,
       TECHNOLOGIES.TAILWIND,
@@ -101,7 +104,8 @@ const minorProjects = [
   {
     name: "Library App",
     description: "Gestión de libros. CRUD App.",
-    image: "images/library-app.avif",
+    image: "/images/library-app.avif",
+    favicon: "/images/favicons/library-app.avif",
     technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.REDUX_TOOLKIT],
     link: "https://library-app-adan-rodriguez.vercel.app",
     github: "https://github.com/adan-rodriguez/library-app",
@@ -110,7 +114,8 @@ const minorProjects = [
     name: "Buscador de películas",
     description:
       "Un simple buscador de películas. Consume la API de The Open Movie Database. Detalle interesante el 'debouncing' al tipear en el buscador.",
-    image: "images/buscador-peliculas.avif",
+    image: "/images/buscador-peliculas.avif",
+    favicon: "/images/favicons/buscador-peliculas.avif",
     technologies: [TECHNOLOGIES.REACT],
     link: "https://buscador-peliculas-adan-rodriguez.vercel.app",
     github: "https://github.com/adan-rodriguez/react-buscador-peliculas",
@@ -119,30 +124,32 @@ const minorProjects = [
     name: "Shopping cart",
     description:
       "Practicando mis habilidades con un simple carrito de compras.",
-    image: "images/shopping-cart.avif",
+    image: "/images/shopping-cart.avif",
+    favicon: "/images/favicons/shopping-cart.svg",
     technologies: [TECHNOLOGIES.REACT],
     link: "https://shopping-cart-adan-rodriguez.vercel.app",
     github: "https://github.com/adan-rodriguez/react-shopping-cart",
   },
-  {
-    name: "My projects - Expanding cards",
-    description:
-      "Muestro todos mis proyectos con cards que presentan algunos efectos y animaciones.",
-    image: "images/my-projects-expanding-cards.avif",
-    technologies: [
-      TECHNOLOGIES.HTML,
-      TECHNOLOGIES.CSS,
-      TECHNOLOGIES.JAVASCRIPT,
-    ],
-    link: "https://my-projects-expansive-contractive-cards.vercel.app",
-    github:
-      "https://github.com/adan-rodriguez/my-projects-expansive-contractive-cards",
-  },
+  // {
+  //   name: "My projects - Expanding cards",
+  //   description:
+  //     "Muestro todos mis proyectos con cards que presentan algunos efectos y animaciones.",
+  //   image: "/images/my-projects-expanding-cards.avif",
+  //   technologies: [
+  //     TECHNOLOGIES.HTML,
+  //     TECHNOLOGIES.CSS,
+  //     TECHNOLOGIES.JAVASCRIPT,
+  //   ],
+  //   link: "https://my-projects-expansive-contractive-cards.vercel.app",
+  //   github:
+  //     "https://github.com/adan-rodriguez/my-projects-expansive-contractive-cards",
+  // },
   {
     name: "Checkpoint #2 - React Skill Factory by Avalith.",
     description:
       "Proyecto de un Bootcamp de React donde se trabajó asincronismo, consumo de APIs y manejo de formularios.",
-    image: "images/checkpoint2-react-skillfactory-by-avalith.avif",
+    image: "/images/checkpoint2-react-skillfactory-by-avalith.avif",
+    favicon: "/images/favicons/checkpoint2-react-skillfactory-by-avalith.avif",
     technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.JAVASCRIPT],
     link: "https://checkpoint2-react-skillfactory-by-avalith.vercel.app",
     github:
@@ -152,32 +159,27 @@ const minorProjects = [
     name: "Codo a Codo 4.0 - Bootstrap",
     description:
       "Página simple que tiene como detalle más importante que está hecha con Bootstrap.",
-    image: "images/codoacodo-bootstrap.avif",
+    image: "/images/codoacodo-bootstrap.avif",
+    favicon: "/images/favicons/codoacodo-bootstrap.webp",
     technologies: [TECHNOLOGIES.BOOTSTRAP],
-    link: "https://codoacodo-bootstrap.adan-rodriguez.repl.co",
-    github: "https://github.com/adan-rodriguez/bootstrap-codoacodo4.0",
+    link: "https://bootstrapractice.vercel.app",
+    github: "https://github.com/adan-rodriguez/bootstrap-practice",
   },
   {
     name: "Comuna de Villa Ana",
     description:
       "Boceto de sitio web que realicé para mostrar a la comuna del lugar dónde vivo.",
-    image: "images/comuna-villaana.avif",
+    image: "/images/comuna-villaana.avif",
+    favicon: "/images/favicons/comuna-villaana.avif",
     technologies: [TECHNOLOGIES.HTML, TECHNOLOGIES.CSS],
-    link: "http://comunavillaana.000webhostapp.com",
+    link: "https://villaana.vercel.app",
     github: "https://github.com/adan-rodriguez/pagina-comuna-villaana",
-  },
-  {
-    name: "Copia Globant Homepage",
-    description: "Practicando con una copia de la página principal de Globant.",
-    image: "images/globant.avif",
-    technologies: [TECHNOLOGIES.HTML, TECHNOLOGIES.CSS],
-    link: "https://practice-globant-homepage.adan-rodriguez.repl.co",
-    github: "https://github.com/adan-rodriguez/practice-globant-homepage",
   },
   {
     name: "Tatetí",
     description: "Practicando React y lógica de programación. MVP de tatetí.",
-    image: "images/tateti.avif",
+    image: "/images/tateti.avif",
+    favicon: "/images/favicons/tateti.avif",
     technologies: [TECHNOLOGIES.REACT],
     link: "https://playtateti.vercel.app/",
     github: "https://github.com/adan-rodriguez/tateti",
@@ -191,11 +193,20 @@ const minorProjects = [
     <ul class="important_projects">
       {
         importantProjects.map(
-          ({ name, description, image, technologies, link, github }) => (
+          ({
+            name,
+            description,
+            image,
+            favicon,
+            technologies,
+            link,
+            github,
+          }) => (
             <ImportantProject
               name={name}
               description={description}
               image={image}
+              favicon={favicon}
               technologies={technologies}
               link={link}
               github={github}
@@ -211,11 +222,20 @@ const minorProjects = [
     <ul class="minor_projects">
       {
         minorProjects.map(
-          ({ name, description, image, technologies, link, github }) => (
+          ({
+            name,
+            description,
+            image,
+            favicon,
+            technologies,
+            link,
+            github,
+          }) => (
             <MinorProject
               name={name}
               description={description}
               image={image}
+              favicon={favicon}
               technologies={technologies}
               link={link}
               github={github}
