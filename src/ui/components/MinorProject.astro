@@ -38,7 +38,16 @@ const { name, image, favicon, description, technologies, link, github } =
             loading="lazy"
           />
           <div class="modal_minor_project_info">
-            <h3 class="modal_minor_project__name" title={name}>{name}</h3>
+            <div class="modal_minor_project__title">
+              <img
+                src={favicon}
+                alt={`Favicon de ${name}`}
+                width="20px"
+                height="20px"
+                loading="lazy"
+              />
+              <h3 class="modal_minor_project__name" title={name}>{name}</h3>
+            </div>
             <ul
               class="modal_minor_project_badges"
               aria-label="Tecnologías utilizadas en el proyecto"
@@ -327,10 +336,6 @@ const { name, image, favicon, description, technologies, link, github } =
 
   dialog::backdrop {
     backdrop-filter: blur(50px);
-
-    &:hover {
-      background-color: red;
-    }
   }
 
   .modal_minor_project {
@@ -359,8 +364,13 @@ const { name, image, favicon, description, technologies, link, github } =
     flex-grow: 1;
   }
 
+  .modal_minor_project__title {
+    display: flex;
+    column-gap: 0.5rem;
+    align-items: center;
+  }
+
   .modal_minor_project__name {
-    max-width: 100%;
     text-wrap: balance;
     font-weight: 700;
     color: rgb(248 250 252);
