@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Página no encontrada - Adán Rodríguez - Desarrollador Web">
+  <section>
+    <h2>Página no encontrada</h2>
+
+    <div class="md:flex gap-x-4 items-center">
+      <img
+        src="/images/travolta-not-found.gif"
+        alt="John Travolta haciendo gestos de que no encuentra a nadie en una escena de Pulp Fiction"
+        class="w-full max-w-md mx-auto [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]"
+      />
+      <div>
+        <p class="text-pretty my-4">
+          ¡Hola! Lo siento, pero no pude encontrar lo que buscabas. Verifica que
+          la dirección URL sea correcta.
+        </p>
+        <a href="/">Ir al inicio</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    padding-block: 2rem;
+  }
+
+  h2 {
+    width: fit-content;
+    font-weight: 900;
+    font-size: 2rem;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--text-color-primary)
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    display: block;
+    width: fit-content;
+    padding: 0.25rem 1.25rem;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    background-color: rgb(55 65 81);
+    color: rgb(248 250 252);
+    transition:
+      background-color 0.3s,
+      scale 0.3s,
+      translate 0s;
+    font-size: 0.875rem;
+
+    &:hover {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:focus-visible {
+      background-color: var(--color-primary);
+      scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
+    }
+  }
+</style>
