@@ -10,7 +10,7 @@ const { name, image, favicon, description, technologies, link, github } =
 ---
 
 <li>
-  <article class="minor_project">
+  <article class="minor_project shadow-lg shadow-black">
     <img
       class="minor_project__image"
       src={image}
@@ -152,22 +152,22 @@ const { name, image, favicon, description, technologies, link, github } =
 <style>
   li {
     width: 100%;
+
+    --text-color-primary: rgb(248 250 252);
+    --text-color-secondary: rgb(203 213 225);
   }
 
   .minor_project {
-    border: 1px solid var(--color-secondary);
     border-radius: 0.5rem;
     overflow: hidden;
     display: flex;
     transition: all 0.3s;
 
     &:hover {
-      border-color: var(--text-color-secondary);
       transform: translateY(-0.125rem);
     }
 
     &:focus-within {
-      border-color: var(--text-color-secondary);
       transform: translateY(-0.125rem);
     }
 
@@ -175,6 +175,7 @@ const { name, image, favicon, description, technologies, link, github } =
       display: flex;
       column-gap: 0.5rem;
       align-items: center;
+      color: var(--text-color-primary);
     }
   }
 
@@ -201,8 +202,8 @@ const { name, image, favicon, description, technologies, link, github } =
   .minor_project__name {
     text-wrap: balance;
     font-weight: 700;
-    color: rgb(248 250 252);
     line-height: normal;
+    color: var(--text-color-primary);
   }
 
   .minor_project__showmore {
@@ -211,10 +212,10 @@ const { name, image, favicon, description, technologies, link, github } =
     column-gap: 0.25rem;
     margin-top: auto;
     padding: 0.25rem 1.25rem;
-    border: 1px solid rgb(203 213 225);
+    border: 1px solid var(--text-color-primary);
     border-radius: 0.25rem;
-    background-color: rgb(55 65 81);
-    color: rgb(248 250 252);
+    background-color: var(--color-secondary);
+    color: var(--text-color-primary);
     transition:
       background-color 0.3s,
       scale 0.3s,
@@ -245,7 +246,7 @@ const { name, image, favicon, description, technologies, link, github } =
   .minor_project__description {
     display: none;
     font-size: 0.75rem;
-    color: rgb(203 213 225);
+    color: var(--text-color-secondary);
   }
 
   .minor_project_buttons {
@@ -260,10 +261,10 @@ const { name, image, favicon, description, technologies, link, github } =
     align-items: center;
     column-gap: 0.25rem;
     padding: 0.25rem 1.25rem;
-    border: 1px solid rgb(203 213 225);
+    border: 1px solid var(--text-color-primary);
     border-radius: 0.25rem;
-    background-color: rgb(55 65 81);
-    color: rgb(248 250 252);
+    background-color: var(--color-secondary);
+    color: var(--text-color-primary);
     transition:
       background-color 0.3s,
       scale 0.3s,
@@ -340,7 +341,7 @@ const { name, image, favicon, description, technologies, link, github } =
 
   .modal_minor_project {
     border-radius: 0.5rem;
-    border: 1px solid var(--color-secondary);
+
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -373,7 +374,7 @@ const { name, image, favicon, description, technologies, link, github } =
   .modal_minor_project__name {
     text-wrap: balance;
     font-weight: 700;
-    color: rgb(248 250 252);
+    color: var(--text-color-primary);
   }
 
   .modal_minor_project_badges {
@@ -384,7 +385,7 @@ const { name, image, favicon, description, technologies, link, github } =
 
   .modal_minor_project__description {
     font-size: 0.75rem;
-    color: rgb(203 213 225);
+    color: var(--text-color-secondary);
   }
 
   .modal_minor_project_buttons {
@@ -399,10 +400,10 @@ const { name, image, favicon, description, technologies, link, github } =
       align-items: center;
       column-gap: 0.25rem;
       padding: 0.25rem 1.25rem;
-      border: 1px solid rgb(203 213 225);
+      color: var(--text-color-primary);
+      border: 1px solid var(--text-color-primary);
       border-radius: 0.25rem;
-      background-color: rgb(55 65 81);
-      color: rgb(248 250 252);
+      background-color: var(--color-secondary);
       transition:
         background-color 0.3s,
         scale 0.3s,
@@ -430,10 +431,10 @@ const { name, image, favicon, description, technologies, link, github } =
       margin-left: auto;
       column-gap: 0.25rem;
       padding: 0.25rem 1.25rem;
-      border: 1px solid rgb(203 213 225);
+      border: 1px solid var(--text-color-primary);
       border-radius: 0.25rem;
-      background-color: rgb(55 65 81);
-      color: rgb(248 250 252);
+      background-color: var(--color-secondary);
+      color: var(--text-color-primary);
       transition:
         background-color 0.3s,
         scale 0.3s,

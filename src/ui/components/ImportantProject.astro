@@ -8,7 +8,7 @@ const { name, description, image, favicon, technologies, link, github } =
 ---
 
 <li>
-  <article class="card">
+  <article class="card shadow-lg shadow-black">
     <span
       aria-hidden="true"
       class="border-effect hidden absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0369a1_0%,#000000_50%,#0369a1_100%)] -z-10"
@@ -68,6 +68,9 @@ const { name, description, image, favicon, technologies, link, github } =
 
 <style>
   li {
+    --text-color-primary: rgb(248 250 252);
+    --text-color-secondary: rgb(203 213 225);
+
     width: 100%;
   }
 
@@ -76,11 +79,22 @@ const { name, description, image, favicon, technologies, link, github } =
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--color-secondary);
     border-radius: 1rem;
     overflow: clip;
     position: relative;
     background-color: var(--color-secondary);
+
+    &:hover {
+      overflow-clip-margin: 3px;
+
+      .card__image {
+        scale: 1.05;
+      }
+
+      & .border-effect {
+        display: block;
+      }
+    }
 
     &:focus-within {
       overflow-clip-margin: 3px;
@@ -93,27 +107,8 @@ const { name, description, image, favicon, technologies, link, github } =
         display: block;
       }
     }
-  }
 
-  .card:hover {
-    overflow-clip-margin: 3px;
-
-    & .border-effect {
-      display: block;
-    }
-  }
-
-  @keyframes rotar {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(-360deg);
-    }
-  }
-
-  @media (width >= 576px) {
-    .card {
+    @media (width >= 576px) {
       flex-direction: row;
     }
   }
@@ -132,10 +127,6 @@ const { name, description, image, favicon, technologies, link, github } =
     object-fit: cover;
     object-position: left;
     transition: scale 0.5s;
-  }
-
-  .card:hover .card__image {
-    scale: 1.05;
   }
 
   @media (width >= 576px) {
@@ -181,8 +172,8 @@ const { name, description, image, favicon, technologies, link, github } =
     font-size: 1.5rem;
     font-weight: 700;
     text-wrap: balance;
-    color: rgb(248 250 252);
     line-height: normal;
+    color: var(--text-color-primary);
   }
 
   .card__badges {
@@ -193,7 +184,7 @@ const { name, description, image, favicon, technologies, link, github } =
 
   .card__description {
     font-size: 0.875rem;
-    color: rgb(203 213 225);
+    color: var(--text-color-secondary);
     text-wrap: pretty;
   }
 
@@ -206,10 +197,10 @@ const { name, description, image, favicon, technologies, link, github } =
     align-items: center;
     column-gap: 0.25rem;
     padding: 0.25rem 1.25rem;
-    border: 1px solid rgb(203 213 225);
+    border: 1px solid var(--text-color-primary);
     border-radius: 0.25rem;
-    background-color: rgb(55 65 81);
-    color: rgb(248 250 252);
+    background-color: var(--color-secondary);
+    color: var(--text-color-primary);
     transition:
       background-color 0.3s,
       scale 0.3s,

@@ -72,7 +72,7 @@ const { title } = Astro.props;
     --color-primary: rgb(3 93 143);
     --color-secondary: rgb(55 65 81);
     --bg-color: rgb(2 6 23);
-    --bg-grid-color: #ffffff1a;
+    --bg-grid-color: rgba(3, 94, 143, 0.3);
 
     scroll-behavior: smooth;
     scrollbar-width: thin;
@@ -81,13 +81,16 @@ const { title } = Astro.props;
     & #sun {
       display: none;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
   }
 
   :root[data-theme="light"] {
     --text-color-primary: rgb(2 6 23);
     --text-color-secondary: rgb(31 41 55);
     --bg-color: rgb(248 250 252);
-    --bg-grid-color: #0002;
 
     & #sun {
       display: block;
@@ -115,6 +118,7 @@ const { title } = Astro.props;
         var(--bg-grid-color) 0 1px,
         transparent 1px var(--bg-grid-size)
       );
+    background-attachment: fixed;
 
     &:has(dialog[open]) {
       overflow-y: hidden;
@@ -135,12 +139,6 @@ const { title } = Astro.props;
   textarea {
     &:focus {
       outline: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :root {
-      scroll-behavior: auto;
     }
   }
 </style>
