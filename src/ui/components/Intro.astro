@@ -18,10 +18,12 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
           aria-hidden="true"
           class="argentina-flag"
         />
-        y tengo 27 años.
+        y tengo 28 años.
       </p>
       <p>
-        Me especializo en <span>React</span> y <span>Next.js</span>.
+        Me especializo en <span>React</span>, <span>Next.js</span> y <span
+          >Astro</span
+        >.
       </p>
       <p>
         Mi mejor producto es el portal de noticias <span>"El Villanense"</span> el
@@ -81,26 +83,26 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
     </ul>
   </div>
 
-  <img
-    class="me-img"
-    src="images/adan-rodriguez.avif"
-    alt="Foto de Adán Rodríguez"
-    fetchpriority="high"
-  />
+  <figure>
+    <img
+      src="images/adan-rodriguez.avif"
+      alt="Foto de Adán Rodríguez"
+      fetchpriority="high"
+    />
+  </figure>
 </section>
 
 <style>
   section {
-    width: 100%;
     padding-block: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     gap: 2rem;
     align-items: center;
   }
 
   .data {
+    max-width: 50ch;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,7 +133,6 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
   .about-me {
     font-size: 0.875rem;
     color: var(--text-color-secondary);
-    max-width: 50ch;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -217,51 +218,74 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
     }
   }
 
-  .me-img {
-    width: 300px;
-    aspect-ratio: 433/501;
+  figure {
+    --size: 300px;
+
+    width: var(--size);
+    aspect-ratio: 1;
     border-radius: 100%;
     background-image: radial-gradient(black 40%, var(--color-primary));
-  }
+    box-shadow: 0 0 20px var(--color-primary);
+    animation: move 4s linear infinite;
+    overflow: hidden;
 
-  .me-img {
-    animation: me-img 4s linear infinite;
-  }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
 
-  @keyframes me-img {
-    0% {
-      transform: translateX(-10px) translateY(0px);
+    &::after {
+      content: "";
+      box-shadow: 0 -20px 20px var(--color-primary) inset;
+      position: absolute;
+      inset: 0;
+      border-radius: 100%;
+      animation: shadow-inset 4s linear infinite;
     }
-    25% {
-      transform: translateX(0px) translateY(10px);
-    }
-    50% {
-      transform: translateX(10px) translateY(0px);
-    }
-    75% {
-      transform: translateX(0px) translateY(-10px);
-    }
-    100% {
-      transform: translateX(-10px) translateY(0px);
-    }
-  }
 
-  @media (width >= 768px) {
-    @keyframes me-img {
+    @keyframes shadow-inset {
+      to {
+        rotate: 360deg;
+      }
+    }
+
+    @keyframes move {
       0% {
-        transform: translateX(-20px) translateY(0px);
+        transform: translateX(-10px) translateY(0px);
       }
       25% {
-        transform: translateX(-10px) translateY(10px);
+        transform: translateX(0px) translateY(10px);
       }
       50% {
-        transform: translateX(0px) translateY(0px);
+        transform: translateX(10px) translateY(0px);
       }
       75% {
-        transform: translateX(-10px) translateY(-10px);
+        transform: translateX(0px) translateY(-10px);
       }
       100% {
-        transform: translateX(-20px) translateY(0px);
+        transform: translateX(-10px) translateY(0px);
+      }
+    }
+
+    @media (width >= 768px) {
+      @keyframes move {
+        0% {
+          transform: translateX(-20px) translateY(0px);
+        }
+        25% {
+          transform: translateX(-10px) translateY(10px);
+        }
+        50% {
+          transform: translateX(0px) translateY(0px);
+        }
+        75% {
+          transform: translateX(-10px) translateY(-10px);
+        }
+        100% {
+          transform: translateX(-20px) translateY(0px);
+        }
       }
     }
   }
@@ -294,8 +318,12 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
       animation: none;
     }
 
-    .me-img {
+    figure {
       animation: none;
+
+      &::after {
+        animation: none;
+      }
     }
   }
 </style>

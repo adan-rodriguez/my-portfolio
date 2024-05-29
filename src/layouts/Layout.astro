@@ -3,6 +3,7 @@ import "@fontsource-variable/onest";
 
 import Footer from "../ui/components/Footer.astro";
 import Header from "../ui/components/Header.astro";
+import ButtonUp from "../ui/components/ButtonUp.astro";
 
 interface Props {
   title: string;
@@ -35,17 +36,8 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
+    <ButtonUp />
     <Footer />
-    <div
-      aria-hidden="true"
-      class="bg-dark fixed top-0 h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] -z-50"
-    >
-    </div>
-    <div
-      aria-hidden="true"
-      class="bg-light fixed top-0 z-[-50] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
-    </div>
   </body>
 </html>
 
@@ -74,21 +66,17 @@ const { title } = Astro.props;
 </script>
 
 <style is:global>
-  p {
-    text-wrap: pretty;
-  }
-
   :root {
-    scroll-behavior: smooth;
     --text-color-primary: rgb(248 250 252);
     --text-color-secondary: rgb(203 213 225);
     --color-primary: rgb(3 93 143);
     --color-secondary: rgb(55 65 81);
     --bg-color: rgb(2 6 23);
+    --bg-grid-color: #ffffff1a;
 
-    & .bg-light {
-      display: none;
-    }
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secondary) var(--bg-color);
 
     & #sun {
       display: none;
@@ -99,14 +87,7 @@ const { title } = Astro.props;
     --text-color-primary: rgb(2 6 23);
     --text-color-secondary: rgb(31 41 55);
     --bg-color: rgb(248 250 252);
-
-    & .bg-light {
-      display: block;
-    }
-
-    & .bg-dark {
-      display: none;
-    }
+    --bg-grid-color: #0002;
 
     & #sun {
       display: block;
@@ -117,17 +98,23 @@ const { title } = Astro.props;
     }
   }
 
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-secondary) var(--bg-color);
-  }
-
   body {
-    padding-top: 56px;
-    margin: 0;
+    --bg-grid-size: 64px;
+
     font-family: "Onest Variable", sans-serif;
-    min-width: 320px;
     color: var(--text-color-primary);
+    background-color: var(--bg-color);
+    background-image: radial-gradient(transparent, var(--bg-color)),
+      repeating-linear-gradient(
+        to bottom,
+        var(--bg-grid-color) 0 1px,
+        transparent 1px var(--bg-grid-size)
+      ),
+      repeating-linear-gradient(
+        to right,
+        var(--bg-grid-color) 0 1px,
+        transparent 1px var(--bg-grid-size)
+      );
 
     &:has(dialog[open]) {
       overflow-y: hidden;
@@ -138,6 +125,10 @@ const { title } = Astro.props;
     max-width: 58rem;
     margin: auto;
     padding: 0 1rem;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   input,

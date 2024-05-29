@@ -13,7 +13,11 @@ const LINKS = [
 
 <header>
   <div>
-    <a href="/" title="Inicio">
+    <a
+      href="/"
+      title="Inicio"
+      class="hover:scale-[1.025] focus-visible:scale-[1.025] transition-transform"
+    >
       <h1 translate="no">
         <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
           aria-hidden="true">/ &gt;</span
@@ -52,14 +56,6 @@ const LINKS = [
 
 <style>
   header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    background-color: var(--bg-color);
-    mix-blend-mode: luminosity;
-    /* backdrop-filter: blur(10px); */
-
     > div {
       width: 100%;
       display: flex;
@@ -143,6 +139,8 @@ const LINKS = [
           }
 
           a {
+            outline: none;
+
             &::after {
               content: "";
               display: block;
@@ -156,6 +154,14 @@ const LINKS = [
 
           a {
             &:hover {
+              &::after {
+                transform: scale(1);
+              }
+            }
+          }
+
+          a {
+            &:focus-visible {
               &::after {
                 transform: scale(1);
               }
