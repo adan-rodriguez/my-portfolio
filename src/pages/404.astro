@@ -5,20 +5,19 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
 
 <Layout title="Página no encontrada - Adán Rodríguez - Desarrollador Web">
   <section>
-    <h2>Página no encontrada</h2>
-
-    <div class="md:flex gap-x-4 items-center">
+    <div class="md:flex gap-x-8 items-center">
       <img
         src="/images/travolta-not-found.gif"
         alt="John Travolta haciendo gestos de que no encuentra a nadie en una escena de Pulp Fiction"
         class="w-full max-w-md mx-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
       />
-      <div>
-        <p class="text-pretty my-4">
+      <div class="max-w-prose">
+        <h2>Página no encontrada</h2>
+        <p class="text-pretty mb-4">
           ¡Hola! Lo siento, pero no pude encontrar lo que buscabas. Verifica que
           la dirección URL sea correcta.
         </p>
-        <a href="/"><HomeIcon /> Ir al inicio</a>
+        <a href="/" class="shadow-lg shadow-black"><HomeIcon /> Ir al inicio</a>
       </div>
     </div>
   </section>
@@ -40,24 +39,26 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
     );
     color: transparent;
     -webkit-background-clip: text;
-    margin-bottom: 2rem;
+    margin-block: 1rem;
   }
 
   a {
+    --text-color-primary: rgb(248 250 252);
+
     display: flex;
     align-items: center;
     gap: 0.25rem;
     width: fit-content;
     padding: 0.25rem 1.25rem;
-    border: 1px solid rgb(203 213 225);
     border-radius: 0.25rem;
-    background-color: rgb(55 65 81);
-    color: rgb(248 250 252);
+    background-color: var(--color-secondary);
+    color: var(--text-color-primary);
     transition:
       background-color 0.3s,
       scale 0.3s,
       translate 0s;
     font-size: 0.875rem;
+    line-height: 1;
 
     &:hover {
       background-color: var(--color-primary);

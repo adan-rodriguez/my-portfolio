@@ -1,10 +1,43 @@
-<footer>Made by Adan Rodriguez</footer>
+<footer>
+  Made by <a
+    href="https://www.instagram.com/adan.rodriguez_"
+    target="_blank"
+    rel="noopener noreferrer">Adan Rodriguez</a
+  >
+</footer>
 
 <style>
   footer {
     max-width: 58rem;
     text-align: center;
     padding: 2rem 1rem;
-    margin: auto;
+    margin-inline: auto;
+
+    a {
+      display: inline-block;
+      outline: none;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: var(--text-color-primary);
+        transform: scale(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          transform: scale(1);
+        }
+      }
+
+      &:focus-visible {
+        &::after {
+          transform: scale(1);
+        }
+      }
+    }
   }
 </style>
