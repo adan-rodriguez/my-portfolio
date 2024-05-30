@@ -143,7 +143,9 @@ const { name, description, image, favicon, technologies, link, github } =
     flex-direction: column;
     justify-content: space-between;
     row-gap: 20px;
-    background-image: linear-gradient(to top, black, var(--color-secondary));
+    background-image: url(/images/noise-dark.webp),
+      linear-gradient(to top, black, var(--color-secondary));
+    background-blend-mode: soft-light;
     align-self: stretch;
     border-radius: 0 0 1rem 1rem;
   }
@@ -151,7 +153,8 @@ const { name, description, image, favicon, technologies, link, github } =
   @media (width >= 576px) {
     .card__info {
       width: 50%;
-      background-image: linear-gradient(to left, black, var(--color-secondary));
+      background-image: url(/images/noise-dark.webp),
+        linear-gradient(to left, black, var(--color-secondary));
       border-radius: 0 1rem 1rem 0;
     }
   }

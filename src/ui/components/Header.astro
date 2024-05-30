@@ -119,6 +119,20 @@ const LINKS = [
         scrollbar-color: var(--color-secondary), var(--bg-color);
         scrollbar-width: thin;
         background-color: var(--bg-color);
+        background-image: radial-gradient(transparent, var(--bg-color)),
+          repeating-linear-gradient(
+            to bottom,
+            var(--bg-grid-color) 0 1px,
+            transparent 1px var(--bg-grid-size)
+          ),
+          repeating-linear-gradient(
+            to right,
+            var(--bg-grid-color) 0 1px,
+            transparent 1px var(--bg-grid-size)
+          ),
+          var(--noise);
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
 
         @media (width >= 768px) {
           display: block;
@@ -126,7 +140,6 @@ const LINKS = [
           height: auto;
           padding: 0;
           position: static;
-          background-color: inherit;
         }
 
         ul {

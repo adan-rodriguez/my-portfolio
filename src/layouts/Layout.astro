@@ -74,6 +74,9 @@ const { title } = Astro.props;
     --bg-color: rgb(2 6 23);
     --bg-grid-color: rgba(3, 94, 143, 0.3);
     --noise: url(/images/noise-dark.webp);
+    --mix-mode-me-img: lighten;
+    --mix-mode-intro-links: difference;
+    --mix-mode-travolta: difference;
 
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
@@ -94,6 +97,9 @@ const { title } = Astro.props;
     --text-color-secondary: rgb(31 41 55);
     --bg-color: rgb(248 250 252);
     --noise: url(/images/noise-ligth.webp);
+    --mix-mode-me-img: multiply;
+    --mix-mode-intro-links: multiply;
+    --mix-mode-travolta: hard-light;
 
     & #sun {
       display: block;
