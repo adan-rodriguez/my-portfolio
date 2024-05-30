@@ -73,8 +73,10 @@ const { title } = Astro.props;
     --color-secondary: rgb(55 65 81);
     --bg-color: rgb(2 6 23);
     --bg-grid-color: rgba(3, 94, 143, 0.3);
+    --noise: url(/images/noise-dark.webp);
 
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     scrollbar-width: thin;
     scrollbar-color: var(--color-secondary) var(--bg-color);
 
@@ -91,6 +93,7 @@ const { title } = Astro.props;
     --text-color-primary: rgb(2 6 23);
     --text-color-secondary: rgb(31 41 55);
     --bg-color: rgb(248 250 252);
+    --noise: url(/images/noise-ligth.webp);
 
     & #sun {
       display: block;
@@ -117,8 +120,10 @@ const { title } = Astro.props;
         to right,
         var(--bg-grid-color) 0 1px,
         transparent 1px var(--bg-grid-size)
-      );
+      ),
+      var(--noise);
     background-attachment: fixed;
+    background-blend-mode: luminosity;
 
     &:has(dialog[open]) {
       overflow-y: hidden;
