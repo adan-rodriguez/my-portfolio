@@ -29,7 +29,7 @@ const { name, image, favicon, description, technologies, link, github } =
         <h3 class="minor_project__name">{name}</h3>
       </div>
       <button class="minor_project__showmore"><EyePlusIcon /> Saber más</button>
-      <dialog>
+      <dialog class="shadow-lg shadow-black">
         <article class="modal_minor_project">
           <img
             class="modal_minor_project__image"
@@ -124,7 +124,6 @@ const { name, image, favicon, description, technologies, link, github } =
     const $modal = showModal.nextElementSibling as HTMLDialogElement;
 
     function closeModal(e) {
-      console.log(e.matches);
       e.matches && $modal.close();
     }
 
@@ -335,10 +334,39 @@ const { name, image, favicon, description, technologies, link, github } =
     border-radius: 0.5rem;
     max-width: calc(100% - 2rem);
     background-color: var(--color-secondary);
-  }
+    opacity: 0;
+    transform: translateY(-50px);
+    transition:
+      display 0.3s,
+      opacity 0.3s,
+      overlay 0.3s,
+      transform 0.3s;
+    transition-behavior: allow-discrete;
 
-  dialog::backdrop {
-    backdrop-filter: blur(50px);
+    &::backdrop {
+      opacity: 0;
+      backdrop-filter: blur(0);
+      transition:
+        display 0.3s,
+        opacity 0.3s,
+        backdrop-filter 0.3s;
+      transition-behavior: allow-discrete;
+    }
+
+    &[open] {
+      @starting-style {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      opacity: 1;
+      transform: translateY(0);
+
+      &::backdrop {
+        opacity: 1;
+        backdrop-filter: blur(50px);
+      }
+    }
   }
 
   .modal_minor_project {
