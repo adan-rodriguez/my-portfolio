@@ -26,7 +26,11 @@ const { title } = Astro.props;
     <script is:inline>
       const storageTheme = localStorage.getItem("theme");
 
-      const theme = storageTheme ?? "dark";
+      const theme = storageTheme
+        ? storageTheme
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
 
       document.documentElement.setAttribute("data-theme", theme);
     </script>
@@ -43,25 +47,29 @@ const { title } = Astro.props;
 
 <script>
   const $root = document.documentElement;
-  const $swictherTheme = document.querySelector(
-    ".theme-btn"
-  ) as HTMLInputElement;
+  const $swictherTheme = document.querySelector(".theme-btn");
 
   function toggleTheme() {
-    const theme = $root.dataset.theme === "dark" ? "light" : "dark";
-    $root.setAttribute("data-theme", theme);
-
-    localStorage.setItem("theme", theme);
+    const newTheme = $root.dataset.theme === "dark" ? "light" : "dark";
+    $root.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
   }
 
-  $swictherTheme.addEventListener("click", toggleTheme);
+  function changeColorScheme(e) {
+    const theme = e.matches ? "dark" : "light";
+    $root.setAttribute("data-theme", theme);
+  }
 
   const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   colorScheme.addEventListener("change", (e) => {
-    const theme = e.matches ? "dark" : "light";
-    $root.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    if (!document.startViewTransition) return changeColorScheme(e);
+    document.startViewTransition(() => changeColorScheme(e));
+  });
+
+  $swictherTheme.addEventListener("click", () => {
+    if (!document.startViewTransition) return toggleTheme();
+    document.startViewTransition(() => toggleTheme());
   });
 </script>
 
@@ -83,7 +91,7 @@ const { title } = Astro.props;
     scrollbar-width: thin;
     scrollbar-color: var(--color-secondary) var(--bg-color);
 
-    & #sun {
+    & #moon {
       display: none;
     }
 
@@ -101,11 +109,11 @@ const { title } = Astro.props;
     --mix-mode-intro-links: multiply;
     --mix-mode-travolta: hard-light;
 
-    & #sun {
+    & #moon {
       display: block;
     }
 
-    & #moon {
+    & #sun {
       display: none;
     }
   }
@@ -150,6 +158,14 @@ const { title } = Astro.props;
   textarea {
     &:focus {
       outline: none;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
     }
   }
 </style>
