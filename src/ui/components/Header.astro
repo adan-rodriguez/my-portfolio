@@ -31,13 +31,16 @@ const LINKS = [
         <Sun />
         <Moon />
       </button>
-      <button class="flex open-btn" aria-label="Abrir menú">
+      <button
+        id="menu-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
         <HamburgerIcon />
-      </button>
-      <button class="hidden close-btn" aria-label="Cerrar menú">
         <CloseIcon />
       </button>
-      <nav class="hidden menu">
+      <nav id="menu">
         <ul>
           {
             LINKS.map(({ href, label }) => (
@@ -54,6 +57,34 @@ const LINKS = [
   </div>
 </header>
 
+<style is:global>
+  body:has(#menu-btn[aria-expanded="true"]) {
+    @media (width < 768px) {
+      overflow-y: hidden;
+    }
+  }
+
+  #menu-btn[aria-expanded="false"] {
+    & #hamburger-icon {
+      display: flex;
+    }
+
+    & #close-icon {
+      display: none;
+    }
+  }
+
+  #menu-btn[aria-expanded="true"] {
+    & #hamburger-icon {
+      display: none;
+    }
+
+    & #close-icon {
+      display: flex;
+    }
+  }
+</style>
+
 <style>
   header {
     > div {
@@ -65,6 +96,12 @@ const LINKS = [
       padding: 10px 1rem;
       margin: 0 auto;
 
+      &:has(#menu-btn[aria-expanded="true"]) {
+        & #menu {
+          display: block;
+        }
+      }
+
       h1 {
         font-size: 1.5rem;
         font-family: "Lobster", cursive;
@@ -73,8 +110,9 @@ const LINKS = [
         top: -5px;
       }
 
-      .open-btn {
+      #menu-btn {
         transition: scale 0.3s;
+        z-index: 10;
 
         &:hover {
           scale: 1.1;
@@ -89,25 +127,8 @@ const LINKS = [
         }
       }
 
-      .close-btn {
-        position: relative;
-        z-index: 100;
-        transition: scale 0.3s;
-
-        &:hover {
-          scale: 1.1;
-        }
-
-        &:focus-visible {
-          scale: 1.1;
-        }
-
-        @media (width >= 768px) {
-          display: none;
-        }
-      }
-
-      nav {
+      #menu {
+        display: none;
         padding: 4rem 0 2.5rem;
         position: fixed;
         top: 0;
@@ -201,12 +222,11 @@ const LINKS = [
 
 <script>
   const $body = document.body;
-  const $openBtn = document.querySelector(".open-btn") as HTMLElement;
-  const $closeBtn = document.querySelector(".close-btn") as HTMLElement;
+  const $menuBtn = document.querySelector("#menu-btn") as HTMLElement;
   const $navLinks = document.querySelectorAll(
     ".nav-link"
   ) as unknown as HTMLCollectionOf<HTMLElement>;
-  const $menu = document.querySelector(".menu") as HTMLElement;
+  const $menu = document.querySelector("#menu") as HTMLElement;
 
   const focusableElementsString =
     'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
@@ -219,64 +239,49 @@ const LINKS = [
     if (e.key === "Tab") {
       const $focusedElement = document.activeElement;
       if (e.shiftKey) {
-        if ($focusedElement === $closeBtn) {
+        if ($focusedElement === $menuBtn) {
           e.preventDefault();
           $lastFocusableElement.focus();
         }
       } else {
         if ($focusedElement === $lastFocusableElement) {
           e.preventDefault();
-          $closeBtn.focus();
+          $menuBtn.focus();
         }
       }
     }
   }
 
   function showMenu() {
-    $menu.classList.replace("hidden", "block");
-    $openBtn.classList.replace("flex", "hidden");
-    $closeBtn.classList.replace("hidden", "flex");
-    $body.classList.add("overflow-y-hidden");
+    $menuBtn.setAttribute("aria-expanded", "true");
+    $menuBtn.setAttribute("aria-label", "Cerrar menú");
     document.addEventListener("keydown", trapFocus);
   }
 
   function hideMenu() {
-    $menu.classList.replace("block", "hidden");
-    $openBtn.classList.replace("hidden", "flex");
-    $closeBtn.classList.replace("flex", "hidden");
-    $body.classList.remove("overflow-y-hidden");
+    $menuBtn.setAttribute("aria-expanded", "false");
+    $menuBtn.setAttribute("aria-label", "Abrir menú");
     document.removeEventListener("keydown", trapFocus);
   }
 
-  $openBtn.addEventListener("click", () => {
-    if (!document.startViewTransition) return showMenu();
-    document.startViewTransition(() => showMenu());
-  });
+  function handleMenu() {
+    if ($menuBtn.matches("[aria-expanded='false']")) {
+      if (!document.startViewTransition) return showMenu();
+      document.startViewTransition(() => showMenu());
+    } else {
+      if (!document.startViewTransition) return hideMenu();
+      document.startViewTransition(() => hideMenu());
+    }
+  }
 
-  $closeBtn.addEventListener("click", () => {
-    if (!document.startViewTransition) return hideMenu();
-    document.startViewTransition(() => hideMenu());
-  });
+  $menuBtn.addEventListener("click", handleMenu);
 
   for (const $navLink of $navLinks) {
     $navLink.addEventListener("click", () => {
-      if ($menu.matches(".block")) {
+      if ($menuBtn.matches("[aria-expanded='true']")) {
         if (!document.startViewTransition) return hideMenu();
         document.startViewTransition(() => hideMenu());
       }
     });
   }
-
-  const widthQuery = window.matchMedia("(width >= 768px)");
-
-  widthQuery.addEventListener("change", (e) => {
-    if (e.matches && $menu.matches(".block")) {
-      $body.classList.remove("overflow-y-hidden");
-      return;
-    }
-
-    if (!e.matches && $menu.matches(".block")) {
-      $body.classList.add("overflow-y-hidden");
-    }
-  });
 </script>
