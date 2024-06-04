@@ -120,15 +120,24 @@ const { name, image, favicon, description, technologies, link, github } =
   const $list = document.querySelectorAll(".minor_project__showmore");
   const mq = window.matchMedia("(width >= 576px)");
 
-  $list.forEach((showModal) => {
-    const $modal = showModal.nextElementSibling as HTMLDialogElement;
+  $list.forEach((showModalBtn) => {
+    const $modal = showModalBtn.nextElementSibling as HTMLDialogElement;
 
-    function closeModal(e) {
+    function closeDialogResize(e) {
       e.matches && $modal.close();
     }
 
-    showModal.addEventListener("click", () => {
-      mq.addEventListener("change", closeModal);
+    function escapeDialog(e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        if (!document.startViewTransition) return $modal.close();
+        document.startViewTransition(() => $modal.close());
+      }
+    }
+
+    showModalBtn.addEventListener("click", () => {
+      mq.addEventListener("change", closeDialogResize);
+      document.addEventListener("keydown", escapeDialog);
       if (!document.startViewTransition) return $modal.showModal();
       document.startViewTransition(() => $modal.showModal());
     });
@@ -145,7 +154,9 @@ const { name, image, favicon, description, technologies, link, github } =
     });
 
     $modal.addEventListener("close", () => {
-      mq.removeEventListener("change", closeModal);
+      console.log("close");
+      document.removeEventListener("keydown", escapeDialog);
+      mq.removeEventListener("change", closeDialogResize);
     });
   });
 </script>
