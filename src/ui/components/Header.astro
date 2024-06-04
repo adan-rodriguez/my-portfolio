@@ -16,7 +16,7 @@ const LINKS = [
     <a
       href="/"
       title="Inicio"
-      class="hover:scale-[1.025] focus-visible:scale-[1.025] transition-transform"
+      class="hover:scale-[1.025] focus-visible:scale-[1.025] transition-transform z-10"
     >
       <h1 translate="no">
         <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
@@ -27,7 +27,7 @@ const LINKS = [
       </h1>
     </a>
     <div class="flex items-center gap-x-3">
-      <button aria-label="Cambiar tema" class="theme-btn">
+      <button aria-label="Cambiar tema" class="theme-btn z-10">
         <Sun />
         <Moon />
       </button>
@@ -108,7 +108,7 @@ const LINKS = [
       }
 
       nav {
-        padding: 2.5rem 0;
+        padding: 4rem 0 2.5rem;
         position: fixed;
         top: 0;
         left: 0;
@@ -208,27 +208,61 @@ const LINKS = [
   ) as unknown as HTMLCollectionOf<HTMLElement>;
   const $menu = document.querySelector(".menu") as HTMLElement;
 
-  $openBtn.addEventListener("click", () => {
+  const focusableElementsString =
+    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+  const $$focusableElements = $menu.querySelectorAll(focusableElementsString);
+
+  const $lastFocusableElement =
+    $$focusableElements[$$focusableElements.length - 1];
+
+  function trapFocus(e) {
+    if (e.key === "Tab") {
+      const $focusedElement = document.activeElement;
+      if (e.shiftKey) {
+        if ($focusedElement === $closeBtn) {
+          e.preventDefault();
+          $lastFocusableElement.focus();
+        }
+      } else {
+        if ($focusedElement === $lastFocusableElement) {
+          e.preventDefault();
+          $closeBtn.focus();
+        }
+      }
+    }
+  }
+
+  function showMenu() {
     $menu.classList.replace("hidden", "block");
     $openBtn.classList.replace("flex", "hidden");
     $closeBtn.classList.replace("hidden", "flex");
     $body.classList.add("overflow-y-hidden");
-  });
+    document.addEventListener("keydown", trapFocus);
+  }
 
-  $closeBtn.addEventListener("click", () => {
+  function hideMenu() {
     $menu.classList.replace("block", "hidden");
     $openBtn.classList.replace("hidden", "flex");
     $closeBtn.classList.replace("flex", "hidden");
     $body.classList.remove("overflow-y-hidden");
+    document.removeEventListener("keydown", trapFocus);
+  }
+
+  $openBtn.addEventListener("click", () => {
+    if (!document.startViewTransition) return showMenu();
+    document.startViewTransition(() => showMenu());
+  });
+
+  $closeBtn.addEventListener("click", () => {
+    if (!document.startViewTransition) return hideMenu();
+    document.startViewTransition(() => hideMenu());
   });
 
   for (const $navLink of $navLinks) {
     $navLink.addEventListener("click", () => {
       if ($menu.matches(".block")) {
-        $menu.classList.replace("block", "hidden");
-        $openBtn.classList.replace("hidden", "flex");
-        $closeBtn.classList.replace("flex", "hidden");
-        $body.classList.remove("overflow-y-hidden");
+        if (!document.startViewTransition) return hideMenu();
+        document.startViewTransition(() => hideMenu());
       }
     });
   }

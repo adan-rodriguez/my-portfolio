@@ -128,8 +128,9 @@ const { name, image, favicon, description, technologies, link, github } =
     }
 
     showModal.addEventListener("click", () => {
-      $modal.showModal();
       mq.addEventListener("change", closeModal);
+      if (!document.startViewTransition) return $modal.showModal();
+      document.startViewTransition(() => $modal.showModal());
     });
 
     $modal.addEventListener("click", (e) => {
@@ -138,7 +139,8 @@ const { name, image, favicon, description, technologies, link, github } =
         $clickElement.closest(".close-modal-btn") ||
         $clickElement.matches("dialog")
       ) {
-        $modal.close();
+        if (!document.startViewTransition) return $modal.close();
+        document.startViewTransition(() => $modal.close());
       }
     });
 
@@ -334,25 +336,26 @@ const { name, image, favicon, description, technologies, link, github } =
     border-radius: 0.5rem;
     max-width: calc(100% - 2rem);
     background-color: var(--color-secondary);
-    opacity: 0;
+    /* opacity: 0;
     transform: translateY(-50px);
     transition:
       display 0.3s,
       opacity 0.3s,
       overlay 0.3s,
       transform 0.3s;
-    transition-behavior: allow-discrete;
+    transition-behavior: allow-discrete; */
 
     &::backdrop {
-      opacity: 0;
-      backdrop-filter: blur(0);
-      transition:
+      /* opacity: 0;
+      backdrop-filter: blur(0); */
+      backdrop-filter: blur(50px);
+      /* transition:
         display 0.3s,
         opacity 0.3s,
         backdrop-filter 0.3s;
-      transition-behavior: allow-discrete;
+      transition-behavior: allow-discrete; */
     }
-
+    /* 
     &[open] {
       @starting-style {
         opacity: 0;
@@ -366,7 +369,7 @@ const { name, image, favicon, description, technologies, link, github } =
         opacity: 1;
         backdrop-filter: blur(50px);
       }
-    }
+    } */
   }
 
   .modal_minor_project {
