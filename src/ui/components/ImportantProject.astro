@@ -9,10 +9,6 @@ const { name, description, image, favicon, technologies, link, github } =
 
 <li>
   <article class="card shadow-lg shadow-black">
-    <span
-      aria-hidden="true"
-      class="border-effect hidden absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0369a1_0%,#000000_50%,#0369a1_100%)] -z-10"
-    ></span>
     <div class="card__image_container">
       <img class="card__image" src={image} alt={`Portada de ${name}`} />
     </div>
@@ -81,17 +77,37 @@ const { name, description, image, favicon, technologies, link, github } =
     align-items: center;
     border-radius: 1rem;
     overflow: clip;
+    overflow-clip-margin: 3px;
     position: relative;
     background-color: var(--color-secondary);
 
-    &:hover {
-      overflow-clip-margin: 3px;
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      inset: -1000%;
+      background-image: conic-gradient(
+        from 90deg at 50% 50%,
+        #0369a1 0%,
+        #000000 50%,
+        #0369a1 100%
+      );
+      animation: spin 2s linear infinite;
+      z-index: -10;
+    }
 
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    &:hover {
       .card__image {
         scale: 1.05;
       }
 
-      & .border-effect {
+      &:after {
         display: block;
       }
     }
@@ -103,7 +119,7 @@ const { name, description, image, favicon, technologies, link, github } =
         scale: 1.05;
       }
 
-      .border-effect {
+      &:after {
         display: block;
       }
     }
