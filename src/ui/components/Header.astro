@@ -2,8 +2,7 @@
 import "@fontsource/lobster";
 import HamburgerIcon from "../icons/HamburgerIcon.astro";
 import CloseIcon from "../icons/CloseIcon.astro";
-import Sun from "../icons/Sun.astro";
-import Moon from "../icons/Moon.astro";
+import ThemeButton from "./ThemeButton.astro";
 
 const LINKS = [
   { label: "Proyectos", href: "projects" },
@@ -27,10 +26,7 @@ const LINKS = [
       </h1>
     </a>
     <div class="flex items-center gap-x-3">
-      <button aria-label="Cambiar tema" class="theme-btn z-10">
-        <Sun />
-        <Moon />
-      </button>
+      <ThemeButton />
       <button
         id="menu-btn"
         aria-label="Abrir menú"
@@ -204,24 +200,11 @@ const LINKS = [
           }
         }
       }
-
-      .theme-btn {
-        transition: scale 0.3s;
-
-        &:hover {
-          scale: 1.1;
-        }
-
-        &:focus-visible {
-          scale: 1.1;
-        }
-      }
     }
   }
 </style>
 
 <script>
-  const $body = document.body;
   const $menuBtn = document.querySelector("#menu-btn") as HTMLElement;
   const $navLinks = document.querySelectorAll(
     ".nav-link"

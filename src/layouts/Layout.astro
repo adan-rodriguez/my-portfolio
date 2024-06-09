@@ -47,7 +47,7 @@ const { title } = Astro.props;
 
 <script>
   const $root = document.documentElement;
-  const $swictherTheme = document.querySelector(".theme-btn");
+  const $themeBtn = document.querySelector("#theme-btn");
 
   function toggleTheme() {
     const newTheme = $root.dataset.theme === "dark" ? "light" : "dark";
@@ -56,8 +56,8 @@ const { title } = Astro.props;
   }
 
   function changeColorScheme(e) {
-    const theme = e.matches ? "dark" : "light";
-    $root.setAttribute("data-theme", theme);
+    const newTheme = e.matches ? "dark" : "light";
+    $root.setAttribute("data-theme", newTheme);
   }
 
   const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -67,7 +67,7 @@ const { title } = Astro.props;
     document.startViewTransition(() => changeColorScheme(e));
   });
 
-  $swictherTheme.addEventListener("click", () => {
+  $themeBtn.addEventListener("click", () => {
     if (!document.startViewTransition) return toggleTheme();
     document.startViewTransition(() => toggleTheme());
   });
