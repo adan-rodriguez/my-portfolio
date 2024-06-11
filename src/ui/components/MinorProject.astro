@@ -1,8 +1,6 @@
 ---
-import ArrowBackIcon from "../icons/ArrowBackIcon.astro";
 import GitHubIcon from "../icons/GitHubIcon.astro";
 import LinkIcon from "../icons/LinkIcon.astro";
-import EyePlusIcon from "../icons/EyePlusIcon.astro";
 import Badge from "./Badge.astro";
 
 const { name, image, favicon, description, technologies, link, github } =
@@ -11,16 +9,18 @@ const { name, image, favicon, description, technologies, link, github } =
 
 <li>
   <article class="minor_project shadow-lg shadow-black">
-    <img
-      class="minor_project__image"
-      src={image}
-      alt={`Portada de ${name}`}
-      loading="lazy"
-    />
+    <div class="image-container">
+      <img
+        class="minor_project__image"
+        src={`/images/${image}`}
+        alt={`Portada de ${name}`}
+        loading="lazy"
+      />
+    </div>
     <div class="minor_project_info">
       <div class="minor_project__title">
         <img
-          src={favicon}
+          src={`/images/favicons/${favicon}`}
           alt={`Favicon de ${name}`}
           width="20px"
           height="20px"
@@ -28,61 +28,6 @@ const { name, image, favicon, description, technologies, link, github } =
         />
         <h3 class="minor_project__name">{name}</h3>
       </div>
-      <button class="minor_project__showmore"><EyePlusIcon /> Saber más</button>
-      <dialog class="shadow-lg shadow-black">
-        <article class="modal_minor_project">
-          <img
-            class="modal_minor_project__image"
-            src={image}
-            alt={`Portada de ${name}`}
-            loading="lazy"
-          />
-          <div class="modal_minor_project_info">
-            <div class="modal_minor_project__title">
-              <img
-                src={favicon}
-                alt={`Favicon de ${name}`}
-                width="20px"
-                height="20px"
-                loading="lazy"
-              />
-              <h3 class="modal_minor_project__name" title={name}>{name}</h3>
-            </div>
-            <ul
-              class="modal_minor_project_badges"
-              aria-label="Tecnologías utilizadas en el proyecto"
-            >
-              {
-                technologies.map(({ name, image, color }) => (
-                  <Badge name={name} image={image} color={color} />
-                ))
-              }
-            </ul>
-            <p class="modal_minor_project__description">
-              {description}
-            </p>
-
-            <div class="modal_minor_project_buttons">
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="modal_minor_project__button"><LinkIcon /> Deploy</a
-              >
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="modal_minor_project__button"
-                ><GitHubIcon width="16" height="16" /> Código</a
-              >
-              <button class="close-modal-btn">
-                <ArrowBackIcon /> Volver
-              </button>
-            </div>
-          </div>
-        </article>
-      </dialog>
       <ul
         class="minor_project_badges"
         aria-label="Tecnologías utilizadas en el proyecto"
@@ -116,7 +61,7 @@ const { name, image, favicon, description, technologies, link, github } =
   </article>
 </li>
 
-<script>
+<!-- <script>
   const $list = document.querySelectorAll(".minor_project__showmore");
   const mq = window.matchMedia("(width >= 576px)");
 
@@ -159,28 +104,32 @@ const { name, image, favicon, description, technologies, link, github } =
       mq.removeEventListener("change", closeDialogResize);
     });
   });
-</script>
+</script> -->
 
 <style>
   li {
-    width: 100%;
-
+    display: flex;
     --text-color-primary: rgb(248 250 252);
     --text-color-secondary: rgb(203 213 225);
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
   }
 
   .minor_project {
+    display: flex;
+    flex-direction: column;
     border-radius: 0.5rem;
     overflow: hidden;
-    display: flex;
-    transition: all 0.3s;
+    transition: transform 0.3s;
 
-    &:hover {
+    &:is(:hover, :focus-within) {
       transform: translateY(-0.125rem);
-    }
-
-    &:focus-within {
-      transform: translateY(-0.125rem);
+      .minor_project__image {
+        scale: 1.05;
+      }
     }
 
     .minor_project__title {
@@ -189,13 +138,18 @@ const { name, image, favicon, description, technologies, link, github } =
       align-items: center;
       color: var(--text-color-primary);
     }
-  }
 
-  .minor_project__image {
-    width: 30%;
-    object-fit: cover;
-    object-position: top;
-    aspect-ratio: 1/1;
+    .image-container {
+      overflow: hidden;
+    }
+
+    .minor_project__image {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      object-position: top;
+      transition: scale 0.5s;
+    }
   }
 
   .minor_project_info {
@@ -207,7 +161,6 @@ const { name, image, favicon, description, technologies, link, github } =
     background-image: url(/images/noise-dark.webp),
       linear-gradient(to top, black, var(--color-secondary));
     background-blend-mode: soft-light;
-    width: 70%;
     flex-grow: 1;
     overflow: clip;
     overflow-clip-margin: padding-box;
@@ -220,51 +173,19 @@ const { name, image, favicon, description, technologies, link, github } =
     color: var(--text-color-primary);
   }
 
-  .minor_project__showmore {
-    display: flex;
-    align-items: center;
-    column-gap: 0.25rem;
-    margin-top: auto;
-    padding: 0.25rem 1.25rem;
-    border: 1px solid var(--text-color-primary);
-    border-radius: 0.25rem;
-    background-color: var(--color-secondary);
-    color: var(--text-color-primary);
-    transition:
-      background-color 0.3s,
-      scale 0.3s,
-      translate 0s;
-    font-size: 0.75rem;
-
-    &:hover {
-      background-color: var(--color-primary);
-      scale: 1.05;
-    }
-
-    &:focus-visible {
-      background-color: var(--color-primary);
-      scale: 1.05;
-    }
-
-    &:active {
-      translate: 0 0.125rem;
-    }
-  }
-
   .minor_project_badges {
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
   }
 
   .minor_project__description {
-    display: none;
     font-size: 0.75rem;
     color: var(--text-color-secondary);
   }
 
   .minor_project_buttons {
-    display: none;
+    display: flex;
     align-items: center;
     column-gap: 0.75rem;
     margin-top: auto;
@@ -302,204 +223,6 @@ const { name, image, favicon, description, technologies, link, github } =
     & svg {
       width: 16px;
       height: 16px;
-    }
-  }
-
-  @media (width >= 576px) {
-    li {
-      width: 16rem;
-      display: flex;
-    }
-
-    .minor_project {
-      flex-direction: column;
-    }
-
-    .minor_project__image {
-      width: 100%;
-      aspect-ratio: 3/2;
-    }
-
-    .minor_project_info {
-      width: auto;
-    }
-
-    .minor_project_badges {
-      display: flex;
-    }
-
-    .minor_project__showmore {
-      display: none;
-    }
-
-    .minor_project__description {
-      display: block;
-    }
-
-    .minor_project_buttons {
-      display: flex;
-    }
-  }
-
-  /* --------------------------------- */
-
-  dialog {
-    border-radius: 0.5rem;
-    max-width: calc(100% - 2rem);
-    background-color: var(--color-secondary);
-    /* opacity: 0;
-    transform: translateY(-50px);
-    transition:
-      display 0.3s,
-      opacity 0.3s,
-      overlay 0.3s,
-      transform 0.3s;
-    transition-behavior: allow-discrete; */
-
-    &::backdrop {
-      /* opacity: 0;
-      backdrop-filter: blur(0); */
-      backdrop-filter: blur(50px);
-      /* transition:
-        display 0.3s,
-        opacity 0.3s,
-        backdrop-filter 0.3s;
-      transition-behavior: allow-discrete; */
-    }
-    /* 
-    &[open] {
-      @starting-style {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      opacity: 1;
-      transform: translateY(0);
-
-      &::backdrop {
-        opacity: 1;
-        backdrop-filter: blur(50px);
-      }
-    } */
-  }
-
-  .modal_minor_project {
-    border-radius: 0.5rem;
-
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .modal_minor_project__image {
-    object-fit: cover;
-    object-position: top;
-    width: 100%;
-    aspect-ratio: 3/2;
-  }
-
-  .modal_minor_project_info {
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    row-gap: 0.75rem;
-    background-image: url(/images/noise-dark.webp),
-      linear-gradient(to top, black, var(--color-secondary));
-    background-blend-mode: soft-light;
-    width: 100%;
-    flex-grow: 1;
-  }
-
-  .modal_minor_project__title {
-    display: flex;
-    column-gap: 0.5rem;
-    align-items: center;
-  }
-
-  .modal_minor_project__name {
-    text-wrap: balance;
-    font-weight: 700;
-    color: var(--text-color-primary);
-  }
-
-  .modal_minor_project_badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .modal_minor_project__description {
-    font-size: 0.75rem;
-    color: var(--text-color-secondary);
-  }
-
-  .modal_minor_project_buttons {
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    column-gap: 0.75rem;
-    margin-top: auto;
-
-    > a {
-      display: flex;
-      align-items: center;
-      column-gap: 0.25rem;
-      padding: 0.25rem 1.25rem;
-      color: var(--text-color-primary);
-      border: 1px solid var(--text-color-primary);
-      border-radius: 0.25rem;
-      background-color: var(--color-secondary);
-      transition:
-        background-color 0.3s,
-        scale 0.3s,
-        translate 0s;
-      font-size: 0.75rem;
-
-      &:hover {
-        background-color: var(--color-primary);
-        scale: 1.05;
-      }
-
-      &:focus-visible {
-        background-color: var(--color-primary);
-        scale: 1.05;
-      }
-
-      &:active {
-        translate: 0 0.125rem;
-      }
-    }
-
-    & .close-modal-btn {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      column-gap: 0.25rem;
-      padding: 0.25rem 1.25rem;
-      border: 1px solid var(--text-color-primary);
-      border-radius: 0.25rem;
-      background-color: var(--color-secondary);
-      color: var(--text-color-primary);
-      transition:
-        background-color 0.3s,
-        scale 0.3s,
-        translate 0s;
-      font-size: 0.75rem;
-
-      &:hover {
-        background-color: var(--color-primary);
-        scale: 1.05;
-      }
-
-      &:focus-visible {
-        background-color: var(--color-primary);
-        scale: 1.05;
-      }
-
-      &:active {
-        translate: 0 0.125rem;
-      }
     }
   }
 </style>

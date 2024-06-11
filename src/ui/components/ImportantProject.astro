@@ -10,13 +10,17 @@ const { name, description, image, favicon, technologies, link, github } =
 <li>
   <article class="card shadow-lg shadow-black">
     <div class="card__image_container">
-      <img class="card__image" src={image} alt={`Portada de ${name}`} />
+      <img
+        class="card__image"
+        src={`/images/${image}`}
+        alt={`Portada de ${name}`}
+      />
     </div>
     <div class="card__info">
       <div class="card__info_header">
         <div class="card__title">
           <img
-            src={favicon}
+            src={`/images/favicons/${favicon}`}
             alt={`Favicon de ${name}`}
             width="24px"
             height="24px"
