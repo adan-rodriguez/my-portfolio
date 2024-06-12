@@ -3,6 +3,8 @@ import GitHubIcon from "../icons/GitHubIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
 import EmailIcon from "../icons/EmailIcon.astro";
 import DownloadIcon from "../icons/DownloadIcon.astro";
+import CloseIcon from "../icons/CloseIcon.astro";
+import FileIcon from "../icons/FileIcon.astro";
 ---
 
 <section>
@@ -74,13 +76,26 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
         >
       </li>
       <li>
-        <a
-          download="Currículum Vitae - Adán Rodríguez"
-          href="docs/curriculum-vitae-adan-rodriguez.pdf"
-          title="Descargar currículum"><DownloadIcon /> Currículum</a
-        >
+        <button id="open-cv" title="Ver currículum">
+          <FileIcon />
+          Currículum
+        </button>
       </li>
     </ul>
+    <dialog>
+      <button id="close-cv" aria-label="Cerrar">
+        <CloseIcon />
+      </button>
+      <a
+        download="Currículum Vitae - Adán Rodríguez"
+        href="docs/curriculum-vitae-adan-rodriguez.pdf"
+        title="Descargar currículum"><DownloadIcon /></a
+      >
+      <img
+        src="/images/curriculum.avif"
+        alt="Currículum vitae de Adán Rodríguez"
+      />
+    </dialog>
   </div>
 
   <figure>
@@ -192,7 +207,8 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
     flex-wrap: wrap;
     justify-content: center;
 
-    & a {
+    & a,
+    #open-cv {
       display: flex;
       align-items: center;
       column-gap: 0.5rem;
@@ -208,7 +224,7 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
         scale: 1.05;
       }
 
-      &:focus {
+      &:focus-visible {
         scale: 1.05;
       }
 
@@ -291,6 +307,51 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
     }
   }
 
+  dialog {
+    scrollbar-width: thin;
+    opacity: 0;
+    transition:
+      display 0.15s,
+      opacity 0.15s,
+      overlay 0.15s;
+    transition-behavior: allow-discrete;
+    color: var(--text-color-primary);
+
+    &[open] {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    &::backdrop {
+      backdrop-filter: blur(16px);
+    }
+
+    & #close-cv {
+      position: fixed;
+      right: 1rem;
+      top: 19px;
+      transition: scale 0.15s;
+
+      &:is(:hover, :focus-visible) {
+        scale: 1.1;
+      }
+    }
+
+    & a[download] {
+      position: fixed;
+      right: 1rem;
+      top: 4rem;
+      transition: scale 0.15s;
+
+      &:is(:hover, :focus-visible) {
+        scale: 1.1;
+      }
+    }
+  }
+
   @media (width >= 768px) {
     section {
       flex-direction: row;
@@ -328,3 +389,25 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
     }
   }
 </style>
+
+<script>
+  const cvBtn = document.querySelector("#open-cv");
+  const cvModal = document.querySelector("dialog");
+  const closeBtn = cvModal.querySelector("#close-cv");
+
+  function showCv() {
+    cvModal.showModal();
+  }
+
+  function hideCv() {
+    cvModal.close();
+  }
+
+  function closeModal(e) {
+    if (e.target.matches("dialog")) hideCv();
+  }
+
+  cvBtn.addEventListener("click", showCv);
+  closeBtn.addEventListener("click", hideCv);
+  cvModal.addEventListener("click", closeModal);
+</script>

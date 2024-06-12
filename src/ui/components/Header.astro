@@ -89,11 +89,16 @@ const LINKS = [
       max-width: 58rem;
       padding: 10px 1rem;
       margin: 0 auto;
-      justify-content: end;
+      justify-content: flex-end;
 
       &:has(#menu-btn[aria-expanded="true"]) {
         & #menu {
           display: block;
+          opacity: 1;
+
+          @starting-style {
+            opacity: 0;
+          }
         }
       }
 
@@ -128,12 +133,12 @@ const LINKS = [
 
       #menu {
         display: none;
+        opacity: 0;
         position: absolute;
         inset: 0;
         z-index: 9;
         padding: 4rem 0 2.5rem;
         overflow-y: auto;
-        scrollbar-color: var(--color-secondary), var(--bg-color);
         scrollbar-width: thin;
         background-color: var(--bg-color);
         background-image: radial-gradient(transparent, var(--bg-color)),
@@ -150,9 +155,14 @@ const LINKS = [
           var(--noise);
         background-attachment: fixed;
         background-blend-mode: luminosity;
+        transition:
+          display 0.15s,
+          opacity 0.15s;
+        transition-behavior: allow-discrete;
 
         @media (width >= 768px) {
           display: block;
+          opacity: 1;
           width: auto;
           padding: 0;
           position: static;
@@ -248,11 +258,9 @@ const LINKS = [
 
   function handleMenu() {
     if ($menuBtn.matches("[aria-expanded='false']")) {
-      if (!document.startViewTransition) return showMenu();
-      document.startViewTransition(() => showMenu());
+      showMenu();
     } else {
-      if (!document.startViewTransition) return hideMenu();
-      document.startViewTransition(() => hideMenu());
+      hideMenu();
     }
   }
 
@@ -260,10 +268,7 @@ const LINKS = [
 
   for (const $navLink of $navLinks) {
     $navLink.addEventListener("click", () => {
-      if ($menuBtn.matches("[aria-expanded='true']")) {
-        if (!document.startViewTransition) return hideMenu();
-        document.startViewTransition(() => hideMenu());
-      }
+      if ($menuBtn.matches("[aria-expanded='true']")) hideMenu();
     });
   }
 </script>
