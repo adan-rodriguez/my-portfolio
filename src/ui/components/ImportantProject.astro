@@ -8,7 +8,7 @@ const { name, description, image, favicon, technologies, link, github } =
 ---
 
 <li>
-  <article class="card shadow-lg shadow-black">
+  <article class="important-card card shadow-lg shadow-black">
     <div class="card__image_container">
       <img
         class="card__image"
@@ -84,6 +84,7 @@ const { name, description, image, favicon, technologies, link, github } =
     overflow-clip-margin: 3px;
     position: relative;
     background-color: var(--color-secondary);
+    transition: transform 0.1s;
 
     &::after {
       content: "";
@@ -245,3 +246,28 @@ const { name, description, image, favicon, technologies, link, github } =
     }
   }
 </style>
+
+<script>
+  const $$cards = document.querySelectorAll(
+    ".important-card"
+  ) as NodeListOf<HTMLElement>;
+
+  $$cards.forEach(($card) => {
+    $card.addEventListener("mousemove", (e) => {
+      const { layerX, layerY, target } = e;
+      const { clientWidth, clientHeight } = target.closest("article");
+
+      const yRotation = ((layerX - clientWidth / 2) / clientWidth) * 2;
+      const xRotation = ((layerY - clientHeight / 2) / clientHeight) * 2;
+
+      $card.style.transform = `perspective(500px) scale(1.05) rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
+    });
+  });
+
+  $$cards.forEach(($card) => {
+    $card.addEventListener("mouseleave", () => {
+      $card.style.transform =
+        "perspective(500px) scale(1) rotateX(0) rotateY(0)";
+    });
+  });
+</script>

@@ -5,6 +5,7 @@ import EmailIcon from "../icons/EmailIcon.astro";
 import DownloadIcon from "../icons/DownloadIcon.astro";
 import CloseIcon from "../icons/CloseIcon.astro";
 import FileIcon from "../icons/FileIcon.astro";
+import MyImage from "./MyImage.astro";
 ---
 
 <section>
@@ -97,14 +98,7 @@ import FileIcon from "../icons/FileIcon.astro";
       />
     </dialog>
   </div>
-
-  <figure>
-    <img
-      src="images/adan-rodriguez.avif"
-      alt="Foto de Adán Rodríguez"
-      fetchpriority="high"
-    />
-  </figure>
+  <MyImage />
 </section>
 
 <style>
@@ -112,8 +106,8 @@ import FileIcon from "../icons/FileIcon.astro";
     padding-block: 4rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     align-items: center;
+    gap: 2rem;
   }
 
   .data {
@@ -234,79 +228,6 @@ import FileIcon from "../icons/FileIcon.astro";
     }
   }
 
-  figure {
-    --size: 300px;
-
-    width: var(--size);
-    aspect-ratio: 1;
-    border-radius: 100%;
-    background-image: radial-gradient(black 40%, var(--color-primary));
-    mix-blend-mode: var(--mix-mode-me-img);
-    box-shadow: 0 0 20px var(--color-primary);
-    animation: move 4s linear infinite;
-    overflow: hidden;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    &::after {
-      content: "";
-      box-shadow: 0 -20px 20px var(--color-primary) inset;
-      position: absolute;
-      inset: 0;
-      border-radius: 100%;
-      animation: shadow-inset 4s linear infinite;
-    }
-
-    @keyframes shadow-inset {
-      to {
-        rotate: 360deg;
-      }
-    }
-
-    @keyframes move {
-      0% {
-        transform: translateX(-10px) translateY(0px);
-      }
-      25% {
-        transform: translateX(0px) translateY(10px);
-      }
-      50% {
-        transform: translateX(10px) translateY(0px);
-      }
-      75% {
-        transform: translateX(0px) translateY(-10px);
-      }
-      100% {
-        transform: translateX(-10px) translateY(0px);
-      }
-    }
-
-    @media (width >= 768px) {
-      @keyframes move {
-        0% {
-          transform: translateX(-20px) translateY(0px);
-        }
-        25% {
-          transform: translateX(-10px) translateY(10px);
-        }
-        50% {
-          transform: translateX(0px) translateY(0px);
-        }
-        75% {
-          transform: translateX(-10px) translateY(-10px);
-        }
-        100% {
-          transform: translateX(-20px) translateY(0px);
-        }
-      }
-    }
-  }
-
   dialog {
     scrollbar-width: thin;
     opacity: 0;
@@ -352,7 +273,7 @@ import FileIcon from "../icons/FileIcon.astro";
     }
   }
 
-  @media (width >= 768px) {
+  @media (width >= 907px) {
     section {
       flex-direction: row;
       justify-content: space-between;
@@ -376,9 +297,9 @@ import FileIcon from "../icons/FileIcon.astro";
   }
 
   @media (prefers-reduced-motion) {
-    .skill {
+    /* .skill {
       animation: none;
-    }
+    } */
 
     figure {
       animation: none;
