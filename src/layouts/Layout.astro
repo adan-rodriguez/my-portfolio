@@ -49,15 +49,23 @@ const { title } = Astro.props;
   const $root = document.documentElement;
   const $themeBtn = document.querySelector("#theme-btn");
 
+  function setAttributes(theme) {
+    $root.setAttribute("data-theme", theme);
+    $themeBtn.setAttribute(
+      "title",
+      `Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`
+    );
+  }
+
   function toggleTheme() {
     const newTheme = $root.dataset.theme === "dark" ? "light" : "dark";
-    $root.setAttribute("data-theme", newTheme);
+    setAttributes(newTheme);
     localStorage.setItem("theme", newTheme);
   }
 
   function changeColorScheme(e) {
     const newTheme = e.matches ? "dark" : "light";
-    $root.setAttribute("data-theme", newTheme);
+    setAttributes(newTheme);
   }
 
   const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
