@@ -16,7 +16,6 @@ const LINKS = [
       id="logo-link"
       href="/"
       aria-label="Link que lleva a la página principal"
-      class="hover:scale-[1.025] focus-visible:scale-[1.025] transition-transform z-10"
     >
       <h1 translate="no">
         <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
@@ -89,7 +88,6 @@ const LINKS = [
       max-width: 58rem;
       padding: 10px 1rem;
       margin: 0 auto;
-      justify-content: flex-end;
 
       &:has(#menu-btn[aria-expanded="true"]) {
         & #menu {
@@ -104,6 +102,12 @@ const LINKS = [
 
       #logo-link {
         margin-right: auto;
+        z-index: 2;
+        transition: scale 0.3s;
+
+        &:is(:hover, :focus-visible) {
+          scale: 1.025;
+        }
       }
 
       h1 {
@@ -116,7 +120,7 @@ const LINKS = [
 
       #menu-btn {
         transition: scale 0.3s;
-        z-index: 10;
+        z-index: 2;
 
         &:hover {
           scale: 1.1;
@@ -134,25 +138,14 @@ const LINKS = [
       #menu {
         display: none;
         opacity: 0;
+        z-index: 1;
         position: absolute;
         inset: 0;
-        z-index: 9;
-        padding: 4rem 0 2.5rem;
         overflow-y: auto;
         scrollbar-width: thin;
+        padding: 4rem 1rem 1rem;
         background-color: var(--bg-color);
-        background-image: radial-gradient(transparent, var(--bg-color)),
-          repeating-linear-gradient(
-            to bottom,
-            var(--bg-grid-color) 0 1px,
-            transparent 1px var(--bg-grid-size)
-          ),
-          repeating-linear-gradient(
-            to right,
-            var(--bg-grid-color) 0 1px,
-            transparent 1px var(--bg-grid-size)
-          ),
-          var(--noise);
+        background-image: var(--main-gradient);
         background-attachment: fixed;
         background-blend-mode: luminosity;
         transition:
@@ -163,9 +156,9 @@ const LINKS = [
         @media (width >= 768px) {
           display: block;
           opacity: 1;
-          width: auto;
-          padding: 0;
           position: static;
+          padding: 0;
+          background: inherit;
         }
 
         ul {

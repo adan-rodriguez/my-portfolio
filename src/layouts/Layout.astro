@@ -89,10 +89,23 @@ const { title } = Astro.props;
     --color-secondary: rgb(55 65 81);
     --bg-color: rgb(2 6 23);
     --bg-grid-color: rgba(3, 94, 143, 0.3);
+    --bg-grid-size: 64px;
     --noise: url(/images/noise-dark.webp);
     --mix-mode-me-img: lighten;
     --mix-mode-intro-links: difference;
     --mix-mode-travolta: difference;
+    --main-gradient: radial-gradient(transparent, var(--bg-color)),
+      repeating-linear-gradient(
+        to bottom,
+        var(--bg-grid-color) 0 1px,
+        transparent 1px var(--bg-grid-size)
+      ),
+      repeating-linear-gradient(
+        to right,
+        var(--bg-grid-color) 0 1px,
+        transparent 1px var(--bg-grid-size)
+      ),
+      var(--noise);
 
     scroll-behavior: smooth;
     /* scrollbar-gutter: stable; */
@@ -127,23 +140,10 @@ const { title } = Astro.props;
   }
 
   body {
-    --bg-grid-size: 64px;
-
     font-family: "Onest Variable", sans-serif;
     color: var(--text-color-primary);
     background-color: var(--bg-color);
-    background-image: radial-gradient(transparent, var(--bg-color)),
-      repeating-linear-gradient(
-        to bottom,
-        var(--bg-grid-color) 0 1px,
-        transparent 1px var(--bg-grid-size)
-      ),
-      repeating-linear-gradient(
-        to right,
-        var(--bg-grid-color) 0 1px,
-        transparent 1px var(--bg-grid-size)
-      ),
-      var(--noise);
+    background-image: var(--main-gradient);
     background-attachment: fixed;
     background-blend-mode: luminosity;
     overflow-x: hidden;

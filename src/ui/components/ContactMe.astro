@@ -12,7 +12,7 @@ import SendIcon from "../icons/SendIcon.astro";
     >
       <label
         >Nombre completo<abbr title="Campo obligatorio">*</abbr>
-        <input type="text" name="name" required />
+        <input name="name" required />
       </label>
       <label
         >Correo electrónico<abbr title="Campo obligatorio">*</abbr>
@@ -20,7 +20,7 @@ import SendIcon from "../icons/SendIcon.astro";
       </label>
       <label
         >Mensaje<abbr title="Campo obligatorio">*</abbr>
-        <textarea name="message" id="message" required></textarea>
+        <textarea name="message" required></textarea>
       </label>
       <button type="submit"><SendIcon /> Enviar</button>
     </form>
@@ -91,7 +91,7 @@ import SendIcon from "../icons/SendIcon.astro";
     row-gap: 2rem;
     padding: 3rem 1rem;
     border-radius: 0.25rem;
-    background-image: url(/images/noise-dark.webp),
+    background-image: var(--noise),
       linear-gradient(to bottom right, black, var(--color-secondary), black);
     background-blend-mode: soft-light;
   }
