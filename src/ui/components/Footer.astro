@@ -16,30 +16,27 @@
     margin-inline: auto;
 
     a {
-      display: inline-block;
-      /* outline: none; */
+      position: relative;
+      text-decoration: underline;
+      text-underline-offset: 7px;
+
+      &:hover {
+        &::after {
+          scale: 1.1;
+        }
+      }
 
       &::after {
         content: "";
+        position: absolute;
+        left: 103%;
+        top: 0;
         display: block;
-        height: 1px;
-        background-color: var(--text-color-primary);
-        /* transform: scale(0);
-        transform-origin: left;
-        transition: transform 0.3s; */
+        background-image: url("/images/instagram.svg");
+        width: 14px;
+        height: 14px;
+        transition: scale 0.3s;
       }
-
-      /* &:hover {
-        &::after {
-          transform: scale(1);
-        }
-      }
-
-      &:focus-visible {
-        &::after {
-          transform: scale(1);
-        }
-      } */
     }
   }
 </style>
