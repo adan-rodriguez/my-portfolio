@@ -15,7 +15,7 @@ const LINKS = [
     <a
       id="logo-link"
       href="/"
-      title="Inicio"
+      aria-label="Link que lleva a la página principal"
       class="hover:scale-[1.025] focus-visible:scale-[1.025] transition-transform z-10"
     >
       <h1 translate="no">
@@ -34,7 +34,7 @@ const LINKS = [
       aria-controls="menu"
     >
       <HamburgerIcon />
-      <CloseIcon />
+      <CloseIcon id="close-menu-icon" />
     </button>
     <nav id="menu">
       <ul>
@@ -64,7 +64,7 @@ const LINKS = [
       display: flex;
     }
 
-    & #close-icon {
+    & #close-menu-icon {
       display: none;
     }
   }
@@ -74,7 +74,7 @@ const LINKS = [
       display: none;
     }
 
-    & #close-icon {
+    & #close-menu-icon {
       display: flex;
     }
   }

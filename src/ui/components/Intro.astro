@@ -56,41 +56,38 @@ import MyImage from "./MyImage.astro";
       <li>
         <a
           href="mailto:adan.rodriguez.fusta@gmail.com"
-          title="Envíame un correo"
-          rel="noopener"><EmailIcon /> adan.rodriguez.fusta@gmail.com</a
+          aria-label="Envía un correo a Adán Rodríguez"
+          rel="noopener"><EmailIcon />adan.rodriguez.fusta@gmail.com</a
         >
       </li>
       <li>
         <a
           href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
-          title="Visita mi LinkedIn"
           target="_blank"
-          rel="noopener"><LinkedinIcon /> LinkedIn</a
+          rel="noopener"><LinkedinIcon />LinkedIn</a
         >
       </li>
       <li>
         <a
           href="https://github.com/adan-rodriguez"
-          title="Visita mi GitHub"
           target="_blank"
-          rel="noopener"><GitHubIcon width="24" height="24" /> GitHub</a
+          rel="noopener"><GitHubIcon width="24" height="24" />GitHub</a
         >
       </li>
       <li>
-        <button id="open-cv" title="Ver currículum">
-          <FileIcon />
-          Currículum
-        </button>
+        <button id="open-cv" aria-label="Ver currículum de Adán Rodríguez"
+          ><FileIcon />Currículum</button
+        >
       </li>
     </ul>
     <dialog>
-      <button id="close-cv" aria-label="Cerrar">
+      <button id="close-cv" aria-label="Cerrar modal">
         <CloseIcon />
       </button>
       <a
         download="Currículum Vitae - Adán Rodríguez"
-        href="docs/curriculum-vitae-adan-rodriguez.pdf"
-        title="Descargar currículum"><DownloadIcon /></a
+        href="/docs/curriculum-vitae-adan-rodriguez.pdf"
+        aria-label="Descargar currículum (PDF)"><DownloadIcon /></a
       >
       <img
         src="/images/curriculum.avif"

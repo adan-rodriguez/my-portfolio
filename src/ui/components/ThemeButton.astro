@@ -6,7 +6,7 @@ import Sun from "../icons/Sun.astro";
 <button id="theme-btn">
   <script is:inline>
     document.currentScript.parentElement.setAttribute(
-      "title",
+      "aria-label",
       `Cambiar a modo ${document.documentElement.dataset.theme === "dark" ? "claro" : "oscuro"}`
     );
   </script>
