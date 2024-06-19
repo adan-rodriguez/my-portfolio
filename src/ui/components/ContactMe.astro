@@ -11,18 +11,18 @@ import SendIcon from "../icons/SendIcon.astro";
       class="shadow-lg shadow-black"
     >
       <label
-        >Nombre completo<abbr title="Campo obligatorio">*</abbr>
-        <input name="name" required />
+        ><span aria-hidden="true">*</span>Nombre completo
+        <input name="name" required aria-required="true" />
       </label>
       <label
-        >Correo electrónico<abbr title="Campo obligatorio">*</abbr>
-        <input type="email" name="email" required />
+        ><span aria-hidden="true">*</span>Correo electrónico
+        <input type="email" name="email" required aria-required="true" />
       </label>
       <label
-        >Mensaje<abbr title="Campo obligatorio">*</abbr>
-        <textarea name="message" required></textarea>
+        ><span aria-hidden="true">*</span>Mensaje
+        <textarea name="message" required aria-required="true"></textarea>
       </label>
-      <button type="submit"><SendIcon /> Enviar</button>
+      <button><SendIcon /> Enviar</button>
     </form>
   </div>
 </section>
@@ -129,9 +129,9 @@ import SendIcon from "../icons/SendIcon.astro";
     min-height: 150px;
   }
 
-  abbr[title] {
-    text-decoration: none;
-    color: #e57373;
+  span {
+    color: red;
+    font-weight: bold;
   }
 
   button {
