@@ -6,6 +6,7 @@ import DownloadIcon from "../icons/DownloadIcon.astro";
 import CloseIcon from "../icons/CloseIcon.astro";
 import FileIcon from "../icons/FileIcon.astro";
 import MyImage from "./MyImage.astro";
+import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 ---
 
 <section>
@@ -75,8 +76,17 @@ import MyImage from "./MyImage.astro";
         >
       </li>
       <li>
-        <button id="open-cv" aria-label="Ver currículum de Adán Rodríguez"
+        <button
+          id="open-cv"
+          aria-label="Ver currículum de Adán Rodríguez en una modal"
           ><FileIcon />Currículum</button
+        >
+        <a
+          id="cv-link"
+          href="/docs/curriculum-vitae-adan-rodriguez.pdf"
+          target="_blank"
+          aria-label="Ver currículum de Adán Rodríguez en una pestaña nueva (PDF)"
+          ><FileIcon />Curriculum<ExternalLinkIcon /></a
         >
       </li>
     </ul>
@@ -199,7 +209,7 @@ import MyImage from "./MyImage.astro";
     justify-content: center;
 
     & a,
-    #open-cv {
+    & #open-cv {
       display: flex;
       align-items: center;
       column-gap: 0.5rem;
@@ -221,6 +231,21 @@ import MyImage from "./MyImage.astro";
 
       &:active {
         translate: 0 0.125rem;
+      }
+    }
+
+    & #open-cv {
+      @media (scripting: none) {
+        display: none;
+      }
+    }
+
+    & #cv-link {
+      display: none;
+      position: relative;
+
+      @media (scripting: none) {
+        display: flex;
       }
     }
   }
