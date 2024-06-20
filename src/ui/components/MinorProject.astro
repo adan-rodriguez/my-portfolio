@@ -118,6 +118,28 @@ const { name, image, favicon, description, technologies, link, github } =
     }
   }
 
+  /* @supports (animation-timeline: view(block auto)) { */
+  li {
+    animation: ot forwards;
+    animation-timeline: view(block auto);
+    animation-range: entry 25% entry 100%;
+    opacity: 0;
+    translate: 0 100%;
+  }
+
+  @keyframes ot {
+    from {
+      opacity: 0;
+      translate: 0 100%;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  /* } */
+
   .minor_project {
     display: flex;
     flex-direction: column;

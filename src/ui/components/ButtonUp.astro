@@ -3,6 +3,10 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
 ---
 
 <button id="scroll-to-top" aria-label="Volver al inicio de la página">
+  <script is:inline>
+    if (document.body.scrollTop || document.documentElement.scrollTop > 20)
+      document.currentScript.parentElement.classList.add("show");
+  </script>
   <ArrowUpIcon />
 </button>
 
@@ -39,7 +43,7 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     display: none;
     opacity: 0;
     position: fixed;
-    bottom: 0.5rem;
+    bottom: -42px;
     right: 0.5rem;
     border: 1px solid var(--text-color-primary);
     border-radius: 0.5rem;
@@ -49,15 +53,18 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     transition:
       scale 0.3s,
       display 0.3s,
-      opacity 0.3s;
+      opacity 0.3s,
+      bottom 0.3s;
     transition-behavior: allow-discrete;
 
     &.show {
       display: block;
       opacity: 1;
+      bottom: 0.5rem;
 
       @starting-style {
         opacity: 0;
+        bottom: -42px;
       }
     }
 
