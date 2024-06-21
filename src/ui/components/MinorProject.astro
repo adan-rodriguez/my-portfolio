@@ -8,7 +8,7 @@ const { name, image, favicon, description, technologies, link, github } =
 ---
 
 <li>
-  <article class="minor_project shadow-lg shadow-black">
+  <article class="minor_project">
     <div class="image-container">
       <img
         class="minor_project__image"
@@ -145,6 +145,7 @@ const { name, image, favicon, description, technologies, link, github } =
     flex-direction: column;
     border-radius: 0.5rem;
     overflow: hidden;
+    box-shadow: var(--shadow-black-lg);
     transition: transform 0.3s;
 
     &:is(:hover, :focus-within) {
@@ -218,10 +219,11 @@ const { name, image, favicon, description, technologies, link, github } =
     align-items: center;
     column-gap: 0.25rem;
     padding: 0.25rem 1.25rem;
-    border: 1px solid var(--text-color-primary);
+    border: 1px solid var(--text-color-secondary);
     border-radius: 0.25rem;
     background-color: var(--color-secondary);
     color: var(--text-color-primary);
+    box-shadow: var(--shadow-black-lg);
     transition:
       background-color 0.3s,
       scale 0.3s,

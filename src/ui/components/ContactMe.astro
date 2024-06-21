@@ -8,7 +8,6 @@ import SendIcon from "../icons/SendIcon.astro";
     <form
       action=`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_API}`
       method="post"
-      class="shadow-lg shadow-black"
     >
       <label
         ><span aria-hidden="true">*</span>Nombre completo
@@ -65,10 +64,6 @@ import SendIcon from "../icons/SendIcon.astro";
 <style>
   section {
     padding-block: 4rem;
-
-    @media (scripting: none) {
-      display: none;
-    }
   }
 
   h2 {
@@ -98,6 +93,7 @@ import SendIcon from "../icons/SendIcon.astro";
     background-image: var(--noise),
       linear-gradient(to bottom right, black, var(--color-secondary), black);
     background-blend-mode: soft-light;
+    box-shadow: var(--shadow-black-lg);
   }
 
   label {
@@ -148,6 +144,7 @@ import SendIcon from "../icons/SendIcon.astro";
     border-radius: 0.25rem;
     background-color: var(--color-secondary);
     color: var(--text-color-primary);
+    box-shadow: var(--shadow-black-lg);
     transition:
       background-color 0.3s,
       scale 0.3s,

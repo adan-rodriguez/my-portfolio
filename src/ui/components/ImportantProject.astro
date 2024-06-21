@@ -8,7 +8,7 @@ const { name, description, image, favicon, technologies, link, github } =
 ---
 
 <li>
-  <article class="important-card card shadow-lg shadow-black">
+  <article class="important-card card">
     <div class="card__image_container">
       <img
         class="card__image"
@@ -54,7 +54,7 @@ const { name, description, image, favicon, technologies, link, github } =
               href="https://github.com/adan-rodriguez/el-villanense-next-js"
               target="_blank"
               rel="noopener noreferrer"
-              class="card__button text-"
+              class="card__button"
             >
               <GitHubIcon width="16" height="16" />
               Código
@@ -106,6 +106,7 @@ const { name, description, image, favicon, technologies, link, github } =
     overflow-clip-margin: 3px;
     position: relative;
     background-color: var(--color-secondary);
+    box-shadow: var(--shadow-black-lg);
     transition: transform 0.1s;
 
     &::after {
@@ -247,6 +248,7 @@ const { name, description, image, favicon, technologies, link, github } =
     border-radius: 0.25rem;
     background-color: var(--color-secondary);
     color: var(--text-color-primary);
+    box-shadow: var(--shadow-black-lg);
     transition:
       background-color 0.3s,
       scale 0.3s,

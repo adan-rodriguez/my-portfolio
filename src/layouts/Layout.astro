@@ -106,6 +106,9 @@ const { title } = Astro.props;
         transparent 1px var(--bg-grid-size)
       ),
       var(--noise);
+    --shadow-black-lg: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+      rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(0, 0, 0) 0px 10px 15px -3px,
+      rgb(0, 0, 0) 0px 4px 6px -4px;
 
     scroll-behavior: smooth;
     /* scrollbar-gutter: stable; */
@@ -114,10 +117,6 @@ const { title } = Astro.props;
 
     & #moon {
       display: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      scroll-behavior: auto;
     }
   }
 

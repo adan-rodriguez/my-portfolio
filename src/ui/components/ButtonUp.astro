@@ -45,10 +45,11 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     position: fixed;
     bottom: -42px;
     right: 0.5rem;
-    border: 1px solid var(--text-color-primary);
+    border: 1px solid var(--text-color-secondary);
     border-radius: 0.5rem;
     padding: 0.5rem;
     background-color: var(--color-primary);
+    box-shadow: var(--shadow-black-lg);
     cursor: pointer;
     transition:
       scale 0.3s,
@@ -70,6 +71,10 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
 
     &:is(:hover, :focus-visible) {
       scale: 1.05;
+    }
+
+    &:active {
+      translate: 0 0.125rem;
     }
   }
 </style>
