@@ -86,8 +86,12 @@ const LINKS = [
       flex-wrap: wrap;
       align-items: center;
       max-width: 58rem;
-      padding: 10px 1rem;
+      padding: 10px 0.5rem 10px 0.5rem;
       margin: 0 auto;
+
+      @media (width >= 768px) {
+        padding-right: 0;
+      }
 
       &:has(#menu-btn[aria-expanded="true"]) {
         & #menu {
@@ -119,15 +123,13 @@ const LINKS = [
       }
 
       #menu-btn {
-        transition: scale 0.3s;
         z-index: 2;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
 
-        &:hover {
-          scale: 1.1;
-        }
-
-        &:focus-visible {
-          scale: 1.1;
+        &:is(:hover, :focus-visible) {
+          background-color: rgb(var(--color-primary-rgb) / 50%);
         }
 
         @media (width >= 768px) {
@@ -163,6 +165,9 @@ const LINKS = [
           position: static;
           padding: 0;
           background: inherit;
+          overflow-y: visible;
+          transition: none;
+          transition-behavior: none;
         }
 
         @media (scripting: none) {
@@ -172,40 +177,21 @@ const LINKS = [
         ul {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 1.25rem;
+          text-align: center;
 
           @media (width >= 768px) {
             flex-direction: row;
           }
 
           a {
+            display: block;
             outline: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
 
-            &::after {
-              content: "";
-              display: block;
-              height: 1px;
-              background-color: var(--text-color-primary);
-              transform: scale(0);
-              transform-origin: left;
-              transition: transform 0.3s;
-            }
-          }
-
-          a {
-            &:hover {
-              &::after {
-                transform: scale(1);
-              }
-            }
-          }
-
-          a {
-            &:focus-visible {
-              &::after {
-                transform: scale(1);
-              }
+            &:is(:hover, :focus-visible) {
+              background-color: rgb(var(--color-primary-rgb) / 50%);
             }
           }
         }

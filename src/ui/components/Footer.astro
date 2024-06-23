@@ -20,7 +20,7 @@
       text-decoration: underline;
       text-underline-offset: 7px;
 
-      &:hover {
+      &:is(:hover, :focus-visible) {
         &::after {
           scale: 1.1;
         }

@@ -17,11 +17,12 @@ import Sun from "../icons/Sun.astro";
 <style>
   #theme-btn {
     z-index: 2;
-    transition: scale 0.3s;
-    margin-right: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
 
     &:is(:hover, :focus-visible) {
-      scale: 1.1;
+      background-color: rgb(var(--color-primary-rgb) / 50%);
     }
 
     @media (scripting: none) {
