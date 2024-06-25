@@ -62,16 +62,19 @@ const { name, description, image, favicon, technologies, link, github } =
     position: relative;
     background-color: var(--color-secondary);
     box-shadow: var(--shadow-black-lg);
-    opacity: 0;
-    translate: 0 100px;
     transition:
       transform 0.1s,
       opacity 1s,
       translate 1s;
 
-    &.animate {
-      opacity: 1;
-      translate: 0;
+    @media (scripting: enabled) {
+      opacity: 0;
+      translate: 0 100px;
+
+      &.animate {
+        opacity: 1;
+        translate: 0;
+      }
     }
 
     @media (width >= 576px) {

@@ -84,7 +84,6 @@ const LINKS = [
     > div {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       max-width: 58rem;
       padding: 10px 0.5rem 10px 1rem;
       margin: 0 auto;
@@ -119,7 +118,7 @@ const LINKS = [
         font-family: "Lobster", cursive;
         user-select: none;
         position: relative;
-        top: -5px;
+        line-height: 40px;
       }
 
       #menu-btn {
@@ -146,10 +145,13 @@ const LINKS = [
         opacity: 0;
         z-index: 1;
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
         overflow-y: auto;
         scrollbar-width: thin;
-        padding: 4rem 1rem 1rem;
+        padding-block: 4rem 1rem;
         background-color: var(--bg-color);
         background-image: var(--main-gradient);
         background-attachment: fixed;
@@ -163,6 +165,8 @@ const LINKS = [
           display: block;
           opacity: 1;
           position: static;
+          width: auto;
+          height: auto;
           padding: 0;
           background: inherit;
           overflow-y: visible;

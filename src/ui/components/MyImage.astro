@@ -49,10 +49,11 @@
     }
 
     &::after {
-      content: "";
       box-shadow: 0 -20px 20px var(--color-primary) inset;
       position: absolute;
-      inset: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       border-radius: 100%;
       animation: shadow-inset 4s linear infinite;
 
@@ -60,6 +61,10 @@
         to {
           rotate: 360deg;
         }
+      }
+
+      @media (width >=640px) {
+        content: "";
       }
     }
 
@@ -115,15 +120,5 @@
         }
       }
     } */
-  }
-
-  @media (prefers-reduced-motion) {
-    figure {
-      animation: none;
-
-      &::after {
-        animation: none;
-      }
-    }
   }
 </style>
