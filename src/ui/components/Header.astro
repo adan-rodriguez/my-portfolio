@@ -238,6 +238,7 @@ const LINKS = [
   function showMenu() {
     $menuBtn.setAttribute("aria-expanded", "true");
     $menuBtn.setAttribute("aria-label", "Cerrar menú");
+    window.scrollTo({ top: 0, behavior: "smooth" });
     document.addEventListener("keydown", trapFocus);
   }
 
