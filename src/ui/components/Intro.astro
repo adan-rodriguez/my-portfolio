@@ -90,7 +90,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
         >
       </li>
     </ul>
-    <dialog>
+    <dialog id="modal-cv">
       <button id="close-cv" aria-label="Cerrar modal">
         <CloseIcon />
       </button>
@@ -251,7 +251,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
     }
   }
 
-  dialog {
+  #modal-cv {
     scrollbar-width: thin;
     opacity: 0;
     transition:
@@ -322,7 +322,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 
 <script>
   const cvBtn = document.querySelector("#open-cv");
-  const cvModal = document.querySelector("dialog");
+  const cvModal = document.querySelector("#modal-cv");
   const closeBtn = cvModal.querySelector("#close-cv");
 
   function showCv() {
@@ -334,7 +334,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
   }
 
   function closeModal(e) {
-    if (e.target.matches("dialog")) hideCv();
+    if (e.target.matches("#modal-cv")) hideCv();
   }
 
   cvBtn.addEventListener("click", showCv);

@@ -34,6 +34,68 @@ const { title } = Astro.props;
 
       document.documentElement.setAttribute("data-theme", theme);
     </script>
+    <style>
+      :root {
+        --text-color-primary: rgb(248 250 252);
+        --text-color-secondary: rgb(203 213 225);
+        --color-primary: rgb(3 93 143);
+        --color-primary-rgb: 3 93 143;
+        --color-secondary: rgb(55 65 81);
+        --bg-color: rgb(2 6 23);
+        --bg-grid-color: rgba(3, 94, 143, 0.3);
+        --bg-grid-size: 64px;
+        --noise: url(/images/noise-dark.webp);
+        --mix-mode-me-img: lighten;
+        --mix-mode-intro-links: difference;
+        --mix-mode-travolta: difference;
+        --main-gradient: radial-gradient(transparent, var(--bg-color)),
+          repeating-linear-gradient(
+            to bottom,
+            var(--bg-grid-color) 0 1px,
+            transparent 1px var(--bg-grid-size)
+          ),
+          repeating-linear-gradient(
+            to right,
+            var(--bg-grid-color) 0 1px,
+            transparent 1px var(--bg-grid-size)
+          ),
+          var(--noise);
+        --shadow-black-lg: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(0, 0, 0) 0px 10px 15px -3px,
+          rgb(0, 0, 0) 0px 4px 6px -4px;
+
+        scroll-behavior: smooth;
+        /* scrollbar-gutter: stable; */
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-secondary) var(--bg-color);
+      }
+
+      :root[data-theme="light"] {
+        --text-color-primary: rgb(2 6 23);
+        --text-color-secondary: rgb(31 41 55);
+        --bg-color: rgb(248 250 252);
+        --noise: url(/images/noise-ligth.webp);
+        --mix-mode-me-img: multiply;
+        --mix-mode-intro-links: multiply;
+        --mix-mode-travolta: hard-light;
+      }
+
+      body {
+        font-family: "Onest Variable", sans-serif;
+        color: var(--text-color-primary);
+        background-color: var(--bg-color);
+        background-image: var(--main-gradient);
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        overflow-x: hidden;
+      }
+
+      main {
+        max-width: 58rem;
+        margin: auto;
+        padding: 0 1rem;
+      }
+    </style>
   </head>
   <body>
     <Header />
@@ -83,80 +145,25 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --text-color-primary: rgb(248 250 252);
-    --text-color-secondary: rgb(203 213 225);
-    --color-primary: rgb(3 93 143);
-    --color-primary-rgb: 3 93 143;
-    --color-secondary: rgb(55 65 81);
-    --bg-color: rgb(2 6 23);
-    --bg-grid-color: rgba(3, 94, 143, 0.3);
-    --bg-grid-size: 64px;
-    --noise: url(/images/noise-dark.webp);
-    --mix-mode-me-img: lighten;
-    --mix-mode-intro-links: difference;
-    --mix-mode-travolta: difference;
-    --main-gradient: radial-gradient(transparent, var(--bg-color)),
-      repeating-linear-gradient(
-        to bottom,
-        var(--bg-grid-color) 0 1px,
-        transparent 1px var(--bg-grid-size)
-      ),
-      repeating-linear-gradient(
-        to right,
-        var(--bg-grid-color) 0 1px,
-        transparent 1px var(--bg-grid-size)
-      ),
-      var(--noise);
-    --shadow-black-lg: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-      rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(0, 0, 0) 0px 10px 15px -3px,
-      rgb(0, 0, 0) 0px 4px 6px -4px;
-
-    scroll-behavior: smooth;
-    /* scrollbar-gutter: stable; */
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-secondary) var(--bg-color);
-
     & #moon {
       display: none;
     }
-  }
 
-  :root[data-theme="light"] {
-    --text-color-primary: rgb(2 6 23);
-    --text-color-secondary: rgb(31 41 55);
-    --bg-color: rgb(248 250 252);
-    --noise: url(/images/noise-ligth.webp);
-    --mix-mode-me-img: multiply;
-    --mix-mode-intro-links: multiply;
-    --mix-mode-travolta: hard-light;
+    &[data-theme="light"] {
+      & #moon {
+        display: block;
+      }
 
-    & #moon {
-      display: block;
-    }
-
-    & #sun {
-      display: none;
+      & #sun {
+        display: none;
+      }
     }
   }
 
   body {
-    font-family: "Onest Variable", sans-serif;
-    color: var(--text-color-primary);
-    background-color: var(--bg-color);
-    background-image: var(--main-gradient);
-    background-attachment: fixed;
-    background-blend-mode: luminosity;
-    overflow-x: hidden;
-
-    &:has(dialog[open]) {
+    &:has(#modal-cv[open]) {
       overflow-y: hidden;
     }
-  }
-
-  main {
-    max-width: 58rem;
-    margin: auto;
-    padding: 0 1rem;
   }
 
   p {
@@ -165,16 +172,8 @@ const { title } = Astro.props;
 
   input,
   textarea {
-    &:focus {
+    &:focus-visible {
       outline: none;
-    }
-  }
-
-  @media (prefers-reduced-motion) {
-    ::view-transition-group(*),
-    ::view-transition-old(*),
-    ::view-transition-new(*) {
-      animation: none !important;
     }
   }
 </style>
