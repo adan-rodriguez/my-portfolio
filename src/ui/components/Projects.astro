@@ -53,6 +53,11 @@ const TECHNOLOGIES = {
     image: "react.svg",
     color: { bg: "rgb(97 218 251 / 30%)", text: "rgb(248 250 252)" },
   },
+  ASTRO: {
+    name: "Astro",
+    image: "astro.svg",
+    color: { bg: "rgb(216 51 51 / 30%)", text: "rgb(248 250 252)" },
+  },
 };
 
 const importantProjects = [
@@ -72,6 +77,22 @@ const importantProjects = [
       TECHNOLOGIES.JAVASCRIPT,
     ],
     link: "https://www.elvillanense.com.ar",
+    github: null,
+  },
+  {
+    name: "Comuna de Villa Ana",
+    description:
+      "Página web de la localidad donde vivo. Mi primer trabajo freelance.",
+    image: "comuna-villa-ana.avif",
+    favicon: "comuna-villa-ana.avif",
+    technologies: [
+      TECHNOLOGIES.ASTRO,
+      TECHNOLOGIES.HTML,
+      TECHNOLOGIES.CSS,
+      TECHNOLOGIES.JAVASCRIPT,
+      TECHNOLOGIES.TAILWIND,
+    ],
+    link: "https://villaana.gob.ar",
     github: null,
   },
 ];
@@ -174,16 +195,6 @@ const minorProjects = [
     link: "https://bootstrapractice.vercel.app",
     github: "https://github.com/adan-rodriguez/bootstrap-practice",
   },
-  {
-    name: "Comuna de Villa Ana",
-    description:
-      "Boceto de sitio web que realicé para mostrar a la comuna del lugar dónde vivo.",
-    image: "comuna-villaana.avif",
-    favicon: "comuna-villaana.avif",
-    technologies: [TECHNOLOGIES.HTML, TECHNOLOGIES.CSS],
-    link: "https://villaana.vercel.app",
-    github: "https://github.com/adan-rodriguez/pagina-comuna-villaana",
-  },
 ];
 ---
 
@@ -269,6 +280,7 @@ const minorProjects = [
 
   .important_projects {
     display: flex;
+    flex-direction: column;
     row-gap: 2rem;
   }
 
