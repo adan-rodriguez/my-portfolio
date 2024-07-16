@@ -260,6 +260,8 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
       overlay 0.15s;
     transition-behavior: allow-discrete;
     color: var(--text-color-primary);
+    width: 80%;
+    max-width: 768px;
 
     &[open] {
       opacity: 1;
@@ -271,6 +273,10 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 
     &::backdrop {
       backdrop-filter: blur(16px);
+    }
+
+    & img {
+      width: 100%;
     }
 
     & #close-cv {
