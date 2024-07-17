@@ -10,7 +10,7 @@ import Sun from "../icons/Sun.astro";
       `Cambiar a modo ${document.documentElement.dataset.theme === "dark" ? "claro" : "oscuro"}`
     );
   </script>
-  <Sun />
+  <Sun class="sun" />
   <Moon />
 </button>
 
@@ -21,8 +21,22 @@ import Sun from "../icons/Sun.astro";
     border-radius: 0.5rem;
     transition: background-color 0.3s;
 
+    & .sun {
+      animation: rotate-sun 3s linear infinite forwards paused;
+
+      @keyframes rotate-sun {
+        to {
+          rotate: 360deg;
+        }
+      }
+    }
+
     &:is(:hover, :focus-visible) {
       background-color: rgb(var(--color-primary-rgb) / 50%);
+
+      & .sun {
+        animation-play-state: running;
+      }
     }
 
     @media (scripting: none) {
