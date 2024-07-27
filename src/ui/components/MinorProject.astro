@@ -37,9 +37,13 @@ const { name, image, favicon, description, technologies, link, github } =
       <a href={link} target="_blank" rel="noopener noreferrer"
         ><LinkIcon /> Deploy</a
       >
-      <a href={github} target="_blank" rel="noopener noreferrer"
-        ><GitHubIcon width="16" height="16" /> Código</a
-      >
+      {
+        github && (
+          <a href={github} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon width="16" height="16" /> Código
+          </a>
+        )
+      }
     </div>
   </div>
 </li>
