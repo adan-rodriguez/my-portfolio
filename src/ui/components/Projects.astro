@@ -63,6 +63,11 @@ const TECHNOLOGIES = {
     image: "google-sheets.svg",
     color: { bg: "rgb(52 168 83 / 30%)", text: "rgb(248 250 252)" },
   },
+  SUPABASE: {
+    name: "Supabase",
+    image: "supabase.svg",
+    color: { bg: "rgb(0 98 57 / 30%)", text: "rgb(248 250 252)" },
+  },
 };
 
 const importantProjects = [
@@ -98,6 +103,16 @@ const importantProjects = [
       TECHNOLOGIES.TAILWIND,
     ],
     link: "https://villaana.gob.ar",
+    github: null,
+  },
+  {
+    name: "Liga Ocampense de Fútbol",
+    description:
+      "Proyecto para la Liga Ocampense de Fútbol. Supabase para base de datos (partidos, jugadores, equipos, etc) y autenticación.",
+    image: "lof.avif",
+    favicon: "escudo-lof.avif",
+    technologies: [TECHNOLOGIES.NEXTJS, TECHNOLOGIES.SUPABASE],
+    link: "https://ligaocampensedefutbol.vercel.app",
     github: null,
   },
 ];
@@ -214,7 +229,7 @@ const minorProjects = [
 
 <section id="projects">
   <section class="important_projects_container">
-    <h2>Proyecto destacado</h2>
+    <h2>Proyectos destacado</h2>
     <ul class="important_projects">
       {
         importantProjects.map(
