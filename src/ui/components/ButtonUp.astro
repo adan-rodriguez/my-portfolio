@@ -52,7 +52,6 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     box-shadow: var(--shadow-black-lg);
     cursor: pointer;
     transition:
-      scale 0.3s,
       display 0.3s,
       opacity 0.3s,
       bottom 0.3s;
@@ -70,10 +69,9 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     }
 
     &:is(:hover, :focus-visible) {
-      scale: 1.05;
-
       & .bounce {
         animation: bounce 1s infinite;
+        transition: transform 0.3s;
 
         @keyframes bounce {
           0%,
