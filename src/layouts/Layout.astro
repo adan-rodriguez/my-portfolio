@@ -1,5 +1,7 @@
 ---
-import "@fontsource-variable/onest";
+// import "@fontsource-variable/onest";
+// import onestWoff2 from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url";
+// import lobsterWoff2 from "@fontsource/lobster/files/lobster-latin-400-normal.woff2?url";
 
 import Footer from "../ui/components/Footer.astro";
 import Header from "../ui/components/Header.astro";
@@ -23,6 +25,20 @@ const { title } = Astro.props;
       name="description"
       content="Soy un desarrollador web junior especializado en React, Next.js y Astro. En mi portafolio encontrarás más información sobre mi y conocerás todos mis proyectos."
     />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/onest-latin-wght-normal.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/lobster-latin-400-normal.woff2"
+      crossorigin="anonymous"
+    />
     <script is:inline>
       const storageTheme = localStorage.getItem("theme");
 
@@ -35,6 +51,29 @@ const { title } = Astro.props;
       document.documentElement.setAttribute("data-theme", theme);
     </script>
     <style is:inline>
+      @font-face {
+        font-family: "Onest Variable";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 100 900;
+        src: url("/fonts/onest-latin-wght-normal.woff2")
+          format("woff2-variations");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: "Lobster";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url("/fonts/lobster-latin-400-normal.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
       :root {
         --text-color-primary: rgb(248 250 252);
         --text-color-secondary: rgb(203 213 225);
@@ -112,6 +151,12 @@ const { title } = Astro.props;
         padding: 0 1rem;
       }
     </style>
+    <link
+      rel="preload"
+      href="/images/adan-rodriguez.avif"
+      as="image"
+      type="image/avif"
+    />
   </head>
   <body>
     <Header />
