@@ -9,7 +9,7 @@ import MyImage from "./MyImage.astro";
 import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 ---
 
-<section>
+<section class="intro">
   <div class="data">
     <h1 class="name">Hola! Soy Adán Rodríguez</h1>
     <h2 class="label">Desarrollador Web</h2>
@@ -110,66 +110,65 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
   <MyImage />
 </section>
 
-<style>
-  section {
+<style is:inline>
+  .intro {
     padding-block: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-  }
 
-  .data {
-    max-width: 50ch;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
-  }
+    .data {
+      max-width: 50ch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 1rem;
+    }
 
-  .name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-  }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+    }
 
-  .label {
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-align: center;
-    background-image: linear-gradient(
-      to right,
-      var(--color-primary),
-      var(--text-color-primary)
-    );
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
+    .label {
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-align: center;
+      background-image: linear-gradient(
+        to right,
+        var(--color-primary),
+        var(--text-color-primary)
+      );
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
 
-  .about-me {
-    font-size: 0.875rem;
-    color: var(--text-color-secondary);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
-    font-weight: 500;
-  }
+    .about-me {
+      font-size: 0.875rem;
+      color: var(--text-color-secondary);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.5rem;
+      font-weight: 500;
+    }
 
-  .about-me span {
-    font-weight: 800;
-    color: var(--color-primary);
-  }
+    .about-me span {
+      font-weight: 800;
+      color: var(--color-primary);
+    }
 
-  .argentina-flag {
-    display: inline-block;
-    width: 16px;
-    aspect-ratio: 1/1;
-  }
+    .argentina-flag {
+      display: inline-block;
+      width: 16px;
+      aspect-ratio: 1/1;
+    }
 
-  /* .skills {
+    /* .skills {
     background-image: linear-gradient(var(--color-secondary), black);
     border-radius: 1rem;
     padding: 10px;
@@ -204,126 +203,125 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
     margin-left: 0.25rem;
   } */
 
-  ul {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    & a,
-    & #open-cv {
+    ul {
       display: flex;
-      align-items: center;
-      column-gap: 0.5rem;
-      padding: 0.25rem 2rem;
-      box-shadow: var(--shadow-black-lg);
-      border: 1px solid var(--text-color-secondary);
-      border-radius: 2rem;
-      background-color: var(--color-primary);
-      mix-blend-mode: var(--mix-mode-intro-links);
-      font-size: 0.875rem;
-      transition: scale 0.3s;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
 
-      &:hover {
-        scale: 1.05;
-      }
-
-      &:focus-visible {
-        scale: 1.05;
-      }
-
-      &:active {
-        translate: 0 0.125rem;
-      }
-    }
-
-    & #open-cv {
-      @media (scripting: none) {
-        display: none;
-      }
-    }
-
-    & #cv-link {
-      display: none;
-      position: relative;
-
-      @media (scripting: none) {
+      & a,
+      & #open-cv {
         display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+        padding: 0.25rem 2rem;
+        box-shadow: var(--shadow-black-lg);
+        border: 1px solid var(--text-color-secondary);
+        border-radius: 2rem;
+        background-color: var(--color-primary);
+        mix-blend-mode: var(--mix-mode-intro-links);
+        font-size: 0.875rem;
+        transition: scale 0.3s;
+
+        &:hover {
+          scale: 1.05;
+        }
+
+        &:focus-visible {
+          scale: 1.05;
+        }
+
+        &:active {
+          translate: 0 0.125rem;
+        }
       }
-    }
-  }
 
-  #modal-cv {
-    scrollbar-width: thin;
-    opacity: 0;
-    transition:
-      display 0.15s,
-      opacity 0.15s,
-      overlay 0.15s;
-    transition-behavior: allow-discrete;
-    color: var(--text-color-primary);
-    width: 80%;
-    max-width: 768px;
-
-    &[open] {
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
+      & #open-cv {
+        @media (scripting: none) {
+          display: none;
+        }
       }
-    }
 
-    &::backdrop {
-      backdrop-filter: blur(16px);
-    }
+      & #cv-link {
+        display: none;
+        position: relative;
 
-    & img {
-      width: 100%;
-    }
-
-    & #close-cv {
-      position: fixed;
-      right: 1rem;
-      top: 19px;
-      transition: scale 0.15s;
-
-      &:is(:hover, :focus-visible) {
-        scale: 1.1;
+        @media (scripting: none) {
+          display: flex;
+        }
       }
     }
 
-    & a[download] {
-      position: fixed;
-      right: 1rem;
-      top: 4rem;
-      transition: scale 0.15s;
+    #modal-cv {
+      scrollbar-width: thin;
+      opacity: 0;
+      transition:
+        display 0.15s,
+        opacity 0.15s,
+        overlay 0.15s;
+      transition-behavior: allow-discrete;
+      color: var(--text-color-primary);
+      width: 80%;
+      max-width: 768px;
 
-      &:is(:hover, :focus-visible) {
-        scale: 1.1;
+      &[open] {
+        opacity: 1;
+
+        @starting-style {
+          opacity: 0;
+        }
+      }
+
+      &::backdrop {
+        backdrop-filter: blur(16px);
+      }
+
+      & img {
+        width: 100%;
+      }
+
+      & #close-cv {
+        position: fixed;
+        right: 1rem;
+        top: 19px;
+        transition: scale 0.15s;
+
+        &:is(:hover, :focus-visible) {
+          scale: 1.1;
+        }
+      }
+
+      & a[download] {
+        position: fixed;
+        right: 1rem;
+        top: 4rem;
+        transition: scale 0.15s;
+
+        &:is(:hover, :focus-visible) {
+          scale: 1.1;
+        }
       }
     }
-  }
 
-  @media (width >= 907px) {
-    section {
+    @media (width >= 907px) {
       flex-direction: row;
       justify-content: space-between;
-    }
 
-    .data {
-      align-items: flex-start;
-    }
+      .data {
+        align-items: flex-start;
+      }
 
-    .label {
-      text-align: start;
-    }
+      .label {
+        text-align: start;
+      }
 
-    .about-me {
-      text-align: start;
-    }
+      .about-me {
+        text-align: start;
+      }
 
-    ul {
-      justify-content: flex-start;
+      ul {
+        justify-content: flex-start;
+      }
     }
   }
 </style>

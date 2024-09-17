@@ -10,7 +10,7 @@ const LINKS = [
 ];
 ---
 
-<header>
+<header class="main-header">
   <div>
     <a
       id="logo-link"
@@ -51,7 +51,7 @@ const LINKS = [
   </div>
 </header>
 
-<style is:global>
+<style is:inline>
   body:has(#menu-btn[aria-expanded="true"]) {
     @media (width < 768px) {
       overflow-y: hidden;
@@ -79,8 +79,8 @@ const LINKS = [
   }
 </style>
 
-<style>
-  header {
+<style is:inline>
+  .main-header {
     > div {
       display: flex;
       flex-wrap: wrap;
