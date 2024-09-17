@@ -9,107 +9,6 @@ import MyImage from "./MyImage.astro";
 import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 ---
 
-<section class="intro">
-  <div class="data">
-    <h1 class="name">Hola! Soy Adán Rodríguez</h1>
-    <h2 class="label">Desarrollador Web</h2>
-    <div class="about-me">
-      <p>
-        Me llamo Adán Rodríguez, soy de Argentina
-        <img
-          src="images/bandera-argentina.webp"
-          alt="Bandera de Argentina"
-          aria-hidden="true"
-          class="argentina-flag"
-        />
-        y tengo 28 años.
-      </p>
-      <p>
-        Me especializo en <span>React</span>, <span>Next.js</span> y <span
-          >Astro</span
-        >.
-      </p>
-      <p>
-        Se destacan entre mis trabajos el portal de noticias <span
-          >"El Villanense"</span
-        >, el sitio de la <span>Liga Ocampense de Fútbol</span> y la página oficial
-        de la <span>Comuna de Villa Ana</span>, lugar donde vivo.
-      </p>
-      <p>
-        Soy estudiante de una <span>Tecnicatura en Desarrollo Web</span> en la Universidad
-        Nacional de Entre Ríos, Argentina.
-      </p>
-    </div>
-    <!-- <div aria-hidden="true" class="skills">
-        <img src="images/html.svg" alt="Logo de HTML" class="skill" />
-        <img src="images/css.svg" alt="Logo de CSS" class="skill" />
-        <img
-          src="images/javascript.svg"
-          alt="Logo de Javascript"
-          class="skill"
-        />
-        <img src="images/react.svg" alt="Logo de React" class="skill" />
-        <img
-          src="images/nextjs.svg"
-          alt="Logo de Next.js"
-          class="skill skill--nextjs"
-        />
-      </div> -->
-    <ul>
-      <li>
-        <a
-          href="mailto:adan.rodriguez.fusta@gmail.com"
-          aria-label="Envía un correo a Adán Rodríguez"
-          rel="noopener"><EmailIcon />adan.rodriguez.fusta@gmail.com</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
-          target="_blank"
-          rel="noopener"><LinkedinIcon />LinkedIn</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/adan-rodriguez"
-          target="_blank"
-          rel="noopener"><GitHubIcon width="24" height="24" />GitHub</a
-        >
-      </li>
-      <li>
-        <button
-          id="open-cv"
-          aria-label="Ver currículum de Adán Rodríguez en una modal"
-          ><FileIcon />Currículum</button
-        >
-        <a
-          id="cv-link"
-          href="/docs/curriculum-vitae-adan-rodriguez.pdf"
-          target="_blank"
-          aria-label="Ver currículum de Adán Rodríguez en una pestaña nueva (PDF)"
-          ><FileIcon />Curriculum<ExternalLinkIcon /></a
-        >
-      </li>
-    </ul>
-    <dialog id="modal-cv">
-      <button id="close-cv" aria-label="Cerrar modal">
-        <CloseIcon />
-      </button>
-      <a
-        download="Currículum Vitae - Adán Rodríguez"
-        href="/docs/curriculum-vitae-adan-rodriguez.pdf"
-        aria-label="Descargar currículum (PDF)"><DownloadIcon /></a
-      >
-      <img
-        src="/images/curriculum.avif"
-        alt="Currículum vitae de Adán Rodríguez"
-      />
-    </dialog>
-  </div>
-  <MyImage />
-</section>
-
 <style is:inline>
   .intro {
     padding-block: 4rem;
@@ -325,6 +224,108 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
     }
   }
 </style>
+
+<section class="intro">
+  <div class="data">
+    <h1 class="name">Hola! Soy Adán Rodríguez</h1>
+    <h2 class="label">Desarrollador Web</h2>
+    <div class="about-me">
+      <p>
+        Me llamo Adán Rodríguez, soy de Argentina
+        <img
+          src="images/bandera-argentina.webp"
+          alt="Bandera de Argentina"
+          aria-hidden="true"
+          class="argentina-flag"
+        />
+        y tengo 28 años.
+      </p>
+      <p>
+        Me especializo en <span>React</span>, <span>Next.js</span> y <span
+          >Astro</span
+        >.
+      </p>
+      <p>
+        Se destacan entre mis trabajos el portal de noticias <span
+          >"El Villanense"</span
+        >, el sitio de la <span>Liga Ocampense de Fútbol</span> y la página oficial
+        de la <span>Comuna de Villa Ana</span>, lugar donde vivo.
+      </p>
+      <p>
+        Soy estudiante de una <span>Tecnicatura en Desarrollo Web</span> en la Universidad
+        Nacional de Entre Ríos, Argentina.
+      </p>
+    </div>
+    <!-- <div aria-hidden="true" class="skills">
+        <img src="images/html.svg" alt="Logo de HTML" class="skill" />
+        <img src="images/css.svg" alt="Logo de CSS" class="skill" />
+        <img
+          src="images/javascript.svg"
+          alt="Logo de Javascript"
+          class="skill"
+        />
+        <img src="images/react.svg" alt="Logo de React" class="skill" />
+        <img
+          src="images/nextjs.svg"
+          alt="Logo de Next.js"
+          class="skill skill--nextjs"
+        />
+      </div> -->
+    <ul>
+      <li>
+        <a
+          href="mailto:adan.rodriguez.fusta@gmail.com"
+          aria-label="Envía un correo a Adán Rodríguez"
+          rel="noopener"><EmailIcon />adan.rodriguez.fusta@gmail.com</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
+          target="_blank"
+          rel="noopener"><LinkedinIcon />LinkedIn</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/adan-rodriguez"
+          target="_blank"
+          rel="noopener"><GitHubIcon width="24" height="24" />GitHub</a
+        >
+      </li>
+      <li>
+        <button
+          id="open-cv"
+          aria-label="Ver currículum de Adán Rodríguez en una modal"
+          ><FileIcon />Currículum</button
+        >
+        <a
+          id="cv-link"
+          href="/docs/curriculum-vitae-adan-rodriguez.pdf"
+          target="_blank"
+          aria-label="Ver currículum de Adán Rodríguez en una pestaña nueva (PDF)"
+          ><FileIcon />Curriculum<ExternalLinkIcon /></a
+        >
+      </li>
+    </ul>
+    <dialog id="modal-cv">
+      <button id="close-cv" aria-label="Cerrar modal">
+        <CloseIcon />
+      </button>
+      <a
+        download="Currículum Vitae - Adán Rodríguez"
+        href="/docs/curriculum-vitae-adan-rodriguez.pdf"
+        aria-label="Descargar currículum (PDF)"><DownloadIcon /></a
+      >
+      <img
+        src="/images/curriculum.avif"
+        alt="Currículum vitae de Adán Rodríguez"
+        loading="lazy"
+      />
+    </dialog>
+  </div>
+  <MyImage />
+</section>
 
 <script>
   const cvBtn = document.querySelector("#open-cv");

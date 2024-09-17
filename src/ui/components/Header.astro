@@ -10,47 +10,6 @@ const LINKS = [
 ];
 ---
 
-<header class="main-header">
-  <div>
-    <a
-      id="logo-link"
-      href="/"
-      aria-label="Link que lleva a la página principal"
-    >
-      <h1 translate="no">
-        <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
-          aria-hidden="true">/ &gt;</span
-        ><span class="block text-xs absolute right-0 top-8"
-          >Portafolio profesional</span
-        >
-      </h1>
-    </a>
-    <ThemeButton />
-    <button
-      id="menu-btn"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-      aria-controls="menu"
-    >
-      <HamburgerIcon />
-      <CloseIcon id="close-menu-icon" />
-    </button>
-    <nav id="menu">
-      <ul>
-        {
-          LINKS.map(({ href, label }) => (
-            <li>
-              <a class="nav-link" href={`#${href}`}>
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <style is:inline>
   body:has(#menu-btn[aria-expanded="true"]) {
     @media (width < 768px) {
@@ -203,6 +162,47 @@ const LINKS = [
     }
   }
 </style>
+
+<header class="main-header">
+  <div>
+    <a
+      id="logo-link"
+      href="/"
+      aria-label="Link que lleva a la página principal"
+    >
+      <h1 translate="no">
+        <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
+          aria-hidden="true">/ &gt;</span
+        ><span class="block text-xs absolute right-0 top-8"
+          >Portafolio profesional</span
+        >
+      </h1>
+    </a>
+    <ThemeButton />
+    <button
+      id="menu-btn"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menu"
+    >
+      <HamburgerIcon />
+      <CloseIcon id="close-menu-icon" />
+    </button>
+    <nav id="menu">
+      <ul>
+        {
+          LINKS.map(({ href, label }) => (
+            <li>
+              <a class="nav-link" href={`#${href}`}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <script>
   const $menuBtn = document.querySelector("#menu-btn") as HTMLElement;
