@@ -3,14 +3,28 @@ import Layout from "../layouts/Layout.astro";
 import Intro from "../ui/components/Intro.astro";
 import Projects from "../ui/components/Projects.astro";
 import ContactMe from "../ui/components/ContactMe.astro";
+
+const { href, origin } = Astro.url;
+const title = "Adán Rodríguez - Desarrollador Web";
+const description =
+  "Soy un desarrollador web junior especializado en React, Next.js y Astro. En mi portafolio encontrarás más información sobre mi y conocerás todos mis proyectos.";
+const urlImage = `${origin}/images/adan-rodriguez.avif`;
+const altImage = "Foto de Adán Rodríguez";
 ---
 
-<Layout
-  title="Adán Rodríguez - Desarrollador Web"
-  description="Soy un desarrollador web junior especializado en React, Next.js y Astro. En mi portafolio encontrarás más información sobre mi y conocerás todos mis proyectos."
-  image="adan-rodriguez.avif"
->
+<Layout title={title} description={description}>
   <Fragment slot="head">
+    <meta property="og:url" content={href} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:image" content={urlImage} />
+    <meta property="og:image:alt" content={altImage} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={urlImage} />
+    <meta name="twitter:image:alt" content={altImage} />
     <link
       rel="preload"
       href="/images/adan-rodriguez.avif"
