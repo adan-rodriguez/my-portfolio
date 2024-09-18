@@ -1,8 +1,4 @@
 ---
-// import "@fontsource-variable/onest";
-// import onestWoff2 from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url";
-// import lobsterWoff2 from "@fontsource/lobster/files/lobster-latin-400-normal.woff2?url";
-
 import Footer from "../ui/components/Footer.astro";
 import Header from "../ui/components/Header.astro";
 import ButtonUp from "../ui/components/ButtonUp.astro";
@@ -38,6 +34,12 @@ const { title } = Astro.props;
       type="font/woff2"
       href="/fonts/lobster-latin-400-normal.woff2"
       crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/images/adan-rodriguez.avif"
+      as="image"
+      type="image/avif"
     />
     <script is:inline>
       const storageTheme = localStorage.getItem("theme");
@@ -151,12 +153,6 @@ const { title } = Astro.props;
         padding: 0 1rem;
       }
     </style>
-    <link
-      rel="preload"
-      href="/images/adan-rodriguez.avif"
-      as="image"
-      type="image/avif"
-    />
   </head>
   <body>
     <Header />

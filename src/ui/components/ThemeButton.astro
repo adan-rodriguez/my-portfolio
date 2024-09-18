@@ -12,12 +12,6 @@ import Sun from "../icons/Sun.astro";
 
     & .sun {
       animation: rotate-sun 3s linear infinite forwards paused;
-
-      @keyframes rotate-sun {
-        to {
-          rotate: 360deg;
-        }
-      }
     }
 
     &:is(:hover, :focus-visible) {
@@ -44,3 +38,11 @@ import Sun from "../icons/Sun.astro";
   <Sun class="sun" />
   <Moon />
 </button>
+
+<style>
+  @keyframes rotate-sun {
+    to {
+      rotate: 360deg;
+    }
+  }
+</style>
