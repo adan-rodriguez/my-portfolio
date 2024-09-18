@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { title, description, image } = Astro.props;
+const { href, origin } = Astro.url;
 ---
 
 <!doctype html>
@@ -22,24 +23,18 @@ const { title, description, image } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <!-- <meta property="og:url" content="https://adanrodriguez.vercel.app" /> -->
+    <meta property="og:url" content={href} />
     <meta
       property="og:site_name"
       content="Adán Rodríguez - Desarrollador Web"
     />
     <meta property="og:locale" content="es_LA" />
-    <meta
-      property="og:image"
-      content=`https://adanrodriguez.vercel.app/images/${image}`
-    />
+    <meta property="og:image" content=`${origin}/images/${image}` />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content=`https://adanrodriguez.vercel.app/images/${image}`
-    />
+    <meta name="twitter:image" content=`${origin}/images/${image}` />
 
     <slot name="head" />
 

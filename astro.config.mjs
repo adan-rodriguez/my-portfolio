@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "hybrid",
   integrations: [
     tailwind({
       // Example: Permite escribir declaraciones CSS anidadas
