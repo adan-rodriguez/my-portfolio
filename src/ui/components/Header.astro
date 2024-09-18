@@ -16,7 +16,7 @@ const LINKS = [
       href="/"
       aria-label="Link que lleva a la página principal"
     >
-      <h1 translate="no">
+      <h1>
         <span aria-hidden="true">&lt;</span> Adan Rodriguez <span
           aria-hidden="true">/ &gt;</span
         ><span class="block text-xs absolute right-0 top-8"
@@ -39,7 +39,7 @@ const LINKS = [
         {
           LINKS.map(({ href, label }) => (
             <li>
-              <a class="nav-link" href={`#${href}`}>
+              <a class="nav-link" href={`/#${href}`}>
                 {label}
               </a>
             </li>

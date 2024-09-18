@@ -3,79 +3,105 @@ import Layout from "../layouts/Layout.astro";
 import HomeIcon from "../ui/icons/HomeIcon.astro";
 ---
 
-<Layout title="Página no encontrada - Adán Rodríguez - Desarrollador Web">
-  <section>
-    <div class="md:flex gap-x-8 items-center">
+<Layout
+  title="Página no encontrada - Adán Rodríguez - Desarrollador Web"
+  description="¡Hola! Lo siento, pero no pude encontrar lo que buscabas. Verifica que la dirección URL sea correcta."
+  image="travolta-not-found.gif"
+>
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      href="/images/travolta-not-found.gif"
+      as="image"
+      type="image/gif"
+    />
+    <style is:inline>
+      ._404 {
+        padding-block: 2rem;
+
+        ._404-container {
+          @media (width >= 768px) {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+          }
+        }
+
+        .travolta {
+          max-width: 27rem;
+          margin-inline: auto;
+          mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .text {
+          max-width: 65ch;
+
+          h2 {
+            width: fit-content;
+            font-weight: 900;
+            font-size: 2rem;
+            background-image: linear-gradient(
+              to right,
+              var(--color-primary),
+              var(--text-color-primary)
+            );
+            color: transparent;
+            -webkit-background-clip: text;
+            margin-block: 1rem;
+          }
+
+          p {
+            text-wrap: pretty;
+            margin-bottom: 1rem;
+          }
+
+          a {
+            --text-color-primary: rgb(248 250 252);
+
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            width: fit-content;
+            padding: 0.25rem 1.25rem;
+            border-radius: 0.25rem;
+            background-color: var(--color-secondary);
+            color: var(--text-color-primary);
+            transition:
+              background-color 0.3s,
+              scale 0.3s,
+              translate 0s;
+            font-size: 0.875rem;
+            line-height: 1;
+            box-shadow: var(--shadow-black-lg);
+
+            &:is(:hover, :focus-visible) {
+              background-color: var(--color-primary);
+              scale: 1.05;
+            }
+
+            &:active {
+              translate: 0 0.125rem;
+            }
+          }
+        }
+      }
+    </style>
+  </Fragment>
+  <section class="_404">
+    <div class="_404-container">
       <img
         src="/images/travolta-not-found.gif"
         alt="John Travolta haciendo gestos de que no encuentra a nadie en una escena de Pulp Fiction"
-        class="w-full max-w-md mx-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
+        class="travolta"
       />
-      <div class="max-w-prose">
+      <div class="text">
         <h2>Página no encontrada</h2>
-        <p class="text-pretty mb-4">
+        <p>
           ¡Hola! Lo siento, pero no pude encontrar lo que buscabas. Verifica que
           la dirección URL sea correcta.
         </p>
-        <a href="/" class="shadow-lg shadow-black"><HomeIcon /> Ir al inicio</a>
+        <a href="/"><HomeIcon /> Ir al inicio</a>
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  section {
-    padding-block: 2rem;
-  }
-
-  h2 {
-    width: fit-content;
-    font-weight: 900;
-    font-size: 2rem;
-    background-image: linear-gradient(
-      to right,
-      var(--color-primary),
-      var(--text-color-primary)
-    );
-    color: transparent;
-    -webkit-background-clip: text;
-    margin-block: 1rem;
-  }
-
-  img {
-    mix-blend-mode: var(--mix-mode-travolta);
-  }
-
-  a {
-    --text-color-primary: rgb(248 250 252);
-
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    width: fit-content;
-    padding: 0.25rem 1.25rem;
-    border-radius: 0.25rem;
-    background-color: var(--color-secondary);
-    color: var(--text-color-primary);
-    transition:
-      background-color 0.3s,
-      scale 0.3s,
-      translate 0s;
-    font-size: 0.875rem;
-    line-height: 1;
-
-    &:hover {
-      background-color: var(--color-primary);
-      scale: 1.05;
-    }
-
-    &:focus-visible {
-      background-color: var(--color-primary);
-      scale: 1.05;
-    }
-
-    &:active {
-      translate: 0 0.125rem;
-    }
-  }
-</style>

@@ -11,4 +11,5 @@ export default defineConfig({
       nesting: true,
     }),
   ],
+  site: "https://adanrodriguez.vercel.app/",
 });
