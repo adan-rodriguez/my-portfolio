@@ -3,31 +3,6 @@ import Moon from "../icons/Moon.astro";
 import Sun from "../icons/Sun.astro";
 ---
 
-<style is:inline>
-  #theme-btn {
-    z-index: 2;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s;
-
-    & .sun {
-      animation: rotate-sun 3s linear infinite forwards paused;
-    }
-
-    &:is(:hover, :focus-visible) {
-      background-color: rgb(var(--color-primary-rgb) / 50%);
-
-      & .sun {
-        animation-play-state: running;
-      }
-    }
-
-    @media (scripting: none) {
-      display: none;
-    }
-  }
-</style>
-
 <button id="theme-btn">
   <script is:inline>
     document.currentScript.parentElement.setAttribute(
