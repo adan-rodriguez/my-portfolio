@@ -284,10 +284,10 @@ const { title, description } = Astro.props;
                 outline: none;
                 padding: 0.5rem 1rem;
                 border-radius: 0.5rem;
-                transition: background-color 0.3s;
+                transition: background-color 0.15s;
 
                 &:is(:hover, :focus-visible) {
-                  background-color: rgb(var(--color-primary-rgb) / 50%);
+                  background-color: rgb(var(--color-primary-rgb) / 70%);
                 }
               }
             }
@@ -299,14 +299,14 @@ const { title, description } = Astro.props;
         z-index: 2;
         padding: 0.5rem;
         border-radius: 0.5rem;
-        transition: background-color 0.3s;
+        transition: background-color 0.15s;
 
         & .sun {
           animation: rotate-sun 3s linear infinite forwards paused;
         }
 
         &:is(:hover, :focus-visible) {
-          background-color: rgb(var(--color-primary-rgb) / 50%);
+          background-color: rgb(var(--color-primary-rgb) / 70%);
 
           & .sun {
             animation-play-state: running;

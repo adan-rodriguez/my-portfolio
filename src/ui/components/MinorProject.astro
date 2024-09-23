@@ -83,8 +83,7 @@ const { name, image, favicon, description, technologies, link, github } =
     box-shadow: var(--shadow-black-lg);
     transition:
       opacity 1s,
-      translate 1s,
-      transform 0.3s;
+      translate 1s;
 
     @media (scripting: enabled) {
       opacity: 0;
@@ -97,8 +96,6 @@ const { name, image, favicon, description, technologies, link, github } =
     }
 
     &:is(:hover, :focus-within) {
-      transform: translateY(-0.125rem);
-
       & > figure > img {
         scale: 1.05;
       }
