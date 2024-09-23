@@ -80,7 +80,8 @@ const { title, description } = Astro.props;
       :root {
         --text-color-primary: rgb(248 250 252);
         --text-color-secondary: rgb(203 213 225);
-        --color-primary: rgb(3 93 143);
+        /* --color-primary: rgb(3 93 143); */
+        --color-primary: rgb(0 118 181);
         --color-primary-rgb: 3 93 143;
         --color-secondary: rgb(55 65 81);
         --bg-color: rgb(2 6 23);
@@ -302,7 +303,7 @@ const { title, description } = Astro.props;
         transition: background-color 0.15s;
 
         & .sun {
-          animation: rotate-sun 3s linear infinite forwards paused;
+          animation: rotate 3s linear infinite forwards paused;
         }
 
         &:is(:hover, :focus-visible) {

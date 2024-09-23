@@ -12,4 +12,7 @@ export default defineConfig({
     }),
   ],
   site: "https://adanrodriguez.vercel.app/",
+  devToolbar: {
+    enabled: false,
+  },
 });

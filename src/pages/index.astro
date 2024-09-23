@@ -225,7 +225,7 @@ const altImage = "Foto de Adán Rodríguez";
       box-shadow: 0 0 20px var(--color-primary);
       transition: transform 0.15s;
 
-      & img {
+      .me {
         width: var(--size);
         height: var(--size);
         object-fit: cover;
@@ -266,6 +266,43 @@ const altImage = "Foto de Adán Rodríguez";
         border-radius: 100%;
         filter: blur(15px);
         pointer-events: none;
+      }
+
+      .tech {
+        position: absolute;
+        width: 44px;
+        pointer-events: none;
+      }
+
+      .html {
+        top: -6px;
+        left: 62px;
+      }
+
+      .css {
+        top: 108px;
+        left: -23px;
+      }
+
+      .javascript {
+        top: 19px;
+        left: 227px;
+      }
+
+      .react {
+        top: 155px;
+        left: 278px;
+        animation: rotate 3s linear infinite;
+      }
+
+      .nextjs {
+        top: 234px;
+        left: 19px;
+      }
+
+      .astro {
+        top: 269px;
+        left: 184px;
       }
     }
   </style>
