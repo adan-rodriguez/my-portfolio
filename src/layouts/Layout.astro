@@ -21,8 +21,7 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-
-    <slot name="head" />
+    <slot name="open-graph" />
 
     <link
       rel="preload"
@@ -38,6 +37,7 @@ const { title, description } = Astro.props;
       href="/fonts/lobster-400.woff2"
       crossorigin="anonymous"
     />
+    <slot name="preloads" />
 
     <script is:inline>
       const storageTheme = localStorage.getItem("theme");
@@ -318,6 +318,7 @@ const { title, description } = Astro.props;
         }
       }
     </style>
+    <slot name="critical-css" />
   </head>
   <body>
     <Header />

@@ -7,86 +7,85 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
   title="Página no encontrada - Adán Rodríguez - Desarrollador Web"
   description="¡Hola! Lo siento, pero no pude encontrar lo que buscabas. Verifica que la dirección URL sea correcta."
 >
-  <Fragment slot="head">
-    <link
-      rel="preload"
-      href="/images/travolta-not-found.gif"
-      as="image"
-      type="image/gif"
-    />
-    <style is:inline>
-      ._404 {
-        padding-block: 2rem;
+  <link
+    rel="preload"
+    href="/images/travolta-not-found.gif"
+    as="image"
+    type="image/gif"
+    slot="preloads"
+  />
+  <style is:inline slot="critical-css">
+    ._404 {
+      padding-block: 2rem;
 
-        ._404-container {
-          @media (width >= 768px) {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-          }
+      ._404-container {
+        @media (width >= 768px) {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
+      }
+
+      .travolta {
+        width: 100%;
+        max-width: 27rem;
+        margin-inline: auto;
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      }
+
+      .text {
+        max-width: 65ch;
+
+        h2 {
+          width: fit-content;
+          font-weight: 900;
+          font-size: 2rem;
+          background-image: linear-gradient(
+            to right,
+            var(--color-primary),
+            var(--text-color-primary)
+          );
+          color: transparent;
+          -webkit-background-clip: text;
+          margin-block: 1rem;
         }
 
-        .travolta {
-          width: 100%;
-          max-width: 27rem;
-          margin-inline: auto;
-          mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        p {
+          text-wrap: pretty;
+          margin-bottom: 1rem;
         }
 
-        .text {
-          max-width: 65ch;
+        a {
+          --text-color-primary: rgb(248 250 252);
 
-          h2 {
-            width: fit-content;
-            font-weight: 900;
-            font-size: 2rem;
-            background-image: linear-gradient(
-              to right,
-              var(--color-primary),
-              var(--text-color-primary)
-            );
-            color: transparent;
-            -webkit-background-clip: text;
-            margin-block: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          width: fit-content;
+          padding: 0.25rem 1.25rem;
+          border-radius: 0.25rem;
+          background-color: var(--color-secondary);
+          color: var(--text-color-primary);
+          transition:
+            background-color 0.3s,
+            scale 0.3s,
+            translate 0s;
+          font-size: 0.875rem;
+          line-height: 1;
+          box-shadow: var(--shadow-black-lg);
+
+          &:is(:hover, :focus-visible) {
+            background-color: var(--color-primary);
+            scale: 1.05;
           }
 
-          p {
-            text-wrap: pretty;
-            margin-bottom: 1rem;
-          }
-
-          a {
-            --text-color-primary: rgb(248 250 252);
-
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            width: fit-content;
-            padding: 0.25rem 1.25rem;
-            border-radius: 0.25rem;
-            background-color: var(--color-secondary);
-            color: var(--text-color-primary);
-            transition:
-              background-color 0.3s,
-              scale 0.3s,
-              translate 0s;
-            font-size: 0.875rem;
-            line-height: 1;
-            box-shadow: var(--shadow-black-lg);
-
-            &:is(:hover, :focus-visible) {
-              background-color: var(--color-primary);
-              scale: 1.05;
-            }
-
-            &:active {
-              translate: 0 0.125rem;
-            }
+          &:active {
+            translate: 0 0.125rem;
           }
         }
       }
-    </style>
-  </Fragment>
+    }
+  </style>
   <section class="_404">
     <div class="_404-container">
       <img
