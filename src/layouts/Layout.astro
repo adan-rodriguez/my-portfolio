@@ -318,6 +318,12 @@ const { title, description } = Astro.props;
           display: none;
         }
       }
+
+      @keyframes rotate {
+        to {
+          rotate: 360deg;
+        }
+      }
     </style>
     <slot name="critical-css" />
   </head>

@@ -8,6 +8,7 @@ const { name, image, color } = Astro.props;
     alt={`Logo de ${name}`}
     aria-hidden="true"
     loading="lazy"
+    class=`${name === "React" ? "react" : ""}`
   />
   {name}
 </li>
@@ -25,6 +26,10 @@ const { name, image, color } = Astro.props;
     img {
       width: 16px;
       aspect-ratio: 1/1;
+    }
+
+    .react {
+      animation: rotate 3s linear infinite;
     }
   }
 </style>
