@@ -340,6 +340,8 @@ const { title, description } = Astro.props;
 <script>
   const $root = document.documentElement;
   const $themeBtn = document.querySelector("#theme-btn");
+  const $switchOn = new Audio("/sounds/switch-on.mp3");
+  const $switchOff = new Audio("/sounds/switch-off.mp3");
 
   function setAttributes(theme) {
     $root.setAttribute("data-theme", theme);
@@ -349,15 +351,21 @@ const { title, description } = Astro.props;
     );
   }
 
+  function playAudio(newTheme) {
+    newTheme === "light" ? $switchOn.play() : $switchOff.play();
+  }
+
   function toggleTheme() {
     const newTheme = $root.dataset.theme === "dark" ? "light" : "dark";
     setAttributes(newTheme);
+    playAudio(newTheme);
     localStorage.setItem("theme", newTheme);
   }
 
   function changeColorScheme(e) {
     const newTheme = e.matches ? "dark" : "light";
     setAttributes(newTheme);
+    playAudio(newTheme);
   }
 
   const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");

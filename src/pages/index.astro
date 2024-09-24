@@ -265,38 +265,43 @@ const altImage = "Foto de Adán Rodríguez";
       .tech {
         --tech-size: 44px;
 
-        scale: 0;
+        /* scale: 0; */
         position: absolute;
         width: var(--tech-size);
         pointer-events: none;
         top: 50%;
         left: 50%;
         translate: -50% -50%;
-        transform: translate(calc(var(--size) / 2));
-        animation:
-          girar 18s linear infinite,
-          aparecer 3s linear forwards;
+        animation: aparecer 3s ease;
         z-index: 1;
       }
 
+      .html {
+        transform: rotate(0deg) translate(calc(var(--size) / 2)) rotate(0deg);
+      }
+
       .css {
-        animation-delay: 3s;
+        transform: rotate(60deg) translate(calc(var(--size) / 2)) rotate(-60deg);
       }
 
       .javascript {
-        animation-delay: 6s;
+        transform: rotate(120deg) translate(calc(var(--size) / 2))
+          rotate(-120deg);
       }
 
       .react {
-        animation-delay: 9s;
+        transform: rotate(180deg) translate(calc(var(--size) / 2))
+          rotate(-180deg);
       }
 
       .nextjs {
-        animation-delay: 12s;
+        transform: rotate(240deg) translate(calc(var(--size) / 2))
+          rotate(-240deg);
       }
 
       .astro {
-        animation-delay: 15s;
+        transform: rotate(300deg) translate(calc(var(--size) / 2))
+          rotate(-300deg);
       }
     }
 
@@ -309,16 +314,6 @@ const altImage = "Foto de Adán Rodríguez";
     @keyframes shadow-inset {
       to {
         rotate: -360deg;
-      }
-    }
-
-    @keyframes girar {
-      0% {
-        transform: rotate(0deg) translate(150px) rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg) translate(150px) rotate(-360deg);
       }
     }
 
