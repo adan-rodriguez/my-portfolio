@@ -26,13 +26,50 @@ const altImage = "Foto de Adán Rodríguez";
     <meta name="twitter:image" content={urlImage} />
     <meta name="twitter:image:alt" content={altImage} />
   </Fragment>
-  <link
-    rel="preload"
-    href="/images/adan-rodriguez.avif"
-    as="image"
-    type="image/avif"
-    slot="preloads"
-  />
+  <Fragment slot="preloads">
+    <link
+      rel="preload"
+      href="/images/adan-rodriguez.avif"
+      as="image"
+      type="image/avif"
+    />
+    <link
+      rel="preload"
+      href="/images/html.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/images/css.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/images/javascript.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/images/react.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/images/nextjs.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/images/astro.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+  </Fragment>
   <style is:inline slot="critical-css">
     .intro {
       padding-block: 4rem;
