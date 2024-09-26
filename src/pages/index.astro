@@ -148,17 +148,21 @@ const altImage = "Foto de Adán Rodríguez";
           font-size: 0.875rem;
           transition: scale 0.3s;
 
-          &:hover {
-            scale: 1.05;
-          }
-
-          &:focus-visible {
+          &:is(:hover, :focus-visible) {
             scale: 1.05;
           }
 
           &:active {
             translate: 0 0.125rem;
           }
+        }
+
+        .linkedin-link {
+          position: relative;
+        }
+
+        .github-link {
+          position: relative;
         }
 
         & #open-cv {

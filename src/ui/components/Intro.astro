@@ -40,55 +40,48 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
         Nacional de Entre Ríos, Argentina.
       </p>
     </div>
-    <!-- <div aria-hidden="true" class="skills">
-        <img src="images/html.svg" alt="Logo de HTML" class="skill" />
-        <img src="images/css.svg" alt="Logo de CSS" class="skill" />
-        <img
-          src="images/javascript.svg"
-          alt="Logo de Javascript"
-          class="skill"
-        />
-        <img src="images/react.svg" alt="Logo de React" class="skill" />
-        <img
-          src="images/nextjs.svg"
-          alt="Logo de Next.js"
-          class="skill skill--nextjs"
-        />
-      </div> -->
     <ul>
       <li>
         <a
           href="mailto:adan.rodriguez.fusta@gmail.com"
           aria-label="Envía un correo a Adán Rodríguez"
-          rel="noopener"><EmailIcon />adan.rodriguez.fusta@gmail.com</a
+          rel="noopener"
+          ><EmailIcon /><span>adan.rodriguez.fusta@gmail.com</span></a
         >
       </li>
       <li>
         <a
           href="https://www.linkedin.com/in/adan-gabriel-rodriguez"
           target="_blank"
-          rel="noopener"><LinkedinIcon />LinkedIn</a
+          rel="noopener"
+          class="linkedin-link"
+          ><LinkedinIcon /><span>LinkedIn</span><ExternalLinkIcon
+            size="14"
+          /></a
         >
       </li>
       <li>
         <a
           href="https://github.com/adan-rodriguez"
           target="_blank"
-          rel="noopener"><GitHubIcon width="24" height="24" />GitHub</a
+          rel="noopener"
+          class="github-link"
+          ><GitHubIcon width="24" height="24" /><span>GitHub</span
+          ><ExternalLinkIcon size="14" /></a
         >
       </li>
       <li>
         <button
           id="open-cv"
           aria-label="Ver currículum de Adán Rodríguez en una modal"
-          ><FileIcon />Currículum</button
+          ><FileIcon /><span>Currículum</span></button
         >
         <a
           id="cv-link"
           href="/docs/curriculum-vitae-adan-rodriguez.pdf"
           target="_blank"
           aria-label="Ver currículum de Adán Rodríguez en una pestaña nueva (PDF)"
-          ><FileIcon />Curriculum<ExternalLinkIcon /></a
+          ><FileIcon /><span>Currículum</span><ExternalLinkIcon size="14" /></a
         >
       </li>
     </ul>

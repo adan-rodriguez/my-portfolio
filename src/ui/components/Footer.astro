@@ -229,6 +229,10 @@
         &:is(:hover, :focus-visible) {
           background-color: rgb(var(--color-primary-rgb) / 70%);
         }
+
+        @media (scripting: none) {
+          display: none;
+        }
       }
     }
 
