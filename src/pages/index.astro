@@ -141,10 +141,8 @@ const altImage = "Foto de Adán Rodríguez";
           column-gap: 0.5rem;
           padding: 0.25rem 2rem;
           box-shadow: var(--shadow-black-lg);
-          border: 1px solid var(--text-color-secondary);
           border-radius: 2rem;
           background-color: var(--color-primary);
-          mix-blend-mode: var(--mix-mode-intro-links);
           font-size: 0.875rem;
           transition: scale 0.3s;
 
@@ -213,21 +211,25 @@ const altImage = "Foto de Adán Rodríguez";
           position: fixed;
           right: 1rem;
           top: 19px;
-          transition: scale 0.15s;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          transition: background-color 0.3s;
 
           &:is(:hover, :focus-visible) {
-            scale: 1.1;
+            background-color: rgb(var(--color-primary-rgb) / 70%);
           }
         }
 
         & a[download] {
           position: fixed;
           right: 1rem;
-          top: 4rem;
-          transition: scale 0.15s;
+          top: 59px;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          transition: background-color 0.3s;
 
           &:is(:hover, :focus-visible) {
-            scale: 1.1;
+            background-color: rgb(var(--color-primary-rgb) / 70%);
           }
         }
       }

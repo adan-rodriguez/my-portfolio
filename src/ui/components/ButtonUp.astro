@@ -45,10 +45,16 @@ import ArrowUpIcon from "../icons/ArrowUpIcon.astro";
     position: fixed;
     bottom: -42px;
     right: 0.5rem;
-    border: 1px solid var(--text-color-secondary);
+    /* border: 1px solid var(--text-color-secondary); */
     border-radius: 0.5rem;
     padding: 0.5rem;
-    background-color: var(--color-primary);
+    background-image: linear-gradient(
+      to bottom right,
+      black,
+      var(--color-primary),
+      black
+    );
+    color: white;
     box-shadow: var(--shadow-black-lg);
     cursor: pointer;
     transition:
