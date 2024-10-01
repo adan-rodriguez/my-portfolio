@@ -90,16 +90,27 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
         <CloseIcon />
       </button>
       <a
+        id="download-cv"
         download="Currículum Vitae - Adán Rodríguez"
         href="/docs/curriculum-vitae-adan-rodriguez.pdf"
         title="Descargar currículum (PDF)"
         aria-label="Descargar currículum (PDF)"><DownloadIcon /></a
       >
-      <img
-        src="/images/curriculum.avif"
-        alt="Currículum vitae de Adán Rodríguez"
-        loading="lazy"
-      />
+      <object
+        data="/docs/curriculum-vitae-adan-rodriguez.pdf"
+        type="application/pdf"
+      >
+        <p>
+          No tienes un plugin de PDF para visualizar el currículum, pero puedes
+          <a
+            download="Currículum Vitae - Adán Rodríguez"
+            href="/docs/curriculum-vitae-adan-rodriguez.pdf"
+            title="Descargar currículum (PDF)"
+            aria-label="Descargar currículum (PDF)"
+            >descargarlo <DownloadIcon />
+          </a>
+        </p>
+      </object>
     </dialog>
   </div>
   <MyImage />
@@ -126,3 +137,88 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
   closeBtn.addEventListener("click", hideCv);
   cvModal.addEventListener("click", closeModal);
 </script>
+
+<style>
+  #modal-cv {
+    scrollbar-width: thin;
+    opacity: 0;
+    transition:
+      display 0.15s,
+      opacity 0.15s,
+      overlay 0.15s;
+    transition-behavior: allow-discrete;
+    color: var(--text-color-primary);
+    width: 80%;
+    max-width: 768px;
+
+    &[open] {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    &::backdrop {
+      backdrop-filter: blur(16px);
+    }
+
+    object {
+      width: 100%;
+      min-height: calc(100dvh - 2em - 6px);
+      display: grid;
+      place-content: center;
+
+      p {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        background-image: linear-gradient(
+          to bottom right,
+          black,
+          var(--color-primary),
+          black
+        );
+        border-left: 5px solid gold;
+        font-size: 14px;
+        font-weight: bold;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        box-shadow: var(--shadow-black-lg);
+
+        a {
+          color: gold;
+
+          &:is(:hover, :focus-visible) {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    #close-cv {
+      position: fixed;
+      right: 1rem;
+      top: 19px;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+
+      &:is(:hover, :focus-visible) {
+        background-color: rgb(var(--color-primary-rgb) / 70%);
+      }
+    }
+
+    #download-cv {
+      position: fixed;
+      right: 1rem;
+      top: 59px;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+
+      &:is(:hover, :focus-visible) {
+        background-color: rgb(var(--color-primary-rgb) / 70%);
+      }
+    }
+  }
+</style>

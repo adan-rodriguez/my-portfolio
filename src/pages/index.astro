@@ -179,61 +179,6 @@ const altImage = "Foto de Adán Rodríguez";
         }
       }
 
-      #modal-cv {
-        scrollbar-width: thin;
-        opacity: 0;
-        transition:
-          display 0.15s,
-          opacity 0.15s,
-          overlay 0.15s;
-        transition-behavior: allow-discrete;
-        color: var(--text-color-primary);
-        width: 80%;
-        max-width: 768px;
-
-        &[open] {
-          opacity: 1;
-
-          @starting-style {
-            opacity: 0;
-          }
-        }
-
-        &::backdrop {
-          backdrop-filter: blur(16px);
-        }
-
-        & img {
-          width: 100%;
-        }
-
-        & #close-cv {
-          position: fixed;
-          right: 1rem;
-          top: 19px;
-          padding: 0.5rem;
-          border-radius: 0.5rem;
-          transition: background-color 0.3s;
-
-          &:is(:hover, :focus-visible) {
-            background-color: rgb(var(--color-primary-rgb) / 70%);
-          }
-        }
-
-        & a[download] {
-          position: fixed;
-          right: 1rem;
-          top: 59px;
-          padding: 0.5rem;
-          border-radius: 0.5rem;
-          transition: background-color 0.3s;
-
-          &:is(:hover, :focus-visible) {
-            background-color: rgb(var(--color-primary-rgb) / 70%);
-          }
-        }
-      }
-
       @media (width >= 907px) {
         flex-direction: row;
         justify-content: space-between;
