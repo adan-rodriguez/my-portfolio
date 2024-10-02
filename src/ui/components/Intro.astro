@@ -197,7 +197,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 
     #close-cv {
       position: fixed;
-      right: 1rem;
+      right: 0;
       top: 19px;
       padding: 0.5rem;
       border-radius: 0.5rem;
@@ -206,11 +206,15 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
       &:is(:hover, :focus-visible) {
         background-color: rgb(var(--color-primary-rgb) / 70%);
       }
+
+      @media (width >= 640px) {
+        right: 1rem;
+      }
     }
 
     #download-cv {
       position: fixed;
-      right: 1rem;
+      right: 0;
       top: 59px;
       padding: 0.5rem;
       border-radius: 0.5rem;
@@ -218,6 +222,10 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 
       &:is(:hover, :focus-visible) {
         background-color: rgb(var(--color-primary-rgb) / 70%);
+      }
+
+      @media (width >= 640px) {
+        right: 1rem;
       }
     }
   }

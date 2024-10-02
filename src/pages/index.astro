@@ -142,9 +142,15 @@ const altImage = "Foto de Adán Rodríguez";
           padding: 0.25rem 2rem;
           box-shadow: var(--shadow-black-lg);
           border-radius: 2rem;
-          background-color: var(--color-primary);
+          background-image: linear-gradient(
+            to bottom right,
+            black,
+            var(--color-primary),
+            black
+          );
           font-size: 0.875rem;
           transition: scale 0.3s;
+          color: white;
 
           &:is(:hover, :focus-visible) {
             scale: 1.05;
