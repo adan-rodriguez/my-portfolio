@@ -100,7 +100,12 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
         data="/docs/curriculum-vitae-adan-rodriguez.pdf"
         type="application/pdf"
       >
-        <p>
+        <img
+          src="/images/curriculum-vitae-adan-rodriguez.avif"
+          alt="Currículum vitae de Adan Rodriguez"
+          loading="lazy"
+        />
+        <!-- <p>
           No tienes un plugin de PDF para visualizar el currículum, pero puedes
           <a
             download="Currículum Vitae - Adán Rodríguez"
@@ -109,7 +114,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
             aria-label="Descargar currículum (PDF)"
             >descargarlo <DownloadIcon />
           </a>
-        </p>
+        </p> -->
       </object>
     </dialog>
   </div>
@@ -168,8 +173,18 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
       min-height: calc(100dvh - 2em - 6px);
       display: grid;
       place-content: center;
+      background-image: linear-gradient(
+        to bottom right,
+        black,
+        var(--color-primary),
+        black
+      );
 
-      p {
+      img {
+        width: 100%;
+      }
+
+      /* p {
         margin: 0.5rem;
         padding: 0.5rem;
         background-image: linear-gradient(
@@ -192,7 +207,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
             opacity: 0.8;
           }
         }
-      }
+      } */
     }
 
     #close-cv {
