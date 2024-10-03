@@ -152,7 +152,7 @@
           ></path>
         </svg>
       </button>
-      <div id="email-copied-popover" popover="manual">Email copiado</div>
+      <div class="email-copied-popover" popover="manual">Email copiado</div>
     </div>
     <p class="made-by">
       Made by <a
@@ -168,7 +168,7 @@
 
 <script>
   const $copyEmailBtn = document.querySelector("#copyEmail");
-  const $emailCopiedPopover = document.querySelector("#email-copied-popover");
+  const $emailCopiedPopover = document.querySelector(".email-copied-popover");
 
   function copyEmail() {
     navigator.clipboard
@@ -245,7 +245,7 @@
         }
       }
 
-      #email-copied-popover {
+      .email-copied-popover {
         padding: 8px 50px;
         margin: 0;
         inset: unset;

@@ -135,6 +135,7 @@ const altImage = "Foto de Adán Rodríguez";
         justify-content: center;
 
         & a,
+        & .copy-email-btn,
         & #open-cv {
           display: flex;
           align-items: center;
@@ -161,6 +162,31 @@ const altImage = "Foto de Adán Rodríguez";
           }
         }
 
+        .copy-email-btn {
+          position: relative;
+          cursor: copy;
+
+          .copy-icon {
+            position: absolute;
+            right: 18px;
+            translate: 0 -7px;
+            transition: color 0.3s;
+          }
+
+          @media (scripting: none) {
+            display: none;
+          }
+        }
+
+        a[href^="mailto"] {
+          display: none;
+          position: relative;
+
+          @media (scripting: none) {
+            display: flex;
+          }
+        }
+
         .linkedin-link {
           position: relative;
         }
@@ -169,7 +195,9 @@ const altImage = "Foto de Adán Rodríguez";
           position: relative;
         }
 
-        & #open-cv {
+        #open-cv {
+          position: relative;
+
           @media (scripting: none) {
             display: none;
           }
