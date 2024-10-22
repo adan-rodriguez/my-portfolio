@@ -1,80 +1,14 @@
 ---
 import ImportantProject from "./ImportantProject.astro";
 import MinorProject from "./MinorProject.astro";
+import { TECHNOLOGIES } from "../../utils/techs.js";
+import { getCollection } from "astro:content";
 
-const TECHNOLOGIES = {
-  NEXTJS: {
-    name: "Next.js",
-    image: "nextjs.svg",
-    color: { bg: "rgb(0 0 0 / 50%)", text: "rgb(248 250 252)" },
-  },
-  FIREBASE: {
-    name: "Firebase",
-    image: "firebase.svg",
-    color: { bg: "rgb(165 39 20 / 50%)", text: "rgb(248 250 252)" },
-  },
-  CLOUDINARY: {
-    name: "Cloudinary",
-    image: "cloudinary.svg",
-    color: { bg: "rgb(52 72 197 / 20%)", text: "rgb(248 250 252)" },
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    image: "tailwind.svg",
-    color: { bg: "rgb(56 189 248 / 30%)", text: "rgb(248 250 252)" },
-  },
-  REDUX_TOOLKIT: {
-    name: "Redux Toolkit",
-    image: "redux.svg",
-    color: { bg: "rgb(118 74 188 / 20%)", text: "rgb(248 250 252)" },
-  },
-  BOOTSTRAP: {
-    name: "Bootstrap",
-    image: "bootstrap.svg",
-    color: { bg: "rgb(102 16 242 / 25%)", text: "rgb(248 250 252)" },
-  },
-  HTML: {
-    name: "HTML",
-    image: "html.svg",
-    color: { bg: "rgb(227 79 38 / 30%)", text: "rgb(248 250 252)" },
-  },
-  CSS: {
-    name: "CSS",
-    image: "css.svg",
-    color: { bg: "rgb(12 115 184 / 40%)", text: "rgb(248 250 252)" },
-  },
-  JAVASCRIPT: {
-    name: "Javascript",
-    image: "javascript.svg",
-    color: { bg: "rgb(247 223 30 / 30%)", text: "rgb(248 250 252)" },
-  },
-  REACT: {
-    name: "React",
-    image: "react.svg",
-    color: { bg: "rgb(97 218 251 / 30%)", text: "rgb(248 250 252)" },
-  },
-  ASTRO: {
-    name: "Astro",
-    image: "astro.svg",
-    color: { bg: "rgb(216 51 51 / 30%)", text: "rgb(248 250 252)" },
-  },
-  GOOGLE_SHEETS: {
-    name: "Google Sheets",
-    image: "google-sheets.svg",
-    color: { bg: "rgb(52 168 83 / 30%)", text: "rgb(248 250 252)" },
-  },
-  SUPABASE: {
-    name: "Supabase",
-    image: "supabase.svg",
-    color: { bg: "rgb(0 98 57 / 30%)", text: "rgb(248 250 252)" },
-  },
-};
+const projects = await getCollection("projects");
 
 const importantProjects = [
   {
     name: "El Villanense - Portal de Noticias",
-    description:
-      "Mi proyecto principal. Tiene llegada a un público local. Next.js con app directory. Firebase para BBDD y autenticación. Cloudinary para almacenar y consumir las imágenes. SEO implementado.",
     image: "el-villanense.avif",
     favicon: "el-villanense.png",
     technologies: [
@@ -91,8 +25,6 @@ const importantProjects = [
   },
   {
     name: "Comuna de Villa Ana",
-    description:
-      "Página web de la localidad donde vivo. Mi primer trabajo freelance.",
     image: "comuna-villa-ana.avif",
     favicon: "comuna-villa-ana.avif",
     technologies: [
@@ -107,8 +39,6 @@ const importantProjects = [
   },
   {
     name: "Liga Ocampense de Fútbol",
-    description:
-      "Proyecto para la Liga Ocampense de Fútbol. Supabase para base de datos (partidos, jugadores, equipos, etc) y autenticación.",
     image: "lof.avif",
     favicon: "escudo-lof.avif",
     technologies: [TECHNOLOGIES.NEXTJS, TECHNOLOGIES.SUPABASE],
@@ -233,18 +163,10 @@ const minorProjects = [
     <ul class="important_projects">
       {
         importantProjects.map(
-          ({
-            name,
-            description,
-            image,
-            favicon,
-            technologies,
-            link,
-            github,
-          }) => (
+          ({ name, image, favicon, technologies, link, github }, index) => (
             <ImportantProject
               name={name}
-              description={description}
+              project={projects[index]}
               image={image}
               favicon={favicon}
               technologies={technologies}

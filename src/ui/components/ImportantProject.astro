@@ -3,8 +3,10 @@ import Badge from "./Badge.astro";
 import LinkIcon from "../icons/LinkIcon.astro";
 import GitHubIcon from "../icons/GitHubIcon.astro";
 
-const { name, description, image, favicon, technologies, link, github } =
+const { name, project, image, favicon, technologies, link, github } =
   Astro.props;
+
+const { Content } = await project.render();
 ---
 
 <li class="important-card">
@@ -28,7 +30,9 @@ const { name, description, image, favicon, technologies, link, github } =
         ))
       }
     </ul>
-    <p>{description}</p>
+    <div class="text-sm text-[var(--text-color-secondary)] *:mb-3">
+      <Content />
+    </div>
     <div class="important-card__info-buttons">
       <a href={link} target="_blank" rel="noopener noreferrer">
         <LinkIcon /> Deploy</a
