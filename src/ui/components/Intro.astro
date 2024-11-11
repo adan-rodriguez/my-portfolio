@@ -233,10 +233,15 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
   }
 
   .email-item:has(:popover-open) {
+    .copy-email-btn {
+      pointer-events: none;
+    }
+
     .copy-icon {
       color: color-mix(in srgb, green, gray 30%);
     }
   }
+
   #modal-cv {
     scrollbar-width: thin;
     opacity: 0;

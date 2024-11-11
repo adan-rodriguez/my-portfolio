@@ -285,10 +285,8 @@
       &:has(:popover-open) {
         #copyEmail {
           color: color-mix(in srgb, green, gray 30%);
-
-          &:is(:hover, :focus-visible) {
-            background-color: rgb(0 128 0 / 30%);
-          }
+          background-color: rgb(0 128 0 / 30%);
+          pointer-events: none;
         }
       }
     }
