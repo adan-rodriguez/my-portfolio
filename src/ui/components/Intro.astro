@@ -234,11 +234,18 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 
   .email-item:has(:popover-open) {
     .copy-email-btn {
+      background-image: linear-gradient(
+        to bottom right,
+        black,
+        rgb(0 128 0 / 30%),
+        black
+      );
       pointer-events: none;
+      color: color-mix(in srgb, green, gray 30%);
+      scale: 1.05;
     }
 
     .copy-icon {
-      color: color-mix(in srgb, green, gray 30%);
     }
   }
 
