@@ -240,19 +240,19 @@ const { Content } = await project.render();
   });
 
   $$cards.forEach(($card) => {
-    $card.addEventListener("mousemove", (e) => {
-      const { layerX, layerY, target } = e;
-      const { clientWidth, clientHeight } = target.closest(".important-card");
+    // $card.addEventListener("mousemove", (e) => {
+    //   const { layerX, layerY, target } = e;
+    //   const { clientWidth, clientHeight } = target.closest(".important-card");
 
-      const yRotation = ((layerX - clientWidth / 2) / clientWidth) * 2;
-      const xRotation = ((layerY - clientHeight / 2) / clientHeight) * 2;
+    //   const yRotation = ((layerX - clientWidth / 2) / clientWidth) * 2;
+    //   const xRotation = ((layerY - clientHeight / 2) / clientHeight) * 2;
 
-      $card.style.transform = `perspective(500px) rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
-    });
+    //   $card.style.transform = `perspective(500px) rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
+    // });
 
-    $card.addEventListener("mouseleave", () => {
-      $card.style.transform = "perspective(500px) rotateX(0) rotateY(0)";
-    });
+    // $card.addEventListener("mouseleave", () => {
+    //   $card.style.transform = "perspective(500px) rotateX(0) rotateY(0)";
+    // });
 
     observer.observe($card);
   });
