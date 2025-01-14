@@ -299,32 +299,38 @@ const altImage = "Foto de Adán Rodríguez";
         z-index: 1;
       }
 
-      .html {
+      .typescript {
         transform: rotate(0deg) translate(calc(var(--size) / 2)) rotate(0deg);
       }
 
-      .css {
-        transform: rotate(60deg) translate(calc(var(--size) / 2)) rotate(-60deg);
-      }
-
-      .javascript {
-        transform: rotate(120deg) translate(calc(var(--size) / 2))
-          rotate(-120deg);
-      }
-
       .react {
-        transform: rotate(180deg) translate(calc(var(--size) / 2))
-          rotate(-180deg);
+        transform: rotate(calc(360deg / 7 * 1)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 1));
       }
 
       .nextjs {
-        transform: rotate(240deg) translate(calc(var(--size) / 2))
-          rotate(-240deg);
+        transform: rotate(calc(360deg / 7 * 2)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 2));
       }
 
       .astro {
-        transform: rotate(300deg) translate(calc(var(--size) / 2))
-          rotate(-300deg);
+        transform: rotate(calc(360deg / 7 * 3)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 3));
+      }
+
+      .html {
+        transform: rotate(calc(360deg / 7 * 4)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 4));
+      }
+
+      .css {
+        transform: rotate(calc(360deg / 7 * 5)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 5));
+      }
+
+      .javascript {
+        transform: rotate(calc(360deg / 7 * 6)) translate(calc(var(--size) / 2))
+          rotate(calc(-360deg / 7 * 6));
       }
     }
 

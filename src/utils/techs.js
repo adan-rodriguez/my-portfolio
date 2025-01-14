@@ -1,4 +1,9 @@
 export const TECHNOLOGIES = {
+  TYPESCRIPT: {
+    name: "Typescript",
+    image: "typescript.svg",
+    color: { bg: "rgb(49 121 198 / 40%)", text: "rgb(248 250 252)" },
+  },
   NEXTJS: {
     name: "Next.js",
     image: "nextjs.svg",
