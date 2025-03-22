@@ -69,4 +69,9 @@ export const TECHNOLOGIES = {
     image: "supabase.svg",
     color: { bg: "rgb(0 98 57 / 30%)", text: "rgb(248 250 252)" },
   },
+  TANSTACK_QUERY: {
+    name: "TanStack Query",
+    image: "tanstack.svg",
+    color: { bg: "rgb(238 117 29 / 30%)", text: "rgb(248 250 252)" },
+  },
 };
