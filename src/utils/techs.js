@@ -74,4 +74,9 @@ export const TECHNOLOGIES = {
     image: "tanstack.svg",
     color: { bg: "rgb(238 117 29 / 30%)", text: "rgb(248 250 252)" },
   },
+  SWIPER: {
+    name: "Swiper",
+    image: "swiper.svg",
+    color: { bg: "rgb(0 128 255 / 30%)", text: "rgb(248 250 252)" },
+  },
 };
