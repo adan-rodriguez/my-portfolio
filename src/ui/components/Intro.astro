@@ -113,9 +113,11 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
       </li>
     </ul>
     <dialog id="modal-cv">
-      <button id="close-cv" aria-label="Cerrar modal">
-        <CloseIcon />
-      </button>
+      <form method="dialog">
+        <button id="close-cv" aria-label="Cerrar modal">
+          <CloseIcon />
+        </button>
+      </form>
       <a
         id="download-cv"
         download="Currículum Vitae - Adán Rodríguez"
@@ -151,7 +153,6 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
 <script>
   const cvBtn = document.querySelector("#open-cv");
   const cvModal = document.querySelector("#modal-cv");
-  const closeBtn = cvModal.querySelector("#close-cv");
 
   function showCv() {
     cvModal.showModal();
@@ -166,7 +167,6 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
   }
 
   cvBtn.addEventListener("click", showCv);
-  closeBtn.addEventListener("click", hideCv);
   cvModal.addEventListener("click", closeModal);
 </script>
 
