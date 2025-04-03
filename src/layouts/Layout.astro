@@ -141,7 +141,7 @@ const { title, description } = Astro.props;
         background-attachment: fixed;
         background-blend-mode: luminosity;
         overflow-x: hidden;
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
         min-height: 100dvh;
       }
@@ -383,7 +383,7 @@ const { title, description } = Astro.props;
 
 <style>
   body {
-    &:has(#modal-cv[open]) {
+    &:has(#cv-modal[open]) {
       overflow-y: hidden;
     }
 

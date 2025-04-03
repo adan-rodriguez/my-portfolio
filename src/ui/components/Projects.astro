@@ -164,55 +164,46 @@ const minorProjects = [
 ---
 
 <section id="projects">
-  <section class="important_projects_container">
-    <h2>Proyectos destacados</h2>
-    <ul class="important_projects">
-      {
-        importantProjects.map(
-          ({ name, image, favicon, technologies, link, github }, index) => (
-            <ImportantProject
-              name={name}
-              project={projects[index]}
-              image={image}
-              favicon={favicon}
-              technologies={technologies}
-              link={link}
-              github={github}
-            />
-          )
+  <!-- <section class="important_projects_container"> -->
+  <h2>Proyectos destacados</h2>
+  <ul class="important_projects">
+    {
+      importantProjects.map(
+        ({ name, image, favicon, technologies, link, github }, index) => (
+          <ImportantProject
+            name={name}
+            project={projects[index]}
+            image={image}
+            favicon={favicon}
+            technologies={technologies}
+            link={link}
+            github={github}
+          />
         )
-      }
-    </ul>
-  </section>
+      )
+    }
+  </ul>
+</section>
 
-  <section class="minor_projects_container">
-    <h2>Otros proyectos</h2>
-    <ul class="minor_projects">
-      {
-        minorProjects.map(
-          ({
-            name,
-            description,
-            image,
-            favicon,
-            technologies,
-            link,
-            github,
-          }) => (
-            <MinorProject
-              name={name}
-              description={description}
-              image={image}
-              favicon={favicon}
-              technologies={technologies}
-              link={link}
-              github={github}
-            />
-          )
+<section class="minor_projects_container">
+  <h2>Otros proyectos</h2>
+  <ul class="minor_projects">
+    {
+      minorProjects.map(
+        ({ name, description, image, favicon, technologies, link, github }) => (
+          <MinorProject
+            name={name}
+            description={description}
+            image={image}
+            favicon={favicon}
+            technologies={technologies}
+            link={link}
+            github={github}
+          />
         )
-      }
-    </ul>
-  </section>
+      )
+    }
+  </ul>
 </section>
 
 <style>
