@@ -14,6 +14,7 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
     type="image/gif"
     slot="preloads"
   />
+
   <style is:inline slot="critical-css">
     ._404 {
       padding-block: 2rem;
@@ -56,26 +57,30 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
         }
 
         a {
-          --text-color-primary: rgb(248 250 252);
-
           display: flex;
-          align-items: center;
-          gap: 0.25rem;
           width: fit-content;
+          align-items: center;
+          column-gap: 0.25rem;
           padding: 0.25rem 1.25rem;
           border-radius: 0.25rem;
-          background-color: var(--color-secondary);
-          color: var(--text-color-primary);
-          transition:
-            background-color 0.3s,
-            scale 0.3s,
-            translate 0s;
-          font-size: 0.875rem;
-          line-height: 1;
+          background-image: linear-gradient(
+            to bottom right,
+            black,
+            var(--color-secondary),
+            black
+          );
+          color: rgb(248 250 252);
           box-shadow: var(--shadow-black-lg);
+          transition: scale 0.3s;
+          font-size: 0.875rem;
 
           &:is(:hover, :focus-visible) {
-            background-color: var(--color-primary);
+            background-image: linear-gradient(
+              to bottom right,
+              black,
+              var(--color-primary),
+              black
+            );
             scale: 1.05;
           }
 
@@ -86,6 +91,7 @@ import HomeIcon from "../ui/icons/HomeIcon.astro";
       }
     }
   </style>
+
   <section class="_404">
     <div class="_404-container">
       <img

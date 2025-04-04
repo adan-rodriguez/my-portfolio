@@ -302,4 +302,15 @@
     <symbol id="copy-icon" viewBox="0 0 32 32" fill="currentColor">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38896 4.16022C6.50272 4.16022 4.16016 6.50272 4.16016 9.38902V14.8927C4.16016 17.7789 6.50265 20.1215 9.38896 20.1215V18.4702C7.41145 18.4702 5.81136 16.8702 5.81136 14.8926V9.38896C5.81136 7.41145 7.41136 5.81136 9.38896 5.81136H14.8926C16.8701 5.81136 18.4702 7.41136 18.4702 9.38896H20.1215C20.1215 6.50272 17.779 4.16016 14.8927 4.16016L9.38896 4.16022ZM17.1016 11.8729C14.2154 11.8729 11.8728 14.2154 11.8728 17.1017V22.6053C11.8728 25.4916 14.2153 27.8341 17.1016 27.8341H22.6053C25.4915 27.8341 27.8341 25.4916 27.8341 22.6053V17.1017C27.8341 14.2154 25.4916 11.8729 22.6053 11.8729H17.1016ZM13.524 17.1017C13.524 15.1242 15.124 13.5241 17.1016 13.5241H22.6053C24.5828 13.5241 26.1829 15.1241 26.1829 17.1017V22.6053C26.1829 24.5828 24.5829 26.1829 22.6053 26.1829H17.1016C15.1241 26.1829 13.524 24.5829 13.524 22.6053V17.1017Z"></path>
     </symbol>
+    <symbol id="email-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+        <path d="M3 7l9 6l9 -6"></path>
+    </symbol>
+    <symbol id="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+        <path d="M11 13l9 -9"></path>
+        <path d="M15 4h5v5"></path>
+    </symbol>
 </svg>

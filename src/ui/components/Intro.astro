@@ -1,12 +1,11 @@
 ---
 import GitHubIcon from "../icons/GitHubIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
-import EmailIcon from "../icons/EmailIcon.astro";
 import DownloadIcon from "../icons/DownloadIcon.astro";
 import CloseIcon from "../icons/CloseIcon.astro";
 import FileIcon from "../icons/FileIcon.astro";
 import MyImage from "./MyImage.astro";
-import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
+import ArgentinaFlag from "../icons/ArgentinaFlag.astro";
 ---
 
 <section class="intro">
@@ -16,12 +15,7 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
     <div class="about-me">
       <p>
         Me llamo Adan Rodriguez, soy de Argentina
-        <img
-          src="images/bandera-argentina.webp"
-          alt="Bandera de Argentina"
-          aria-hidden="true"
-          class="argentina-flag"
-        />
+        <ArgentinaFlag />
         y tengo 29 años.
       </p>
       <p>
@@ -46,27 +40,33 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
           class="copy-email-btn"
           title="Copiar email"
           aria-label="Copiar email"
-          ><EmailIcon /><span>adan.rodriguez.fusta@gmail.com</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 32 32"
-            aria-hidden="true"
-            class="copy-icon"
-          >
+        >
+          <svg aria-hidden="true" width="24" height="24">
+            <use href="/images/icons.svg#email-icon"></use>
+          </svg>
+          <span>adan.rodriguez.fusta@gmail.com</span>
+          <svg width="16" height="16" aria-hidden="true" class="copy-icon">
             <use href="/images/icons.svg#copy-icon"></use>
           </svg>
         </button>
         <div class="email-copied-notification" popover="manual">
           Email copiado
         </div>
+
+        <!-- si no hay javascript -->
         <a
           href="mailto:adan.rodriguez.fusta@gmail.com"
           aria-label="Envía un correo a Adán Rodríguez"
           rel="noopener"
-          ><EmailIcon /><span>adan.rodriguez.fusta@gmail.com</span
-          ><ExternalLinkIcon size="14" /></a
         >
+          <svg aria-hidden="true" width="24" height="24">
+            <use href="/images/icons.svg#email-icon"></use>
+          </svg>
+          <span>adan.rodriguez.fusta@gmail.com</span>
+          <svg class="external-link-icon" aria-hidden="true">
+            <use href="/images/icons.svg#external-link-icon"></use>
+          </svg>
+        </a>
       </li>
       <li>
         <a
@@ -74,10 +74,13 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
           target="_blank"
           rel="noopener"
           class="linkedin-link"
-          ><LinkedinIcon /><span>LinkedIn</span><ExternalLinkIcon
-            size="14"
-          /></a
         >
+          <LinkedinIcon />
+          <span>LinkedIn</span>
+          <svg class="external-link-icon" aria-hidden="true">
+            <use href="/images/icons.svg#external-link-icon"></use>
+          </svg>
+        </a>
       </li>
       <li>
         <a
@@ -85,25 +88,37 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
           target="_blank"
           rel="noopener"
           class="github-link"
-          ><GitHubIcon width="24" height="24" /><span>GitHub</span
-          ><ExternalLinkIcon size="14" /></a
         >
+          <GitHubIcon width="24" height="24" />
+          <span>GitHub</span>
+          <svg class="external-link-icon" aria-hidden="true">
+            <use href="/images/icons.svg#external-link-icon"></use>
+          </svg>
+        </a>
       </li>
       <li>
         <button
           id="cv-modal-open-btn"
           aria-label="Ver currículum de Adán Rodríguez en una modal"
-          ><FileIcon /><span>Currículum</span><ExternalLinkIcon
-            size="14"
-          /></button
         >
+          <FileIcon />
+          <span>Currículum</span>
+          <svg class="external-link-icon" aria-hidden="true">
+            <use href="/images/icons.svg#external-link-icon"></use>
+          </svg>
+        </button>
         <a
           id="cv-link"
           href="/docs/curriculum-vitae-adan-rodriguez.pdf"
           target="_blank"
           aria-label="Ver currículum de Adán Rodríguez en una pestaña nueva (PDF)"
-          ><FileIcon /><span>Currículum</span><ExternalLinkIcon size="14" /></a
         >
+          <FileIcon />
+          <span>Currículum</span>
+          <svg class="external-link-icon" aria-hidden="true">
+            <use href="/images/icons.svg#external-link-icon"></use>
+          </svg>
+        </a>
       </li>
     </ul>
     <!-- <dialog id="cv-modal" closedby="any"> descomentar y quitar el event listener en la modal cuando tenga soporte -->
@@ -244,9 +259,6 @@ import ExternalLinkIcon from "../icons/ExternalLinkIcon.astro";
       pointer-events: none;
       color: color-mix(in srgb, green, gray 30%);
       scale: 1.05;
-    }
-
-    .copy-icon {
     }
   }
 

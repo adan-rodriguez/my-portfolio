@@ -25,6 +25,7 @@ const altImage = "Foto de Adán Rodríguez";
     <meta name="twitter:image" content={urlImage} />
     <meta name="twitter:image:alt" content={altImage} />
   </Fragment>
+
   <Fragment slot="preloads">
     <link
       rel="preload"
@@ -34,41 +35,12 @@ const altImage = "Foto de Adán Rodríguez";
     />
     <link
       rel="preload"
-      href="/images/html.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="/images/css.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="/images/javascript.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="/images/react.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="/images/nextjs.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="/images/astro.svg"
+      href="/images/icons.svg"
       as="image"
       type="image/svg+xml"
     />
   </Fragment>
+
   <style is:inline slot="critical-css">
     .intro {
       padding-block: 4rem;
@@ -133,9 +105,9 @@ const altImage = "Foto de Adán Rodríguez";
         flex-wrap: wrap;
         justify-content: center;
 
-        & a,
-        & .copy-email-btn,
-        & #cv-modal-open-btn {
+        a,
+        .copy-email-btn,
+        #cv-modal-open-btn {
           display: flex;
           align-items: center;
           column-gap: 0.5rem;
@@ -204,13 +176,21 @@ const altImage = "Foto de Adán Rodríguez";
           }
         }
 
-        & #cv-link {
+        #cv-link {
           display: none;
           position: relative;
 
           @media (scripting: none) {
             display: flex;
           }
+        }
+
+        .external-link-icon {
+          position: absolute;
+          right: 18px;
+          translate: 0 -7px;
+          width: 14px;
+          height: 14px;
         }
       }
 
@@ -356,6 +336,8 @@ const altImage = "Foto de Adán Rodríguez";
       }
     }
   </style>
+
   <Intro />
+
   <Projects />
 </Layout>
