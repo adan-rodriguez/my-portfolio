@@ -96,7 +96,7 @@
         <path d="M 42,22 V 0 H 6 C 2.685,0 0,2.685 0,6 v 76 c 0,3.315 2.685,6 6,6 h 52 c 3.315,0 6,-2.685 6,-6 V 22 Z" fill="#34a853"/>
         <path d="M 12,34 V 63 H 52 V 34 Z M 29.5,58 H 17 v -7 h 12.5 z m 0,-12 H 17 V 39 H 29.5 Z M 47,58 H 34.5 V 51 H 47 Z M 47,46 H 34.5 V 39 H 47 Z" fill="#fff"/>
     </symbol>
-    <symbol id="instagram" xml:space="preserve" viewBox="0 0 128 128">
+    <symbol id="instagram" viewBox="0 0 128 128">
         <path fill="none" d="M0 0h128v128H0z" clip-rule="evenodd"/>
         <radialGradient id="a" cx="19.1" cy="128.4" r="163.6" gradientUnits="userSpaceOnUse">
             <stop offset="0" style="stop-color:#ffb140"/>
@@ -106,26 +106,27 @@
         </radialGradient>
         <path fill="url(#a)" fill-rule="evenodd" d="M105.8 29.8a7.7 7.7 0 1 1-15.3 0 7.7 7.7 0 0 1 15.3 0zM64 85.3a21.3 21.3 0 1 1 0-42.6 21.3 21.3 0 0 1 0 42.6zm0-54.2A32.9 32.9 0 1 0 64 97 32.9 32.9 0 0 0 64 31zm0-19.6c17 0 19.1.1 25.9.4 6.2.3 9.6 1.3 11.8 2.2 3 1.2 5.2 2.6 7.4 4.8 2.2 2.2 3.6 4.4 4.8 7.4.9 2.2 2 5.6 2.2 11.8.3 6.8.4 8.8.4 25.9 0 17-.1 19.1-.4 25.9-.3 6.2-1.3 9.6-2.2 11.8-1.2 3-2.6 5.2-4.8 7.4a19.8 19.8 0 0 1-7.4 4.8c-2.2.9-5.6 2-11.8 2.2-6.8.3-8.8.4-25.9.4-17 0-19.1 0-25.9-.4-6.2-.3-9.6-1.3-11.8-2.2-3-1.2-5.2-2.6-7.4-4.8a19.8 19.8 0 0 1-4.8-7.4c-.9-2.2-2-5.6-2.2-11.8-.3-6.8-.4-8.8-.4-25.9 0-17 .1-19.1.4-25.9.3-6.2 1.3-9.6 2.2-11.8 1.2-3 2.6-5.2 4.8-7.4 2.2-2.2 4.4-3.6 7.4-4.8 2.2-.9 5.6-2 11.8-2.2 6.8-.3 8.8-.4 25.9-.4zM64 0C46.6 0 44.4 0 37.6.4a47 47 0 0 0-15.5 3 31.4 31.4 0 0 0-11.4 7.3 31.4 31.4 0 0 0-7.3 11.4 47 47 0 0 0-3 15.5C0 44.4 0 46.6 0 64s0 19.6.4 26.4a47 47 0 0 0 3 15.5A31.4 31.4 0 0 0 22 124.6a47 47 0 0 0 15.5 3c6.8.3 9 .4 26.4.4s19.6 0 26.4-.4a47 47 0 0 0 15.5-3 31.4 31.4 0 0 0 18.7-18.7 47 47 0 0 0 3-15.5c.3-6.8.4-9 .4-26.4s0-19.6-.4-26.4a47 47 0 0 0-3-15.5 31.4 31.4 0 0 0-7.3-11.4 31.4 31.4 0 0 0-11.4-7.3 47 47 0 0 0-15.5-3C83.6 0 81.4 0 64 0z" clip-rule="evenodd"/>
     </symbol>
-    <symbol id="nextjs" viewBox="0 0 256 256">
-        <defs>
-            <linearGradient id="c" x1="55.633%" x2="83.228%" y1="56.385%" y2="96.08%">
-                <stop offset="0%" stop-color="#FFF"/>
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="d" x1="50%" x2="49.953%" y1="0%" y2="73.438%">
-                <stop offset="0%" stop-color="#FFF"/>
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
-            </linearGradient>
-            <circle id="a" cx="128" cy="128" r="128"/>
-        </defs>
-        <mask id="b" fill="#fff">
-            <use href="#a"/>
-        </mask>
-        <g mask="url(#b)">
-            <circle cx="128" cy="128" r="128"/>
-            <path fill="url(#c)" d="M212.634 224.028 98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128.433 128.433 0 0 0 13.524-10.418Z"/>
-            <path fill="url(#d)" d="M163.556 76.8h17.067v102.4h-17.067z"/>
+    <symbol id="nextjs" stroke-linejoin="round" style="color:currentColor" viewBox="0.6 0.6 14.8 14.8">
+        <g clip-path="url(#clip0_53_108)">
+            <circle cx="8" cy="8" r="7.375" fill="black" stroke="var(--ds-gray-1000)" strokewidth="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.63 11V5" stroke="url(#paint0_linear_53_108vsxrmxu21)" strokewidth="1.25" stroke-miterlimit="1.41421" />
+            <path fill-rule="evenodd" cliprule="evenodd" d="M5.995 5.00087V5H4.745V11H5.995V6.96798L12.3615 14.7076C12.712 14.4793 13.0434 14.2242 13.353 13.9453L5.99527 5.00065L5.995 5.00087Z" fill="url(#paint1_linear_53_108vsxrmxu21)" />
         </g>
+        <defs>
+            <linearGradient id="paint0_linear_53_108vsxrmxu21" x1="11.13" y1="5" x2="11.13" y2="11" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" />
+                <stop offset="0.609375" stop-color="white" stop-opacity="0.57" />
+                <stop offset="0.796875" stop-color="white" stop-opacity="0" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="paint1_linear_53_108vsxrmxu21" x1="9.9375" y1="9.0625" x2="13.5574" y2="13.3992" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+            </linearGradient>
+            <clipPath id="clip0_53_108">
+                <rect width="16" height="16" fill="red" />
+            </clipPath>
+        </defs>
     </symbol>
     <symbol id="react" viewBox="175.7 77 490.6 439">
         <g fill="#61dafb">
@@ -161,7 +162,9 @@
     <symbol id="tailwind" viewBox="0 0 51 30.5">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z" fill="#38bdf8"></path>
     </symbol>
-    <symbol id="tanstack" viewBox="0 0 633 633">
+    <symbol id="tanstack" viewBox="0 0 633 633"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <linearGradient id="b" x1="50%" x2="50%" y1="0%" y2="71.65%">
                 <stop offset="0%" stop-color="#6BDAFF"/>
@@ -246,9 +249,11 @@
         </defs>
         <g fill="none" fill-rule="evenodd" transform="translate(9 8)">
             <mask id="c" fill="#fff">
-                <use href="#a"/>
+                <circle id="a" cx="308.5" cy="308.5" r="308.5"/>
+
             </mask>
-            <use href="#a" fill="url(#b)"/>
+            <circle id="a" cx="308.5" cy="308.5" r="308.5" fill="url(#b)"/>
+
             <ellipse cx="81.5" cy="602.5" fill="#015064" stroke="#00CFE2" stroke-width="25" mask="url(#c)" rx="214.5" ry="185.968"/>
             <ellipse cx="535.5" cy="602.5" fill="#015064" stroke="#00CFE2" stroke-width="25" mask="url(#c)" rx="214.5" ry="185.968"/>
             <ellipse cx="81.5" cy="640.5" fill="#015064" stroke="#00A8B8" stroke-width="25" mask="url(#c)" rx="214.5" ry="185.968"/>

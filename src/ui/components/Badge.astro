@@ -3,13 +3,16 @@ const { name, image, color } = Astro.props;
 ---
 
 <li style={`background-color: ${color.bg}; color: ${color.text}`}>
-  <img
+  <!-- <img
     src={`/images/${image}`}
     alt={`Logo de ${name}`}
     aria-hidden="true"
     loading="lazy"
     class=`${name === "React" ? "react" : ""}`
-  />
+  /> -->
+  <svg aria-hidden="true" class=`${name === "React" ? "react" : ""}`>
+    <use href={`/images/icons.svg#${image}`}></use>
+  </svg>
   {name}
 </li>
 
@@ -23,7 +26,7 @@ const { name, image, color } = Astro.props;
     text-wrap: nowrap;
     font-size: 0.75rem;
 
-    img {
+    svg {
       width: 16px;
       aspect-ratio: 1/1;
     }
