@@ -12,4 +12,58 @@ import Sun from "../icons/Sun.astro";
   </script>
   <Sun class="sun" />
   <Moon />
+  <audio id="switch-on-audio" src="/sounds/switch-on.mp3"></audio>
+  <audio id="switch-off-audio" src="/sounds/switch-off.mp3"></audio>
 </button>
+
+<script>
+  const $root = document.documentElement;
+  const $themeBtn = document.querySelector("#theme-btn");
+  const $switchOnAudio =
+    document.querySelector<HTMLAudioElement>("#switch-on-audio");
+  const $switchOffAudio =
+    document.querySelector<HTMLAudioElement>("#switch-off-audio");
+
+  function setAttributes(theme) {
+    $root.setAttribute("data-theme", theme);
+    $themeBtn.setAttribute(
+      "aria-label",
+      `Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`
+    );
+  }
+
+  function playAudio(newTheme) {
+    if (newTheme === "light") {
+      $switchOnAudio.currentTime = 0;
+      $switchOnAudio.play();
+    } else {
+      $switchOffAudio.currentTime = 0;
+      $switchOffAudio.play();
+    }
+  }
+
+  function toggleTheme() {
+    const newTheme = $root.dataset.theme === "dark" ? "light" : "dark";
+    setAttributes(newTheme);
+    playAudio(newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+
+  function changeColorScheme(e) {
+    const newTheme = e.matches ? "dark" : "light";
+    setAttributes(newTheme);
+    playAudio(newTheme);
+  }
+
+  const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  colorScheme.addEventListener("change", (e) => {
+    if (!document.startViewTransition) return changeColorScheme(e);
+    document.startViewTransition(() => changeColorScheme(e));
+  });
+
+  $themeBtn.addEventListener("click", () => {
+    if (!document.startViewTransition) return toggleTheme();
+    document.startViewTransition(() => toggleTheme());
+  });
+</script>
